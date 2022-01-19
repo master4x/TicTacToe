@@ -1,11 +1,12 @@
 package Logic;
 
 /**
- * @author 	Leon Kelle
- * @class 	AGB\AH911
+ * @author Leon Kelle
+ * @class AGB\AH911
  * @project TicTacToe
  */
 
-public class Game {
+public class Game
+{
 
 }

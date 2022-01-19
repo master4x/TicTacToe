@@ -1,11 +1,12 @@
 package Network;
 
 /**
- * @author 	Leon Kelle
- * @class 	AGB\AH911
+ * @author Leon Kelle
+ * @class AGB\AH911
  * @project TicTacToe
  */
 
-public class CommunicationHandler {
+public class CommunicationHandler
+{
 
 }
