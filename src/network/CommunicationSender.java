@@ -5,6 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 /**
  * @author Leon Kelle
@@ -15,16 +16,43 @@ import java.net.UnknownHostException;
 public class CommunicationSender implements Runnable
 {
 
+	private DatagramSocket networkSocket;
+	private InetAddress hostAdress; // TODO move static
+	private int port;
 	private static volatile CommunicationSender instance; // used for singleton
 
+	private CommunicationSender(DatagramSocket networkSocket, InetAddress hostAdress, int port)
+	{
+		this.networkSocket = networkSocket;
+		this.hostAdress = hostAdress;
+		this.port = port;
+	}
+
+	// TODO deleteme
 	private CommunicationSender()
 	{
-		// thread call constructor
+
 	}
 
 	/*
 	 * Singleton
 	 */
+	public static CommunicationSender getInstance(DatagramSocket networkSocket, InetAddress hostAdress, int port)
+	{
+		if (instance == null)
+		{
+			synchronized (CommunicationSender.class)
+			{
+				if (instance == null)
+				{
+					instance = new CommunicationSender(networkSocket, hostAdress, port);
+				}
+			}
+		}
+		return instance;
+	}
+
+	// TODO deleteme
 	public static CommunicationSender getInstance()
 	{
 		if (instance == null)
@@ -44,37 +72,39 @@ public class CommunicationSender implements Runnable
 	public void run()
 	{
 		// TODO Auto-generated method stub
-		
 	}
-	
-	/**
-	 * @param inetAddress target IP-address
-	 * @param message     message to send
-	 * @param port        destination port
-	 */
-	public void sendMessage(String message, String ipadress, int port)
-	{
-		// get target IP from field and convert to InetAddress
-		InetAddress inetAddress = null; // initialize InetAddress
-		try
-		{
-			inetAddress = InetAddress.getByName(ipadress);
-		} catch (UnknownHostException e)
-		{
-			e.printStackTrace();
-		}
 
-		// convert String to bytes array
+	public String convertIntArrayToString(int[][] arr)
+	{
+		ArrayList<String> buffer = new ArrayList<String>();
+		
+		for (int n=0; n<3; n++)
+		{
+			for (int m=0; m<3; m++)
+			{
+				buffer.add(Integer.toString(arr[n][m]));
+			}
+		}
+		
+		String result = new String();
+		
+		for (String number : buffer)
+		{
+			result += number +",";
+		}
+		
+		return result;
+	}
+
+	public void sendMessage(String message)
+	{
+		System.out.println("SEND: " + message); // TODO TEST
+
 		byte[] messageBytes = message.getBytes();
 
-		// build and send UDP package
 		try
 		{
-			DatagramPacket packet = new DatagramPacket(messageBytes, messageBytes.length, inetAddress, port);
-			DatagramSocket socket = new DatagramSocket(port); //TODO move static
-					
-			socket.send(packet);
-			socket.close();
+			networkSocket.send(new DatagramPacket(messageBytes, messageBytes.length, hostAdress, port));
 		} catch (IOException e)
 		{
 			e.printStackTrace();

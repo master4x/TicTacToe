@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.Arrays;
 
 /**
  * @author Leon Kelle
@@ -38,13 +39,27 @@ public class CommunicationReceiver implements Runnable
 				e.printStackTrace();
 			}
 
-			// get information about the sender
-			InetAddress senderAdresse = datagramPacket.getAddress();
-			String sender = senderAdresse.getHostAddress().trim();
-			String message = new String(datagramPacket.getData()).trim();
+			// get information about the sender	
+			String data = new String(datagramPacket.getData()).trim();
 
 			// use view to display message
-			//MainWindow.textAreaChat.append(sender + ": " + message + "\n");
+			System.out.println("GOT:  " + data); //TODO TEST
+			
+			
+			String[] strings = data.split(",");
+			int[][] integers = new int[3][3];
+			
+			int i = 0;
+			for (int n=0; n<3; n++)
+			{
+				for (int m=0; m<3; m++)
+				{
+					integers[n][m] = Integer.parseInt(strings[i]);
+					i++;
+				}
+			}
+			
+			
 		}
 	}
 }

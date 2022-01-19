@@ -1,7 +1,9 @@
 package network;
 
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.SocketException;
+import java.net.UnknownHostException;
 
 /**
  * @author Leon Kelle
@@ -12,15 +14,16 @@ import java.net.SocketException;
 public class CommunicationHandler
 {
 	private DatagramSocket networkSocket; // TODO move static + down
-	private int port;
-	
-	public void startThreads()
+	private InetAddress hostAdress;
+	private int port = 18911;
+
+	public void startThreads(String ipAdress)
 	{
-		// update datagramSocket
 		try
 		{
 			networkSocket = new DatagramSocket(port);
-		} catch (SocketException e)
+			hostAdress = InetAddress.getByName(ipAdress);
+		} catch (SocketException | UnknownHostException e)
 		{
 			e.printStackTrace();
 		}
@@ -29,9 +32,8 @@ public class CommunicationHandler
 		Thread receiverThread = new Thread(new CommunicationReceiver(networkSocket));
 		receiverThread.start();
 
-		// start sender thread with singleton
-		CommunicationSender senderInstance = CommunicationSender.getInstance();
-		Thread senderThread = new Thread(senderInstance);
+		// start sender thread	
+		Thread senderThread = new Thread(CommunicationSender.getInstance(networkSocket, hostAdress, port));
 		senderThread.start();
 	}
 }
