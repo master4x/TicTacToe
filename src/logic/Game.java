@@ -1,4 +1,4 @@
-package Network;
+package logic;
 
 /**
  * @author Leon Kelle
@@ -6,7 +6,7 @@ package Network;
  * @project TicTacToe
  */
 
-public class CommunicationHandler
+public class Game
 {
-
+	private int[][] gameField = new int[3][3];
 }

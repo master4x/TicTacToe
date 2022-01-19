@@ -1,8 +1,8 @@
-package Controller;
+package controller;
 
 import java.awt.EventQueue;
 
-import View.MainWindow;
+import view.MainWindow;
 
 /**
  * @author Leon Kelle

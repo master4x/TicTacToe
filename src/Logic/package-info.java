@@ -1,1 +1,1 @@
-package Logic;
+package logic;
