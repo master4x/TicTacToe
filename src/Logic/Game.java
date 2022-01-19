@@ -8,5 +8,5 @@ package Logic;
 
 public class Game
 {
-
+	private int[][] gameField = new int[3][3];
 }

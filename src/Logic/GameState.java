@@ -8,5 +8,8 @@ package Logic;
 
 public enum GameState
 {
-
+	None,
+	Running,
+	Win,
+	Loose
 }
