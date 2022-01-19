@@ -13,22 +13,22 @@ import View.MainWindow;
 public class Startup
 {
 
-    public static void main(String[] args)
-    {
-	// Start MainWindow Thread
-	EventQueue.invokeLater(new Runnable()
+	public static void main(String[] args)
 	{
-	    public void run()
-	    {
-		try
+		// Start MainWindow Thread
+		EventQueue.invokeLater(new Runnable()
 		{
-		    MainWindow window = new MainWindow();
-		    window.frame.setVisible(true);
-		} catch (Exception e)
-		{
-		    e.printStackTrace();
-		}
-	    }
-	});
-    }
+			public void run()
+			{
+				try
+				{
+					MainWindow window = new MainWindow();
+					window.frame.setVisible(true);
+				} catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 }
