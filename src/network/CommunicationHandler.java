@@ -32,7 +32,7 @@ public class CommunicationHandler
 		Thread receiverThread = new Thread(new CommunicationReceiver(networkSocket));
 		receiverThread.start();
 
-		// start sender thread	
+		// start sender thread
 		Thread senderThread = new Thread(CommunicationSender.getInstance(networkSocket, hostAdress, port));
 		senderThread.start();
 	}
