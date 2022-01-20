@@ -9,4 +9,5 @@ package logic;
 public class Game
 {
 	private int[][] gameField = new int[3][3];
+	private GameState gameState;
 }
