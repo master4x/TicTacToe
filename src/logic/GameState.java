@@ -9,7 +9,13 @@ package logic;
 public enum GameState
 {
 	None,
-	Running,
-	Win,
-	Loose
+	ConnectingWithOpponent,
+	WaitForOpponentsGameField,
+	CheckOpponentsGameField,
+	GameOver_Loose,
+	GameOver_Draw,
+	WaitForPlayersGameField,
+	CheckPlayersGameField,
+	GameOver_Win,
+	SendPlayersGameField
 }
