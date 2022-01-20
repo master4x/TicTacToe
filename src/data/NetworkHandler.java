@@ -8,6 +8,12 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+/**
+ * @author Leon Kelle
+ * @class AGB\AH911
+ * @project TicTacToe
+ */
+
 public class NetworkHandler
 {
 	private static volatile NetworkHandler instance;
