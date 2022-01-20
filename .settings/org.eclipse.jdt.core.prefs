@@ -25,7 +25,7 @@ org.eclipse.jdt.core.formatter.alignment_for_compact_if=16
 org.eclipse.jdt.core.formatter.alignment_for_compact_loops=16
 org.eclipse.jdt.core.formatter.alignment_for_conditional_expression=80
 org.eclipse.jdt.core.formatter.alignment_for_conditional_expression_chain=0
-org.eclipse.jdt.core.formatter.alignment_for_enum_constants=16
+org.eclipse.jdt.core.formatter.alignment_for_enum_constants=48
 org.eclipse.jdt.core.formatter.alignment_for_expressions_in_array_initializer=16
 org.eclipse.jdt.core.formatter.alignment_for_expressions_in_for_loop_header=0
 org.eclipse.jdt.core.formatter.alignment_for_logical_operator=16
@@ -278,7 +278,7 @@ org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_array_initia
 org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_block=insert
 org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_constructor_declaration=insert
 org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_enum_constant=insert
-org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_enum_declaration=insert
+org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_enum_declaration=do not insert
 org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_method_declaration=insert
 org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_record_constructor=insert
 org.eclipse.jdt.core.formatter.insert_space_before_opening_brace_in_record_declaration=insert
