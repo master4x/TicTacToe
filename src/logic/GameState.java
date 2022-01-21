@@ -8,7 +8,7 @@ package logic;
 
 public enum GameState
 {
-	None,
+	NoGameRunning,
 	ConnectingWithOpponent,
 	WaitForOpponentsGameField,
 	CheckOpponentsGameField,
