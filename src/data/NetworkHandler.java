@@ -72,11 +72,14 @@ public class NetworkHandler
 
 	public int[][] receiveArray()
 	{
+		
+		DatagramPacket datagramPacket;
+		String data;
 		int[][] gameField;
 
 		while (true)
 		{
-			DatagramPacket datagramPacket = new DatagramPacket(new byte[512], 512);
+			datagramPacket = new DatagramPacket(new byte[512], 512);
 
 			try
 			{
@@ -84,7 +87,7 @@ public class NetworkHandler
 
 				networkSocket.receive(datagramPacket);
 
-				String data = new String(datagramPacket.getData()).trim();
+				data = new String(datagramPacket.getData()).trim();
 				System.out.println(data);
 				gameField = convertStringToIntArray(data);
 
