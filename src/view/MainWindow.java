@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
+import javax.swing.border.BevelBorder;
 
 /**
  * @author Leon Kelle
@@ -46,76 +47,79 @@ public class MainWindow
 		frmTicTacToe.setBounds(100, 100, 600, 400);
 		frmTicTacToe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JTabbedPane navBar = new JTabbedPane(JTabbedPane.TOP);
-		navBar.setBorder(new EmptyBorder(5, 5, 5, 5));
-		frmTicTacToe.getContentPane().add(navBar, BorderLayout.CENTER);
+		JTabbedPane pneNavBar = new JTabbedPane(JTabbedPane.TOP);
+		pneNavBar.setBorder(new EmptyBorder(5, 5, 5, 5));
+		frmTicTacToe.getContentPane().add(pneNavBar, BorderLayout.CENTER);
 
-		JPanel tabGame = new JPanel();
-		tabGame.setToolTipText("");
-		tabGame.setName("");
-		navBar.addTab("Game", new ImageIcon(MainWindow.class.getResource("/org/eclipse/jface/fieldassist/images/contassist_ovr@2x.png")), tabGame, null);
-		tabGame.setLayout(new BorderLayout(0, 0));
+		JPanel pnlTabGame = new JPanel();
+		pnlTabGame.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		pnlTabGame.setToolTipText("");
+		pnlTabGame.setName("");
+		pneNavBar.addTab("Game", new ImageIcon(MainWindow.class.getResource("/org/eclipse/jface/fieldassist/images/contassist_ovr@2x.png")), pnlTabGame, null);
+		pnlTabGame.setLayout(new BorderLayout(0, 0));
 
-		JPanel topRow = new JPanel();
-		tabGame.add(topRow, BorderLayout.NORTH);
-		topRow.setLayout(new GridLayout(0, 2, 0, 0));
+		JPanel pnlTopRow = new JPanel();
+		pnlTabGame.add(pnlTopRow, BorderLayout.NORTH);
+		pnlTopRow.setLayout(new GridLayout(0, 2, 0, 0));
 
-		JPanel leftCol = new JPanel();
-		topRow.add(leftCol);
+		JPanel pnlLeftCol = new JPanel();
+		pnlTopRow.add(pnlLeftCol);
 
 		JLabel lblOpponentsIp = new JLabel("Opponent's IP:");
-		leftCol.add(lblOpponentsIp);
+		pnlLeftCol.add(lblOpponentsIp);
 
 		txtOpponentsIp = new JTextField();
-		leftCol.add(txtOpponentsIp);
+		pnlLeftCol.add(txtOpponentsIp);
 		txtOpponentsIp.setColumns(10);
 
 		JButton btnConnect = new JButton("Connect");
-		leftCol.add(btnConnect);
+		pnlLeftCol.add(btnConnect);
 
-		JPanel rightCol = new JPanel();
-		topRow.add(rightCol);
+		JPanel pnlRightCol = new JPanel();
+		pnlTopRow.add(pnlRightCol);
 
 		JLabel lblYourIp = new JLabel("Your IP:");
-		rightCol.add(lblYourIp);
+		pnlRightCol.add(lblYourIp);
 
 		txtYourIp = new JTextField();
 		txtYourIp.setEditable(false);
-		rightCol.add(txtYourIp);
+		pnlRightCol.add(txtYourIp);
 		txtYourIp.setColumns(10);
 
-		JPanel bottomRow = new JPanel();
-		tabGame.add(bottomRow, BorderLayout.SOUTH);
-		bottomRow.setLayout(new BorderLayout(0, 0));
+		JPanel pnlBottomRow = new JPanel();
+		pnlBottomRow.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		pnlTabGame.add(pnlBottomRow, BorderLayout.SOUTH);
+		pnlBottomRow.setLayout(new BorderLayout(0, 0));
 
-		JPanel leftOuterCol = new JPanel();
-		bottomRow.add(leftOuterCol, BorderLayout.WEST);
+		JPanel pnlLeftOuterCol = new JPanel();
+		pnlBottomRow.add(pnlLeftOuterCol, BorderLayout.WEST);
 
 		JLabel lblConnectionState = new JLabel("ConnectionState");
-		leftOuterCol.add(lblConnectionState);
+		pnlLeftOuterCol.add(lblConnectionState);
 
-		JPanel rightOuterCol = new JPanel();
-		bottomRow.add(rightOuterCol, BorderLayout.EAST);
+		JPanel pnlRightOuterCol = new JPanel();
+		pnlBottomRow.add(pnlRightOuterCol, BorderLayout.EAST);
 
 		JLabel lblGameState = new JLabel("GameState");
-		rightOuterCol.add(lblGameState);
+		pnlRightOuterCol.add(lblGameState);
 
-		JPanel middleRow = new JPanel();
-		tabGame.add(middleRow, BorderLayout.CENTER);
-		middleRow.setLayout(new BorderLayout(0, 0));
+		JPanel pnlMiddleRow = new JPanel();
+		pnlTabGame.add(pnlMiddleRow, BorderLayout.CENTER);
+		pnlMiddleRow.setLayout(new BorderLayout(0, 0));
 		
-		JPanel rightOuterContainer = new JPanel();
-		rightOuterContainer.setBorder(new EmptyBorder(0, 5, 0, 5));
-		middleRow.add(rightOuterContainer, BorderLayout.EAST);
-		rightOuterContainer.setLayout(new BorderLayout(0, 0));
+		JPanel pnlRightOuterContainer = new JPanel();
+		pnlRightOuterContainer.setBorder(new EmptyBorder(0, 5, 0, 5));
+		pnlMiddleRow.add(pnlRightOuterContainer, BorderLayout.EAST);
+		pnlRightOuterContainer.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblCallPlayerAction = new JLabel("Your Turn!");
-		rightOuterContainer.add(lblCallPlayerAction, BorderLayout.CENTER);
+		pnlRightOuterContainer.add(lblCallPlayerAction, BorderLayout.CENTER);
 		
-		JPanel centerContainer = new JPanel();
-		middleRow.add(centerContainer, BorderLayout.CENTER);
+		JPanel pnlCenterContainer = new JPanel();
+		pnlMiddleRow.add(pnlCenterContainer, BorderLayout.CENTER);
 		
-		JPanel tabStats = new JPanel();
-		navBar.addTab("Stats", new ImageIcon(MainWindow.class.getResource("/org/eclipse/jface/fieldassist/images/info_ovr@2x.png")), tabStats, null);
+		JPanel pnlTabStats = new JPanel();
+		pnlTabStats.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		pneNavBar.addTab("Stats", new ImageIcon(MainWindow.class.getResource("/org/eclipse/jface/fieldassist/images/info_ovr@2x.png")), pnlTabStats, null);
 	}
 }
