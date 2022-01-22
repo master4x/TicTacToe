@@ -23,7 +23,7 @@ public class Startup
 				try
 				{
 					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
+					window.frmTicTacToe.setVisible(true);
 				} catch (Exception e)
 				{
 					e.printStackTrace();
