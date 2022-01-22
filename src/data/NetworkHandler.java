@@ -88,7 +88,6 @@ public class NetworkHandler
 				networkSocket.receive(datagramPacket);
 
 				data = new String(datagramPacket.getData()).trim();
-				System.out.println(data);
 				gameField = convertStringToIntArray(data);
 
 				break;

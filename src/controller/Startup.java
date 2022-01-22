@@ -36,6 +36,5 @@ public class Startup
 		NetworkHandler.getInstance().newCommunication("127.0.0.1");		
 		NetworkHandler.getInstance().sendArray(testArr);
 		NetworkHandler.getInstance().receiveArray();
-		System.out.println("DONE");
 	}
 }
