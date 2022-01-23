@@ -33,7 +33,7 @@ public class Startup
 		
 		// TEST networking
 		int[][] testArr = { { 9, 8, 7 }, { 6, 5, 4 }, { 3, 2, 1 } };
-		NetworkHandler.getInstance().newCommunication("127.0.0.1");		
+		NetworkHandler.getInstance().newNetworkSocket("127.0.0.1");		
 		NetworkHandler.getInstance().sendArray(testArr);
 		NetworkHandler.getInstance().receiveArray();
 	}

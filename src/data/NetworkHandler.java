@@ -43,7 +43,7 @@ public class NetworkHandler
 		return instance;
 	}
 
-	public void newCommunication(String ipAdress)
+	public void newNetworkSocket(String ipAdress)
 	{
 		try
 		{
