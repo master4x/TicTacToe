@@ -20,6 +20,9 @@ import javax.swing.JScrollPane;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 import javax.swing.JSeparator;
+import java.awt.Button;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * @author Leon Kelle
@@ -130,37 +133,82 @@ public class MainWindow
 		pnlGameField.setLayout(new GridLayout(3, 3, 50, 0));
 		
 		JLabel lblGameField00 = new JLabel("0");
+		lblGameField00.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField00.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField00);
 		
 		JLabel lblGameField01 = new JLabel("0");
+		lblGameField01.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		pnlGameField.add(lblGameField01);
 		
 		JLabel lblGameField02 = new JLabel("0");
+		lblGameField02.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField02.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField02);
 		
 		JLabel lblGameField10 = new JLabel("0");
+		lblGameField10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField10.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField10);
 		
 		JLabel lblGameField11 = new JLabel("0");
+		lblGameField11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField11.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField11);
 		
 		JLabel lblGameField12 = new JLabel("0");
+		lblGameField12.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField12.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField12);
 		
 		JLabel lblGameField20 = new JLabel("0");
+		lblGameField20.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField20.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField20);
 		
 		JLabel lblGameField21 = new JLabel("0");
+		lblGameField21.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField21.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField21);
 		
 		JLabel lblGameField22 = new JLabel("0");
+		lblGameField22.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		lblGameField22.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField22);
 		
@@ -216,14 +264,17 @@ public class MainWindow
 		tblGameStats = new JTable();
 		tblGameStats.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column", "New column", "New column"
+				"Game Number", "Match Result", "Opponent IP"
 			}
 		));
+		tblGameStats.getColumnModel().getColumn(0).setPreferredWidth(94);
+		tblGameStats.getColumnModel().getColumn(1).setPreferredWidth(91);
+		tblGameStats.getColumnModel().getColumn(2).setPreferredWidth(109);
 		scrlStatsTable.setViewportView(tblGameStats);
 	}
 }
