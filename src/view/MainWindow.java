@@ -26,6 +26,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import logic.Players;
 
 /**
  * @author Leon Kelle
@@ -91,7 +92,7 @@ public class MainWindow
 		txtOpponentsIp.setColumns(10);
 		
 		JComboBox cbPlayerSelector = new JComboBox();
-		cbPlayerSelector.setModel(new DefaultComboBoxModel(new String[] {"Player 1", "Player 2"}));
+		cbPlayerSelector.setModel(new DefaultComboBoxModel(Players.values()));
 		cbPlayerSelector.setSelectedIndex(0);
 		pnlLeftCol.add(cbPlayerSelector);
 
