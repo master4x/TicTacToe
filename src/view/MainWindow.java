@@ -140,7 +140,7 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameField, BorderLayout.WEST);
 		pnlGameField.setLayout(new GridLayout(3, 3, 50, 0));
 		
-		JLabel lblGameField00 = new JLabel("0");
+		JLabel lblGameField00 = new JLabel("\u2B55");
 		lblGameField00.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -149,7 +149,7 @@ public class MainWindow
 		lblGameField00.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField00);
 		
-		JLabel lblGameField01 = new JLabel("0");
+		JLabel lblGameField01 = new JLabel("\u274C");
 		lblGameField01.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
