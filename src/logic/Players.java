@@ -2,6 +2,6 @@ package logic;
 
 public enum Players
 {
-	Player1,
+	Player1, 
 	Player2
 }
