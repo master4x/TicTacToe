@@ -72,7 +72,6 @@ public class NetworkHandler
 
 	public int[][] receiveArray()
 	{
-		
 		DatagramPacket datagramPacket;
 		String data;
 		int[][] gameField;
