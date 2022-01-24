@@ -144,7 +144,7 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameField, BorderLayout.WEST);
 		pnlGameField.setLayout(new GridLayout(3, 3, 50, 0));
 
-		JLabel lblGameField00 = new JLabel("\u2B55");
+		JLabel lblGameField00 = new JLabel("\u25EF");
 		lblGameField00.addMouseListener(new MouseAdapter()
 		{
 			@Override
