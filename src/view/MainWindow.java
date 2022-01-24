@@ -23,6 +23,9 @@ import javax.swing.JSeparator;
 import java.awt.Button;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JToggleButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  * @author Leon Kelle
@@ -56,10 +59,10 @@ public class MainWindow
 	private void initialize()
 	{
 		frmTicTacToe = new JFrame();
-		frmTicTacToe.setMinimumSize(new Dimension(620, 420));
+		frmTicTacToe.setMinimumSize(new Dimension(650, 400));
 		frmTicTacToe.setTitle("TicTacToe");
 		frmTicTacToe.setIconImage(Toolkit.getDefaultToolkit().getImage(MainWindow.class.getResource("/org/eclipse/jface/dialogs/images/title_banner.png")));
-		frmTicTacToe.setBounds(100, 100, 600, 400);
+		frmTicTacToe.setBounds(100, 100, 593, 400);
 		frmTicTacToe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JTabbedPane pneNavBar = new JTabbedPane(JTabbedPane.TOP);
@@ -75,7 +78,7 @@ public class MainWindow
 
 		JPanel pnlTopRow = new JPanel();
 		pnlTabGame.add(pnlTopRow, BorderLayout.NORTH);
-		pnlTopRow.setLayout(new GridLayout(0, 2, 0, 0));
+		pnlTopRow.setLayout(new BorderLayout(0, 0));
 
 		JPanel pnlLeftCol = new JPanel();
 		pnlTopRow.add(pnlLeftCol);
@@ -86,12 +89,17 @@ public class MainWindow
 		txtOpponentsIp = new JTextField();
 		pnlLeftCol.add(txtOpponentsIp);
 		txtOpponentsIp.setColumns(10);
+		
+		JComboBox cbPlayerSelector = new JComboBox();
+		cbPlayerSelector.setModel(new DefaultComboBoxModel(new String[] {"Player 1", "Player 2"}));
+		cbPlayerSelector.setSelectedIndex(0);
+		pnlLeftCol.add(cbPlayerSelector);
 
 		JButton btnConnect = new JButton("Connect");
 		pnlLeftCol.add(btnConnect);
 
 		JPanel pnlRightCol = new JPanel();
-		pnlTopRow.add(pnlRightCol);
+		pnlTopRow.add(pnlRightCol, BorderLayout.EAST);
 
 		JLabel lblYourIp = new JLabel("Your IP:");
 		pnlRightCol.add(lblYourIp);
