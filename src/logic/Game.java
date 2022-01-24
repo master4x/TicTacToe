@@ -1,5 +1,7 @@
 package logic;
 
+import data.NetworkHandler;
+
 /**
  * @author Leon Kelle
  * @class AGB\AH911
@@ -79,8 +81,10 @@ public class Game
 			switch (gameState)
 			{
 				case CheckOpponentsGameField:
+					checkGameField();
 					break;
 				case CheckPlayersGameField:
+					checkGameField();
 					break;
 				case ConnectingWithOpponent:
 					break;
