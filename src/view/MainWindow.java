@@ -27,6 +27,8 @@ import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import logic.Players;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author Leon Kelle
@@ -64,7 +66,7 @@ public class MainWindow
 		frmTicTacToe.setTitle("TicTacToe");
 		frmTicTacToe.setIconImage(Toolkit.getDefaultToolkit()
 			.getImage(MainWindow.class.getResource("/org/eclipse/jface/dialogs/images/title_banner.png")));
-		frmTicTacToe.setBounds(100, 100, 593, 400);
+		frmTicTacToe.setBounds(100, 100, 548, 384);
 		frmTicTacToe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JTabbedPane pneNavBar = new JTabbedPane(JTabbedPane.TOP);
@@ -100,6 +102,10 @@ public class MainWindow
 		pnlLeftCol.add(cbPlayerSelector);
 
 		JButton btnConnect = new JButton("Connect");
+		btnConnect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		pnlLeftCol.add(btnConnect);
 
 		JPanel pnlRightCol = new JPanel();
