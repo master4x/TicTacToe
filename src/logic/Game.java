@@ -11,12 +11,12 @@ public class Game
 	private int[][] gameField = new int[3][3];
 	private GameState gameState = GameState.NoGameRunning;
 	
-	public void onGameStateChange(GameState gameState)
+	public void setGameState(GameState gameState)
 	{
+		this.gameState = gameState;
+		
 		if (this.gameState != gameState)
 		{
-			this.gameState = gameState;
-			
 			switch (gameState)
 			{
 			case CheckOpponentsGameField:
@@ -41,7 +41,6 @@ public class Game
 				break;
 			default:
 				break;
-			
 			}
 		}
 	}
