@@ -13,6 +13,34 @@ public class Game
 	private int[][] gameField = new int[3][3];
 	private GameState gameState = GameState.NoGameRunning;
 	private Players player;
+	
+	private void startGame()
+	{
+		NetworkHandler.getInstance().newNetworkSocket(null); //TODO Import IP
+	}
+	
+	private void gameOver()
+	{
+		//TODO print GameOver
+		switch (gameState)
+		{
+			case GameOver_Draw:
+				break;
+			case GameOver_Loose:
+				break;
+			case GameOver_Win:
+				break;
+		}
+		
+		//TODO save CSV result
+		
+		setGameState(GameState.NoGameRunning);
+	}
+	
+	private synchronized void checkPlayerMode()
+	{
+		//TODO check Input and change gameField
+	}
 
 	private void checkGameField()
 	{
@@ -87,20 +115,24 @@ public class Game
 					checkGameField();
 					break;
 				case ConnectingWithOpponent:
+					startGame();
 					break;
 				case GameOver_Draw:
+					gameOver();
 					break;
 				case GameOver_Loose:
+					gameOver();
 					break;
 				case GameOver_Win:
+					gameOver();
 					break;
-				case NoGameRunning:
+				case NoGameRunning: //Nothing
 					break;
 				case SendPlayersGameField:
 					break;
-				case WaitForOpponentsGameField:
+				case WaitForOpponentsGameField: //Event-call
 					break;
-				case WaitForPlayersGameField:
+				case WaitForPlayersGameField: //Event-call
 					break;
 				default:
 					break;
