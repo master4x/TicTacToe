@@ -12,21 +12,61 @@ public class Game
 	private GameState gameState = GameState.NoGameRunning;
 	private Players player;
 
-	private void checkGameField(int playerSymbol)
+	private void checkGameField()
 	{
-		if (gameField[0][0] == playerSymbol && gameField[0][1] == playerSymbol && gameField[0][2] == playerSymbol || //top row
-			gameField[1][0] == playerSymbol && gameField[1][1] == playerSymbol && gameField[1][2] == playerSymbol || //middle row
-			gameField[2][0] == playerSymbol && gameField[2][1] == playerSymbol && gameField[2][2] == playerSymbol || //bottom row
-			gameField[0][0] == playerSymbol && gameField[1][0] == playerSymbol && gameField[2][2] == playerSymbol || //left column
-			gameField[0][1] == playerSymbol && gameField[1][1] == playerSymbol && gameField[1][1] == playerSymbol || //middle column
-			gameField[0][2] == playerSymbol && gameField[1][2] == playerSymbol && gameField[1][2] == playerSymbol || //right column
-			gameField[0][1] == playerSymbol && gameField[1][1] == playerSymbol && gameField[2][2] == playerSymbol || //TL to BR diagonal
-			gameField[0][2] == playerSymbol && gameField[1][1] == playerSymbol && gameField[2][0] == playerSymbol) 	 //TR to BL diagonal
+		boolean player1Wins = false, player2Wins = false;
+
+		for (int i = 1; i < 3; i++)
 		{
-			
-		} else
+			if (gameField[0][0] == i && gameField[0][1] == i && gameField[0][2] == i || // top row
+				gameField[1][0] == i && gameField[1][1] == i && gameField[1][2] == i || // middle row
+				gameField[2][0] == i && gameField[2][1] == i && gameField[2][2] == i || // bottom row
+				gameField[0][0] == i && gameField[1][0] == i && gameField[2][2] == i || // left column
+				gameField[0][1] == i && gameField[1][1] == i && gameField[1][1] == i || // middle column
+				gameField[0][2] == i && gameField[1][2] == i && gameField[1][2] == i || // right column
+				gameField[0][1] == i && gameField[1][1] == i && gameField[2][2] == i || // TL to BR diagonal
+				gameField[0][2] == i && gameField[1][1] == i && gameField[2][0] == i) // TR to BL diagonal
+			{
+				switch (i)
+				{
+					case 1:
+						player1Wins = true;
+						break;
+					case 2:
+						player2Wins = true;
+						break;
+				}
+			}
+		}
+
+		if (player1Wins && player2Wins)
 		{
-			
+			setGameState(GameState.GameOver_Draw);
+		}
+		else if (player1Wins || player2Wins)
+		{
+			if (player == Players.Player1)
+			{
+				if (player1Wins)
+				{
+					setGameState(GameState.GameOver_Win);
+				}
+				else
+				{
+					setGameState(GameState.GameOver_Loose);
+				}
+			}
+			else if (player == Players.Player2)
+			{
+				if (player2Wins)
+				{
+					setGameState(GameState.GameOver_Win);
+				}
+				else
+				{
+					setGameState(GameState.GameOver_Loose);
+				}
+			}
 		}
 	}
 
@@ -37,7 +77,7 @@ public class Game
 		if (this.gameState != gameState)
 		{
 			switch (gameState)
-				{
+			{
 				case CheckOpponentsGameField:
 					break;
 				case CheckPlayersGameField:
@@ -60,7 +100,7 @@ public class Game
 					break;
 				default:
 					break;
-				}
+			}
 		}
 	}
 }
