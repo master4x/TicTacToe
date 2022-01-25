@@ -11,7 +11,7 @@ import data.NetworkHandler;
 public class Game
 {
 	private int[][] gameField = new int[3][3];
-	private GameState gameState = GameState.NoGameRunning;
+	private GameState gameState = GameState.NoGameActive;
 	private Players player;
 
 	public void startGame(Players player, String ipAdress)
@@ -37,7 +37,7 @@ public class Game
 
 		// TODO save CSV result
 
-		setGameState(GameState.NoGameRunning);
+		setGameState(GameState.NoGameActive);
 	}
 
 	private synchronized void checkPlayerMove()
@@ -96,7 +96,14 @@ public class Game
 		}
 		else
 		{
-			setGameState(GameState.WaitForOpponentsGameField);
+			if (gameState == GameState.CheckPlayersGameField)
+			{
+				setGameState(GameState.AwaitingOpponentsGameField);
+			}
+			else if (gameState == GameState.CheckOpponentsGameField)
+			{
+				setGameState(GameState.AwaitingPlayersGameField);
+			}
 		}
 	}
 
@@ -108,13 +115,15 @@ public class Game
 		{
 			switch (gameState)
 			{
+				case AwaitingOpponentsGameField:
+					break;
+				case AwaitingPlayersGameField:
+					break;
 				case CheckOpponentsGameField:
 					checkGameField();
 					break;
 				case CheckPlayersGameField:
 					checkGameField();
-					break;
-				case ConnectingWithOpponent:
 					break;
 				case GameOver_Draw:
 					gameOver();
@@ -125,13 +134,11 @@ public class Game
 				case GameOver_Win:
 					gameOver();
 					break;
-				case NoGameRunning:
+				case InitializingNewGame:
 					break;
-				case SendPlayersGameField:
+				case NoGameActive:
 					break;
-				case WaitForOpponentsGameField:
-					break;
-				case WaitForPlayersGameField:
+				case SendingPlayersGameField:
 					break;
 				default:
 					break;
