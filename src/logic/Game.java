@@ -14,8 +14,10 @@ public class Game
 	private GameState gameState = GameState.NoGameRunning;
 	private Players player;
 
-	public void startGame(String ipAdress)
+	public void startGame(Players player, String ipAdress)
 	{
+		this.player = player;
+		
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
 	}
 
