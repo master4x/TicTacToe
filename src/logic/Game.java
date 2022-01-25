@@ -14,9 +14,9 @@ public class Game
 	private GameState gameState = GameState.NoGameRunning;
 	private Players player;
 	
-	private void startGame()
+	public void startGame(String ipAdress)
 	{
-		NetworkHandler.getInstance().newNetworkSocket(null); //TODO Import IP
+		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
 	}
 	
 	private void gameOver()
@@ -115,7 +115,6 @@ public class Game
 					checkGameField();
 					break;
 				case ConnectingWithOpponent:
-					startGame();
 					break;
 				case GameOver_Draw:
 					gameOver();
@@ -126,13 +125,13 @@ public class Game
 				case GameOver_Win:
 					gameOver();
 					break;
-				case NoGameRunning: //Nothing
+				case NoGameRunning:
 					break;
 				case SendPlayersGameField:
 					break;
-				case WaitForOpponentsGameField: //Event-call
+				case WaitForOpponentsGameField:
 					break;
-				case WaitForPlayersGameField: //Event-call
+				case WaitForPlayersGameField:
 					break;
 				default:
 					break;
