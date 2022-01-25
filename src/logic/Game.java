@@ -98,6 +98,17 @@ public class Game
 				}
 			}
 		}
+		else
+		{
+			if (gameState == GameState.CheckOpponentsGameField)
+			{
+				setGameState(GameState.WaitForPlayersGameField);
+			}
+			else if (gameState == GameState.CheckPlayersGameField)
+			{
+				setGameState(GameState.SendPlayersGameField);
+			}
+		}
 	}
 
 	public void setGameState(GameState gameState)
