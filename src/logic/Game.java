@@ -37,7 +37,7 @@ public class Game
 		setGameState(GameState.NoGameRunning);
 	}
 	
-	private synchronized void checkPlayerMode()
+	private synchronized void checkPlayerMove()
 	{
 		//TODO check Input and change gameField
 	}
@@ -71,7 +71,7 @@ public class Game
 
 		if (player1Wins && player2Wins)
 		{
-			setGameState(GameState.GameOver_Draw);
+			setGameState(GameState.GameOver_Draw); //TODO wrong
 		}
 		else if (player1Wins || player2Wins)
 		{
