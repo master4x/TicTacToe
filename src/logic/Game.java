@@ -19,6 +19,7 @@ public class Game
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
 	}
 	
+	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
 	{
 		//TODO print GameOver
