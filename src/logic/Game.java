@@ -27,6 +27,13 @@ public class Game
 		
 		setGameState(GameState.CheckPlayersGameField);
 	}
+	
+	private void reveiveGameField()
+	{
+		NetworkHandler.getInstance().receiveArray();
+		
+		setGameState(GameState.CheckOpponentsGameField);
+	}
 
 	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
@@ -123,6 +130,7 @@ public class Game
 			switch (gameState)
 			{
 				case AwaitingOpponentsGameField:
+					reveiveGameField();
 					break;
 				case AwaitingPlayersGameField:
 					break;
