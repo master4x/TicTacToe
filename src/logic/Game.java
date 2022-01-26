@@ -68,7 +68,7 @@ public class Game
 	{
 		this.gameField = NetworkHandler.getInstance().receiveArray();
 
-		// TODO Update GUI
+		appendGameField();
 
 		setGameState(GameState.CheckOpponentsGameField);
 	}
@@ -103,20 +103,35 @@ public class Game
 					{
 						case Player1:
 							gameField[row][column] = 1;
-							// TODO append to GUI here
 							break;
 						case Player2:
 							gameField[row][column] = 2;
-							// TODO append to GUI here
 							break;
 					}
 
+					appendGameField();
+					
 					setGameState(GameState.SendingPlayersGameField);
 				}
 			}
 		}
 	}
 
+	private void appendGameField()
+	{
+		MainWindow mainWindow = MainWindow.getInstance();
+		
+		mainWindow.setLblGameField00Text(Integer.toString(gameField[0][0]));
+		mainWindow.setLblGameField01Text(Integer.toString(gameField[0][1]));
+		mainWindow.setLblGameField02Text(Integer.toString(gameField[0][2]));
+		mainWindow.setLblGameField10Text(Integer.toString(gameField[1][0]));
+		mainWindow.setLblGameField11Text(Integer.toString(gameField[1][1]));
+		mainWindow.setLblGameField12Text(Integer.toString(gameField[1][2]));
+		mainWindow.setLblGameField20Text(Integer.toString(gameField[2][0]));
+		mainWindow.setLblGameField21Text(Integer.toString(gameField[2][1]));
+		mainWindow.setLblGameField22Text(Integer.toString(gameField[2][2]));
+	}
+	
 	private void checkGameField()
 	{
 		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0
