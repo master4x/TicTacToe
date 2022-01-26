@@ -81,6 +81,18 @@ public class Game
 	public synchronized void applyPlayerMove(int column, int row)
 	{
 		// TODO get apply into gameField and return change setText
+		if (gameField[column][row] == 0)
+		{
+			switch (player)
+			{
+				case Player1:
+					gameField[column][row] = 1;
+					break;
+				case Player2:
+					gameField[column][row] = 2;
+					break;
+			}
+		}
 	}
 
 	private void checkGameField()
