@@ -10,7 +10,6 @@ public enum GameState
 {
 	NoGameActive, //default State
 	InitializingNewGame, //nothing; called by btn event
-	SendingPlayersGameField, //called by start and move
 	AwaitingOpponentsGameField, //called after check of local
 	CheckOpponentsGameField, //called by checkGameField
 	GameOver_Loose, //called by CheckOpponentsGameField
@@ -18,5 +17,5 @@ public enum GameState
 	AwaitingPlayersGameField, //nothing; called by txt click event
 	CheckPlayersGameField, //called by player move
 	GameOver_Win, //called by CheckPlayersGameField
-	
+	SendingPlayersGameField, //called by start and move
 }
