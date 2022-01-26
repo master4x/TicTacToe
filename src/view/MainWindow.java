@@ -16,6 +16,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import data.NetworkHandler;
+
 import javax.swing.JScrollPane;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
@@ -40,7 +43,7 @@ import java.awt.event.ActionEvent;
 
 public class MainWindow
 {
-
+	private static volatile MainWindow instance;
 	public JFrame frmTicTacToe;
 	private JTextField txtYourIp;
 	private JTable tblGameStats;
@@ -63,9 +66,28 @@ public class MainWindow
 	/**
 	 * Create the application.
 	 */
-	public MainWindow()
+	private MainWindow()
 	{
 		initialize();
+	}
+
+
+	/*
+	 * Singleton
+	 */
+	public static MainWindow getInstance()
+	{
+		if (instance == null)
+		{
+			synchronized (Game.class)
+			{
+				if (instance == null)
+				{
+					instance = new MainWindow();
+				}
+			}
+		}
+		return instance;
 	}
 
 	/**

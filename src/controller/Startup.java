@@ -21,8 +21,7 @@ public class Startup
 			{
 				try
 				{
-					MainWindow window = new MainWindow();
-					window.frmTicTacToe.setVisible(true);
+					MainWindow.getInstance().frmTicTacToe.setVisible(true);
 				} catch (Exception e)
 				{
 					e.printStackTrace();
