@@ -110,7 +110,7 @@ public class Game
 					}
 
 					appendGameField();
-					
+
 					setGameState(GameState.SendingPlayersGameField);
 				}
 			}
@@ -120,7 +120,9 @@ public class Game
 	private void appendGameField() // TODO clean rewrite appendGameField()
 	{
 		MainWindow mainWindow = MainWindow.getInstance();
-		
+
+		// TODO use symbols to display in GUI | 1-O: \u274C 2-X: \u25EF
+
 		mainWindow.setLblGameField00Text(Integer.toString(gameField[0][0]));
 		mainWindow.setLblGameField01Text(Integer.toString(gameField[0][1]));
 		mainWindow.setLblGameField02Text(Integer.toString(gameField[0][2]));
@@ -131,7 +133,7 @@ public class Game
 		mainWindow.setLblGameField21Text(Integer.toString(gameField[2][1]));
 		mainWindow.setLblGameField22Text(Integer.toString(gameField[2][2]));
 	}
-	
+
 	private void checkGameField() // TODO clean rewrite checkGameField()
 	{
 		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0
