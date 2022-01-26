@@ -341,4 +341,89 @@ public class MainWindow
 		tblGameStats.getColumnModel().getColumn(2).setPreferredWidth(109);
 		scrlStatsTable.setViewportView(tblGameStats);
 	}
+
+	public void setTblGameStats()
+	{
+		//TODO addTableRow / setTblGameStats
+	}
+	
+	public void setTxtYourIpText(String txtYourIpText)
+	{
+		this.txtYourIp.setText(txtYourIpText);
+	}
+
+	public void setTxtWinCountText(String txtWinCountText)
+	{
+		this.txtWinCount.setText(txtWinCountText);
+	}
+
+	public void setTxtLooseCountText(String txtLooseCountText)
+	{
+		this.txtLooseCount.setText(txtLooseCountText);
+	}
+
+	public void setTxtDrawCountText(String txtDrawCountText)
+	{
+		this.txtDrawCount.setText(txtDrawCountText);
+	}
+
+	public void setLblConnectionStateText(String lblConnectionStateText)
+	{
+		this.lblConnectionState.setText(lblConnectionStateText);
+	}
+
+	public void setLblGameStateText(String lblGameStateText)
+	{
+		this.lblGameState.setText(lblGameStateText);
+	}
+
+	public void setLblGameField00Text(String lblGameField00Text)
+	{
+		this.lblGameField00.setText(lblGameField00Text);
+	}
+
+	public void setLblGameField01Text(String lblGameField01Text)
+	{
+		this.lblGameField01.setText(lblGameField01Text);
+	}
+
+	public void setLblGameField02Text(String lblGameField02Text)
+	{
+		this.lblGameField02.setText(lblGameField02Text);
+	}
+
+	public void setLblGameField10Text(String lblGameField10Text)
+	{
+		this.lblGameField10.setText(lblGameField10Text);
+	}
+
+	public void setLblGameField11Text(String lblGameField11Text)
+	{
+		this.lblGameField11.setText(lblGameField11Text);
+	}
+
+	public void setLblGameField12Text(String lblGameField12Text)
+	{
+		this.lblGameField12.setText(lblGameField12Text);
+	}
+
+	public void setLblGameField20Text(String lblGameField20Text)
+	{
+		this.lblGameField20.setText(lblGameField20Text);
+	}
+
+	public void setLblGameField21Text(String lblGameField21Text)
+	{
+		this.lblGameField21.setText(lblGameField21Text);
+	}
+
+	public void setLblGameField22Text(String lblGameField22Text)
+	{
+		this.lblGameField22.setText(lblGameField22Text);
+	}
+
+	public void setLblPlayerInfoText(String lblPlayerInfoText)
+	{
+		this.lblPlayerInfo.setText(lblPlayerInfoText);
+	}
 }
