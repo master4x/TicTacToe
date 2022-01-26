@@ -37,13 +37,13 @@ public class Game
 		}
 		return instance;
 	}
-	
+
 	public void startGame(Players player, String ipAdress)
 	{
 		this.player = player;
-		
+
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
-		
+
 		switch (player)
 		{
 			case Player1:
@@ -54,18 +54,18 @@ public class Game
 				break;
 		}
 	}
-	
+
 	private void sendGameField()
 	{
 		NetworkHandler.getInstance().sendArray(gameField);
-		
+
 		setGameState(GameState.CheckPlayersGameField);
 	}
-	
+
 	private void reveiveGameField()
 	{
 		this.gameField = NetworkHandler.getInstance().receiveArray();
-		
+
 		setGameState(GameState.CheckOpponentsGameField);
 	}
 
@@ -92,7 +92,7 @@ public class Game
 	{
 		if (gameState == GameState.AwaitingPlayersGameField)
 		{
-			synchronized(this)
+			synchronized (this)
 			{
 				if (gameField[row][column] == 0)
 				{
@@ -100,13 +100,14 @@ public class Game
 					{
 						case Player1:
 							gameField[row][column] = 1;
-							//TODO append to GUI here
+							// TODO append to GUI here
 							break;
 						case Player2:
 							gameField[row][column] = 2;
-							//TODO append to GUI here
+							// TODO append to GUI here
 							break;
 					}
+
 					setGameState(GameState.SendingPlayersGameField);
 				}
 			}
@@ -115,25 +116,25 @@ public class Game
 
 	private void checkGameField()
 	{
-		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0 ||
-			gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0 ||
-			gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0 ||
-			gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][2] != 0 ||
-			gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[1][1] != 0 ||
-			gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[1][2] != 0 ||
-			gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0 ||
-			gameField[0][2] != 0 && gameField[1][1] != 0 && gameField[2][0] != 0)
+		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0
+			|| gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0
+			|| gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0
+			|| gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][2] != 0
+			|| gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[1][1] != 0
+			|| gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[1][2] != 0
+			|| gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0
+			|| gameField[0][2] != 0 && gameField[1][1] != 0 && gameField[2][0] != 0)
 		{
 			setGameState(GameState.GameOver_Draw);
 		}
-		else if (gameField[0][0] == 1 && gameField[0][1] == 1 && gameField[0][2] == 1 ||
-			gameField[1][0] == 1 && gameField[1][1] == 1 && gameField[1][2] == 1 ||
-			gameField[2][0] == 1 && gameField[2][1] == 1 && gameField[2][2] == 1 ||
-			gameField[0][0] == 1 && gameField[1][0] == 1 && gameField[2][2] == 1 ||
-			gameField[0][1] == 1 && gameField[1][1] == 1 && gameField[1][1] == 1 ||
-			gameField[0][2] == 1 && gameField[1][2] == 1 && gameField[1][2] == 1 ||
-			gameField[0][1] == 1 && gameField[1][1] == 1 && gameField[2][2] == 1 ||
-			gameField[0][2] == 1 && gameField[1][1] == 1 && gameField[2][0] == 1)
+		else if (gameField[0][0] == 1 && gameField[0][1] == 1 && gameField[0][2] == 1
+			|| gameField[1][0] == 1 && gameField[1][1] == 1 && gameField[1][2] == 1
+			|| gameField[2][0] == 1 && gameField[2][1] == 1 && gameField[2][2] == 1
+			|| gameField[0][0] == 1 && gameField[1][0] == 1 && gameField[2][2] == 1
+			|| gameField[0][1] == 1 && gameField[1][1] == 1 && gameField[1][1] == 1
+			|| gameField[0][2] == 1 && gameField[1][2] == 1 && gameField[1][2] == 1
+			|| gameField[0][1] == 1 && gameField[1][1] == 1 && gameField[2][2] == 1
+			|| gameField[0][2] == 1 && gameField[1][1] == 1 && gameField[2][0] == 1)
 		{
 			if (player == Players.Player1)
 			{
@@ -144,14 +145,14 @@ public class Game
 				setGameState(GameState.GameOver_Loose);
 			}
 		}
-		else if (gameField[0][0] == 2 && gameField[0][1] == 2 && gameField[0][2] == 2 ||
-			gameField[1][0] == 2 && gameField[1][1] == 2 && gameField[1][2] == 2 ||
-			gameField[2][0] == 2 && gameField[2][1] == 2 && gameField[2][2] == 2 ||
-			gameField[0][0] == 2 && gameField[1][0] == 2 && gameField[2][2] == 2 ||
-			gameField[0][1] == 2 && gameField[1][1] == 2 && gameField[1][1] == 2 ||
-			gameField[0][2] == 2 && gameField[1][2] == 2 && gameField[1][2] == 2 ||
-			gameField[0][1] == 2 && gameField[1][1] == 2 && gameField[2][2] == 2 ||
-			gameField[0][2] == 2 && gameField[1][1] == 2 && gameField[2][0] == 2)
+		else if (gameField[0][0] == 2 && gameField[0][1] == 2 && gameField[0][2] == 2
+			|| gameField[1][0] == 2 && gameField[1][1] == 2 && gameField[1][2] == 2
+			|| gameField[2][0] == 2 && gameField[2][1] == 2 && gameField[2][2] == 2
+			|| gameField[0][0] == 2 && gameField[1][0] == 2 && gameField[2][2] == 2
+			|| gameField[0][1] == 2 && gameField[1][1] == 2 && gameField[1][1] == 2
+			|| gameField[0][2] == 2 && gameField[1][2] == 2 && gameField[1][2] == 2
+			|| gameField[0][1] == 2 && gameField[1][1] == 2 && gameField[2][2] == 2
+			|| gameField[0][2] == 2 && gameField[1][1] == 2 && gameField[2][0] == 2)
 		{
 			if (player == Players.Player2)
 			{
@@ -186,7 +187,7 @@ public class Game
 				case AwaitingOpponentsGameField:
 					reveiveGameField();
 					break;
-				case AwaitingPlayersGameField: //TODO call
+				case AwaitingPlayersGameField: // TODO call
 					break;
 				case CheckOpponentsGameField:
 					checkGameField();
@@ -203,12 +204,12 @@ public class Game
 				case GameOver_Win:
 					gameOver();
 					break;
-				case InitializingNewGame: //TODO call
+				case InitializingNewGame:
 					break;
 				case SendingPlayersGameField:
 					sendGameField();
 					break;
-				default: //NoGameActive
+				default: // NoGameActive
 					break;
 			}
 		}
