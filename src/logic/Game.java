@@ -88,20 +88,27 @@ public class Game
 		setGameState(GameState.NoGameActive);
 	}
 
-	public synchronized void applyPlayerMove(int row, int column)
+	public void applyPlayerMove(int row, int column)
 	{
-		if (gameField[row][column] == 0)
+		if (gameState == GameState.AwaitingPlayersGameField)
 		{
-			switch (player)
+			synchronized(this)
 			{
-				case Player1:
-					gameField[row][column] = 1;
-					//TODO append to GUI here
-					break;
-				case Player2:
-					gameField[row][column] = 2;
-					//TODO append to GUI here
-					break;
+				if (gameField[row][column] == 0)
+				{
+					switch (player)
+					{
+						case Player1:
+							gameField[row][column] = 1;
+							//TODO append to GUI here
+							break;
+						case Player2:
+							gameField[row][column] = 2;
+							//TODO append to GUI here
+							break;
+					}
+					setGameState(GameState.SendingPlayersGameField);
+				}
 			}
 		}
 	}
