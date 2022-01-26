@@ -182,6 +182,11 @@ public class Game
 	{
 		if (this.gameState != gameState)
 		{
+			
+			this.gameState = gameState;
+			
+			MainWindow.getInstance().setLblGameStateText(gameState.toString());
+			
 			switch (gameState)
 			{
 				case AwaitingOpponentsGameField:
@@ -208,10 +213,6 @@ public class Game
 				default: // NoGameActive, AwaitingPlayersGameField, InitializingNewGame
 					break;
 			}
-			
-			MainWindow.getInstance().setLblGameStateText(gameState.toString());
-			
-			this.gameState = gameState;
 		}
 	}
 }
