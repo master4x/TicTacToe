@@ -166,15 +166,15 @@ public class Game
 				setGameState(GameState.GameOver_Loose);
 			}
 		}
-		else // TODO check to match PAP
+		else
 		{
-			if (gameState == GameState.CheckPlayersGameField)
-			{
-				setGameState(GameState.AwaitingOpponentsGameField);
-			}
-			else if (gameState == GameState.CheckOpponentsGameField)
+			if (gameState == GameState.CheckOpponentsGameField)
 			{
 				setGameState(GameState.AwaitingPlayersGameField);
+			}
+			else if (gameState == GameState.CheckPlayersGameField)
+			{
+				setGameState(GameState.AwaitingOpponentsGameField);
 			}
 		}
 	}
