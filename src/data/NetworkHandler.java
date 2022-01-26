@@ -101,21 +101,14 @@ public class NetworkHandler
 
 	private String convertIntArrayToString(int[][] arr)
 	{
-		ArrayList<String> buffer = new ArrayList<String>();
+		String result = new String();
 
 		for (int n = 0; n < 3; n++)
 		{
 			for (int m = 0; m < 3; m++)
 			{
-				buffer.add(Integer.toString(arr[n][m]));
+				result += arr[n][m] + ",";
 			}
-		}
-
-		String result = new String();
-
-		for (String number : buffer)
-		{
-			result += number + ",";
 		}
 
 		return result;
