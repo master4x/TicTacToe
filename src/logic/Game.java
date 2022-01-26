@@ -20,6 +20,13 @@ public class Game
 		
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
 	}
+	
+	private void sendGameField()
+	{
+		NetworkHandler.getInstance().sendArray(gameField);
+		
+		setGameState(GameState.CheckPlayersGameField);
+	}
 
 	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
@@ -139,6 +146,7 @@ public class Game
 				case NoGameActive:
 					break;
 				case SendingPlayersGameField:
+					sendGameField();
 					break;
 				default:
 					break;
