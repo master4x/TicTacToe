@@ -26,6 +26,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
+import logic.Game;
 import logic.Players;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -150,23 +152,25 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameField, BorderLayout.WEST);
 		pnlGameField.setLayout(new GridLayout(3, 3, 50, 0));
 
-		JLabel lblGameField00 = new JLabel("\u25EF");
+		JLabel lblGameField00 = new JLabel("0");
 		lblGameField00.addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(0,0);
 			}
 		});
 		lblGameField00.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField00);
 
-		JLabel lblGameField01 = new JLabel("\u274C");
+		JLabel lblGameField01 = new JLabel("0");
 		lblGameField01.addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(0,1);
 			}
 		});
 		pnlGameField.add(lblGameField01);
@@ -177,6 +181,7 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(0,2);
 			}
 		});
 		lblGameField02.setHorizontalAlignment(SwingConstants.CENTER);
@@ -188,6 +193,7 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(1,0);
 			}
 		});
 		lblGameField10.setHorizontalAlignment(SwingConstants.CENTER);
@@ -199,6 +205,7 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(1,1);
 			}
 		});
 		lblGameField11.setHorizontalAlignment(SwingConstants.CENTER);
@@ -210,6 +217,7 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(1,2);
 			}
 		});
 		lblGameField12.setHorizontalAlignment(SwingConstants.CENTER);
@@ -221,6 +229,7 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(2,0);
 			}
 		});
 		lblGameField20.setHorizontalAlignment(SwingConstants.CENTER);
@@ -232,6 +241,7 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(2,1);
 			}
 		});
 		lblGameField21.setHorizontalAlignment(SwingConstants.CENTER);
@@ -243,6 +253,7 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				Game.getInstance().applyPlayerMove(2,2);
 			}
 		});
 		lblGameField22.setHorizontalAlignment(SwingConstants.CENTER);

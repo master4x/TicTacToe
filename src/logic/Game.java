@@ -1,5 +1,6 @@
 package logic;
 
+import data.FileIOHandler;
 import data.NetworkHandler;
 
 /**
@@ -10,10 +11,33 @@ import data.NetworkHandler;
 
 public class Game
 {
+	private static volatile Game instance;
 	private int[][] gameField = new int[3][3];
 	private GameState gameState = GameState.NoGameActive;
 	private Players player;
 
+	private Game()
+	{
+	}
+
+	/*
+	 * Singleton
+	 */
+	public static Game getInstance()
+	{
+		if (instance == null)
+		{
+			synchronized (Game.class)
+			{
+				if (instance == null)
+				{
+					instance = new Game();
+				}
+			}
+		}
+		return instance;
+	}
+	
 	public void startGame(Players player, String ipAdress)
 	{
 		this.player = player;
@@ -54,9 +78,9 @@ public class Game
 		setGameState(GameState.NoGameActive);
 	}
 
-	private synchronized void checkPlayerMove()
+	public synchronized void applyPlayerMove(int column, int row)
 	{
-		// TODO check Input and change gameField
+		// TODO get apply into gameField and return change setText
 	}
 
 	private void checkGameField()
