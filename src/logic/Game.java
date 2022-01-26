@@ -30,7 +30,7 @@ public class Game
 	
 	private void reveiveGameField()
 	{
-		NetworkHandler.getInstance().receiveArray();
+		this.gameField = NetworkHandler.getInstance().receiveArray();
 		
 		setGameState(GameState.CheckOpponentsGameField);
 	}
