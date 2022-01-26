@@ -2,7 +2,6 @@ package controller;
 
 import java.awt.EventQueue;
 
-import data.NetworkHandler;
 import view.MainWindow;
 
 /**
