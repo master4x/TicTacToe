@@ -42,13 +42,23 @@ public class MainWindow
 {
 
 	public JFrame frmTicTacToe;
-	private JTextField txtOpponentsIp;
 	private JTextField txtYourIp;
 	private JTable tblGameStats;
 	private JTextField txtWinCount;
 	private JTextField txtLooseCount;
 	private JTextField txtDrawCount;
-	private JLabel lblDrawCount;
+	private JLabel lblConnectionState;
+	private JLabel lblGameState;
+	private JLabel lblGameField00;
+	private JLabel lblGameField01;
+	private JLabel lblGameField02;
+	private JLabel lblGameField10;
+	private JLabel lblGameField11;
+	private JLabel lblGameField12;
+	private JLabel lblGameField20;
+	private JLabel lblGameField21;
+	private JLabel lblGameField22;
+	private JLabel lblPlayerInfo;
 
 	/**
 	 * Create the application.
@@ -94,7 +104,7 @@ public class MainWindow
 		JLabel lblOpponentsIp = new JLabel("Opponent's IP:");
 		pnlLeftCol.add(lblOpponentsIp);
 
-		txtOpponentsIp = new JTextField();
+		JTextField txtOpponentsIp = new JTextField();
 		pnlLeftCol.add(txtOpponentsIp);
 		txtOpponentsIp.setColumns(10);
 
@@ -141,13 +151,13 @@ public class MainWindow
 		JPanel pnlLeftOuterCol = new JPanel();
 		pnlBottomRow.add(pnlLeftOuterCol, BorderLayout.WEST);
 
-		JLabel lblConnectionState = new JLabel("ConnectionState");
+		lblConnectionState = new JLabel("ConnectionState");
 		pnlLeftOuterCol.add(lblConnectionState);
 
 		JPanel pnlRightOuterCol = new JPanel();
 		pnlBottomRow.add(pnlRightOuterCol, BorderLayout.EAST);
 
-		JLabel lblGameState = new JLabel("GameState");
+		lblGameState = new JLabel("GameState");
 		pnlRightOuterCol.add(lblGameState);
 
 		JPanel pnlMiddleRow = new JPanel();
@@ -164,7 +174,7 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameField, BorderLayout.WEST);
 		pnlGameField.setLayout(new GridLayout(3, 3, 50, 0));
 
-		JLabel lblGameField00 = new JLabel("0");
+		lblGameField00 = new JLabel("0");
 		lblGameField00.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -176,7 +186,7 @@ public class MainWindow
 		lblGameField00.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField00);
 
-		JLabel lblGameField01 = new JLabel("0");
+		lblGameField01 = new JLabel("0");
 		lblGameField01.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -187,7 +197,7 @@ public class MainWindow
 		});
 		pnlGameField.add(lblGameField01);
 
-		JLabel lblGameField02 = new JLabel("0");
+		lblGameField02 = new JLabel("0");
 		lblGameField02.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -199,7 +209,7 @@ public class MainWindow
 		lblGameField02.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField02);
 
-		JLabel lblGameField10 = new JLabel("0");
+		lblGameField10 = new JLabel("0");
 		lblGameField10.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -211,7 +221,7 @@ public class MainWindow
 		lblGameField10.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField10);
 
-		JLabel lblGameField11 = new JLabel("0");
+		lblGameField11 = new JLabel("0");
 		lblGameField11.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -223,7 +233,7 @@ public class MainWindow
 		lblGameField11.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField11);
 
-		JLabel lblGameField12 = new JLabel("0");
+		lblGameField12 = new JLabel("0");
 		lblGameField12.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -235,7 +245,7 @@ public class MainWindow
 		lblGameField12.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField12);
 
-		JLabel lblGameField20 = new JLabel("0");
+		lblGameField20 = new JLabel("0");
 		lblGameField20.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -247,7 +257,7 @@ public class MainWindow
 		lblGameField20.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField20);
 
-		JLabel lblGameField21 = new JLabel("0");
+		lblGameField21 = new JLabel("0");
 		lblGameField21.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -259,7 +269,7 @@ public class MainWindow
 		lblGameField21.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField21);
 
-		JLabel lblGameField22 = new JLabel("0");
+		lblGameField22 = new JLabel("0");
 		lblGameField22.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -275,9 +285,9 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameInfo, BorderLayout.EAST);
 		pnlGameInfo.setLayout(new BorderLayout(0, 0));
 
-		JLabel lblYourTurn = new JLabel("Your Turn!");
-		lblYourTurn.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameInfo.add(lblYourTurn);
+		lblPlayerInfo = new JLabel("Your Turn!");
+		lblPlayerInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameInfo.add(lblPlayerInfo);
 
 		JPanel pnlTabStats = new JPanel();
 		pnlTabStats.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -306,7 +316,7 @@ public class MainWindow
 		pnlTopMain.add(txtLooseCount);
 		txtLooseCount.setColumns(10);
 
-		lblDrawCount = new JLabel("Draw Count:");
+		JLabel lblDrawCount = new JLabel("Draw Count:");
 		pnlTopMain.add(lblDrawCount);
 
 		txtDrawCount = new JTextField();
