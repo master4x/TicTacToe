@@ -76,8 +76,8 @@ public class Game
 	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
 	{
-		// TODO Update GUI
-		// TODO save CSV
+		// TODO Update GUI gameOver()
+		// TODO save CSV gameOver()
 		switch (gameState)
 		{
 			case GameOver_Draw:
@@ -117,7 +117,7 @@ public class Game
 		}
 	}
 
-	private void appendGameField()
+	private void appendGameField() // TODO clean rewrite appendGameField()
 	{
 		MainWindow mainWindow = MainWindow.getInstance();
 		
@@ -132,7 +132,7 @@ public class Game
 		mainWindow.setLblGameField22Text(Integer.toString(gameField[2][2]));
 	}
 	
-	private void checkGameField()
+	private void checkGameField() // TODO clean rewrite checkGameField()
 	{
 		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0
 			|| gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0
