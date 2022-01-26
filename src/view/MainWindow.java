@@ -104,8 +104,10 @@ public class MainWindow
 		pnlLeftCol.add(cbPlayerSelector);
 
 		JButton btnConnect = new JButton("Connect");
-		btnConnect.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnConnect.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//TODO startGame
 			}
 		});
 		pnlLeftCol.add(btnConnect);
