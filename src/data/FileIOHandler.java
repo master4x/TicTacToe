@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.filechooser.FileSystemView;
 
 /**
  * @author Leon Kelle
@@ -15,7 +16,34 @@ import java.util.ArrayList;
 
 public class FileIOHandler
 {
-	public ArrayList<String> readFile(String pathAndFileName)
+	private static volatile FileIOHandler instance;
+	private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\";
+	private String file = "TicTacToe.csv";
+	private String pathAndFileName = path + file;
+
+	private FileIOHandler()
+	{
+	}
+
+	/*
+	 * Singleton
+	 */
+	public static FileIOHandler getInstance()
+	{
+		if (instance == null)
+		{
+			synchronized (FileIOHandler.class)
+			{
+				if (instance == null)
+				{
+					instance = new FileIOHandler();
+				}
+			}
+		}
+		return instance;
+	}
+
+	public ArrayList<String> readFile()
 	{
 		ArrayList<String> fileAsList = new ArrayList<>();
 
@@ -38,7 +66,7 @@ public class FileIOHandler
 		return fileAsList;
 	}
 
-	public void writeFile(String pathAndFileName)
+	public void writeFile()
 	{
 		try (FileWriter fileWriter = new FileWriter(pathAndFileName);
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
