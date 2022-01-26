@@ -143,12 +143,10 @@ public class Game
 					break;
 				case InitializingNewGame:
 					break;
-				case NoGameActive:
-					break;
 				case SendingPlayersGameField:
 					sendGameField();
 					break;
-				default:
+				default: //NoGameActive
 					break;
 			}
 		}
