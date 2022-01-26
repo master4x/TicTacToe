@@ -132,7 +132,7 @@ public class Game
 				case AwaitingOpponentsGameField:
 					reveiveGameField();
 					break;
-				case AwaitingPlayersGameField:
+				case AwaitingPlayersGameField: //TODO call
 					break;
 				case CheckOpponentsGameField:
 					checkGameField();
@@ -149,7 +149,7 @@ public class Game
 				case GameOver_Win:
 					gameOver();
 					break;
-				case InitializingNewGame:
+				case InitializingNewGame: //TODO call
 					break;
 				case SendingPlayersGameField:
 					sendGameField();
