@@ -187,8 +187,6 @@ public class Game
 				case AwaitingOpponentsGameField:
 					reveiveGameField();
 					break;
-				case AwaitingPlayersGameField: // TODO call
-					break;
 				case CheckOpponentsGameField:
 					checkGameField();
 					break;
@@ -204,12 +202,10 @@ public class Game
 				case GameOver_Win:
 					gameOver();
 					break;
-				case InitializingNewGame:
-					break;
 				case SendingPlayersGameField:
 					sendGameField();
 					break;
-				default: // NoGameActive
+				default: // NoGameActive, AwaitingPlayersGameField, InitializingNewGame
 					break;
 			}
 		}
