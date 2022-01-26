@@ -43,6 +43,16 @@ public class Game
 		this.player = player;
 		
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
+		
+		switch (player)
+		{
+			case Player1:
+				setGameState(GameState.AwaitingPlayersGameField);
+				break;
+			case Player2:
+				setGameState(GameState.AwaitingOpponentsGameField);
+				break;
+		}
 	}
 	
 	private void sendGameField()
