@@ -78,18 +78,19 @@ public class Game
 		setGameState(GameState.NoGameActive);
 	}
 
-	public synchronized void applyPlayerMove(int column, int row)
+	public synchronized void applyPlayerMove(int row, int column)
 	{
-		// TODO get apply into gameField and return change setText
-		if (gameField[column][row] == 0)
+		if (gameField[row][column] == 0)
 		{
 			switch (player)
 			{
 				case Player1:
-					gameField[column][row] = 1;
+					gameField[row][column] = 1;
+					//TODO append to GUI here
 					break;
 				case Player2:
-					gameField[column][row] = 2;
+					gameField[row][column] = 2;
+					//TODO append to GUI here
 					break;
 			}
 		}
