@@ -109,7 +109,15 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
-				// TODO startGame
+				if (txtOpponentsIp.getText().isEmpty() == false)
+				{
+					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(), txtOpponentsIp.getText());
+					
+					lblOpponentsIp.setEnabled(false);
+					txtOpponentsIp.setEnabled(false);
+					cbPlayerSelector.setEnabled(false);
+					btnConnect.setEnabled(false);
+				}
 			}
 		});
 		pnlLeftCol.add(btnConnect);
