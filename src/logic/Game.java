@@ -68,13 +68,16 @@ public class Game
 	{
 		this.gameField = NetworkHandler.getInstance().receiveArray();
 
+		// TODO Update GUI
+
 		setGameState(GameState.CheckOpponentsGameField);
 	}
 
 	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
 	{
-		// TODO print GameOver
+		// TODO Update GUI
+		// TODO save CSV
 		switch (gameState)
 		{
 			case GameOver_Draw:
@@ -84,8 +87,6 @@ public class Game
 			case GameOver_Win:
 				break;
 		}
-
-		// TODO save CSV result
 
 		setGameState(GameState.NoGameActive);
 	}
@@ -165,7 +166,7 @@ public class Game
 				setGameState(GameState.GameOver_Loose);
 			}
 		}
-		else
+		else // TODO check to match PAP
 		{
 			if (gameState == GameState.CheckPlayersGameField)
 			{
@@ -182,11 +183,10 @@ public class Game
 	{
 		if (this.gameState != gameState)
 		{
-			
 			this.gameState = gameState;
-			
+
 			MainWindow.getInstance().setLblGameStateText(gameState.toString());
-			
+
 			switch (gameState)
 			{
 				case AwaitingOpponentsGameField:
