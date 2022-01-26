@@ -2,6 +2,7 @@ package logic;
 
 import data.FileIOHandler;
 import data.NetworkHandler;
+import view.MainWindow;
 
 /**
  * @author Leon Kelle
@@ -179,7 +180,7 @@ public class Game
 	public void setGameState(GameState gameState)
 	{
 		this.gameState = gameState;
-
+		
 		if (this.gameState != gameState)
 		{
 			switch (gameState)
@@ -208,6 +209,8 @@ public class Game
 				default: // NoGameActive, AwaitingPlayersGameField, InitializingNewGame
 					break;
 			}
+			
+			MainWindow.getInstance().setLblGameStateText(gameState.toString());
 		}
 	}
 }
