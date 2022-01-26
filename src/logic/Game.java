@@ -179,8 +179,6 @@ public class Game
 
 	public void setGameState(GameState gameState)
 	{
-		this.gameState = gameState;
-		
 		if (this.gameState != gameState)
 		{
 			switch (gameState)
@@ -211,6 +209,8 @@ public class Game
 			}
 			
 			MainWindow.getInstance().setLblGameStateText(gameState.toString());
+			
+			this.gameState = gameState;
 		}
 	}
 }
