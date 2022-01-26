@@ -173,7 +173,7 @@ public class MainWindow
 		JPanel pnlLeftOuterCol = new JPanel();
 		pnlBottomRow.add(pnlLeftOuterCol, BorderLayout.WEST);
 
-		lblConnectionState = new JLabel("ConnectionState");
+		lblConnectionState = new JLabel("Not connected");
 		pnlLeftOuterCol.add(lblConnectionState);
 
 		JPanel pnlRightOuterCol = new JPanel();

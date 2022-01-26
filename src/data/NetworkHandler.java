@@ -7,6 +7,8 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
+import view.MainWindow;
+
 /**
  * @author Leon Kelle
  * @class AGB\AH911
@@ -48,6 +50,8 @@ public class NetworkHandler
 		{
 			networkSocket = new DatagramSocket(port);
 			hostAdress = InetAddress.getByName(ipAdress);
+			
+			MainWindow.getInstance().setLblConnectionStateText(ipAdress);
 		} catch (SocketException | UnknownHostException e)
 		{
 			e.printStackTrace();
