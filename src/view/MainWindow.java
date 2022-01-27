@@ -307,7 +307,7 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameInfo, BorderLayout.EAST);
 		pnlGameInfo.setLayout(new BorderLayout(0, 0));
 
-		lblPlayerInfo = new JLabel("Your Turn!");
+		lblPlayerInfo = new JLabel("TEST");
 		lblPlayerInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameInfo.add(lblPlayerInfo);
 
