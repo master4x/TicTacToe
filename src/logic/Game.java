@@ -137,13 +137,13 @@ public class Game
 	private void checkGameField() // TODO clean rewrite checkGameField()
 	{
 		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0
-			|| gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0
-			|| gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0
-			|| gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][2] != 0
-			|| gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[1][1] != 0
-			|| gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[1][2] != 0
-			|| gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0
-			|| gameField[0][2] != 0 && gameField[1][1] != 0 && gameField[2][0] != 0)
+			&& gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0
+			&& gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0
+			&& gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][2] != 0
+			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[1][1] != 0
+			&& gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[1][2] != 0
+			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0
+			&& gameField[0][2] != 0 && gameField[1][1] != 0 && gameField[2][0] != 0)
 		{
 			setGameState(GameState.GameOver_Draw);
 		}
