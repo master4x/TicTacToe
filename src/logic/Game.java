@@ -14,11 +14,12 @@ public class Game
 {
 	private static volatile Game instance;
 	private int[][] gameField = new int[3][3];
-	private GameState gameState = GameState.NoGameActive;
+	private GameState gameState;
 	private Players player;
 
 	private Game()
 	{
+		setGameState(GameState.NoGameActive);
 	}
 
 	/*
@@ -87,16 +88,15 @@ public class Game
 				break;
 		}
 
-		// TODO fix wrong toggle NoGameActive
-		//setGameState(GameState.NoGameActive); 
+		setGameState(GameState.NoGameActive);
 	}
 
 	public void applyPlayerMove(int row, int column)
 	{
 		if (gameState == GameState.AwaitingPlayersGameField)
 		{
-			//synchronized (this)
-			//{
+			synchronized (this)
+			{
 				if (gameField[row][column] == 0)
 				{
 					switch (player)
@@ -109,11 +109,11 @@ public class Game
 							break;
 					}
 
-					appendGameField(); // TODO fix not visible
+					appendGameField();
 
 					setGameState(GameState.SendingPlayersGameField);
 				}
-			//}
+			}
 		}
 	}
 

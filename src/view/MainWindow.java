@@ -366,12 +366,12 @@ public class MainWindow
 
 	public void setTblGameStats()
 	{
-		// TODO addTableRow / setTblGameStats
+		//TODO addTableRow / setTblGameStats
 	}
 	
 	public void setTxtYourIpText(String txtYourIpText)
 	{
-		this.txtYourIp.setText(txtYourIpText); // TODO display txtYourIpText
+		this.txtYourIp.setText(txtYourIpText);
 	}
 
 	public void setTxtWinCountText(String txtWinCountText)
