@@ -20,6 +20,7 @@ public class NetworkHandler
 	private static volatile NetworkHandler instance;
 	private DatagramSocket networkSocket;
 	private InetAddress hostAdress;
+	private String localIp;
 	private int port = 18911;
 
 	private NetworkHandler()
@@ -38,6 +39,7 @@ public class NetworkHandler
 				if (instance == null)
 				{
 					instance = new NetworkHandler();
+					instance.setLocalIp(); //set localIP
 				}
 			}
 		}
@@ -48,8 +50,8 @@ public class NetworkHandler
 	{
 		try
 		{
-			networkSocket = new DatagramSocket(port);
-			hostAdress = InetAddress.getByName(ipAdress);
+			this.networkSocket = new DatagramSocket(port);
+			this.hostAdress = InetAddress.getByName(ipAdress);
 			
 			MainWindow.getInstance().setLblConnectionStateText(ipAdress);
 		} catch (SocketException | UnknownHostException e)
@@ -133,5 +135,24 @@ public class NetworkHandler
 		}
 
 		return integers;
+	}
+
+	public String getLocalIp()
+	{	
+		return localIp;
+	}
+	
+	private void setLocalIp()
+	{
+		try
+		{
+			String localhostNameIp = InetAddress.getLocalHost().toString();
+			String localhostIp[] = localhostNameIp.split("/");
+			this.localIp = localhostIp[1];
+		}
+		catch (UnknownHostException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

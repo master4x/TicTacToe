@@ -161,6 +161,8 @@ public class MainWindow
 		pnlRightCol.add(lblYourIp);
 
 		txtYourIp = new JTextField();
+		txtYourIp.setHorizontalAlignment(SwingConstants.CENTER);
+		txtYourIp.setText(NetworkHandler.getInstance().getLocalIp());
 		txtYourIp.setEditable(false);
 		pnlRightCol.add(txtYourIp);
 		txtYourIp.setColumns(10);
