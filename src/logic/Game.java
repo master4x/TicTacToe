@@ -234,7 +234,7 @@ public class Game
 				case SendingPlayersGameField:
 					sendGameField();
 					break;
-				default: // NoGameActive, AwaitingPlayersGameField, InitializingNewGame
+				default: // NoGameActive, InitializingNewGame
 					break;
 			}
 		}
