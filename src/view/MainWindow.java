@@ -358,17 +358,36 @@ public class MainWindow
 
 		tblGameStats = new JTable();
 		tblGameStats.setModel(
-			new DefaultTableModel(new Object[][] { { null, null, null }, { null, null, null }, { null, null, null }, },
-				new String[] { "Game Number", "Match Result", "Opponent IP" }));
+			new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Game Number", "Match Result", "Opponent IP"
+			}
+		));
 		tblGameStats.getColumnModel().getColumn(0).setPreferredWidth(94);
 		tblGameStats.getColumnModel().getColumn(1).setPreferredWidth(91);
 		tblGameStats.getColumnModel().getColumn(2).setPreferredWidth(109);
 		scrlStatsTable.setViewportView(tblGameStats);
 	}
 
-	public void setTblGameStats()
-	{
-		//TODO addTableRow / setTblGameStats
+	public void addTblGameStatsRow(String[][] rowData)
+	{	
+		DefaultTableModel tableModel = new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Game Number", "Match Result", "Opponent IP"
+			}
+		);
+		
+		for (int i = 0; i < rowData.length; i++)
+		{
+			tableModel.addRow(new Object[]{ rowData[i][0], rowData[i][1], rowData[i][2] });
+		}
+		
+		this.tblGameStats.setModel(tableModel);
+		this.tblGameStats.paintImmediately(tblGameStats.getVisibleRect());
 	}
 
 	public void setTxtWinCountText(String txtWinCountText)
