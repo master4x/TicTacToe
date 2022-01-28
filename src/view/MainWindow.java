@@ -95,7 +95,7 @@ public class MainWindow
 		frmTicTacToe.setIconImage(Toolkit.getDefaultToolkit()
 			.getImage(MainWindow.class.getResource("/org/eclipse/jface/dialogs/images/title_banner.png")));
 		frmTicTacToe.setBounds(100, 100, 548, 384);
-		frmTicTacToe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTicTacToe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JTabbedPane pneNavBar = new JTabbedPane(JTabbedPane.TOP);
 		pneNavBar.setBorder(new EmptyBorder(5, 5, 5, 5));
