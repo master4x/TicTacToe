@@ -372,80 +372,96 @@ public class MainWindow
 	public void setTxtYourIpText(String txtYourIpText)
 	{
 		this.txtYourIp.setText(txtYourIpText);
+		this.txtYourIp.paintImmediately(txtYourIp.getVisibleRect());
 	}
 
 	public void setTxtWinCountText(String txtWinCountText)
 	{
 		this.txtWinCount.setText(txtWinCountText);
+		this.txtWinCount.paintImmediately(txtWinCount.getVisibleRect());
 	}
 
 	public void setTxtLooseCountText(String txtLooseCountText)
 	{
 		this.txtLooseCount.setText(txtLooseCountText);
+		this.txtLooseCount.paintImmediately(txtLooseCount.getVisibleRect());
 	}
 
 	public void setTxtDrawCountText(String txtDrawCountText)
 	{
 		this.txtDrawCount.setText(txtDrawCountText);
+		this.txtDrawCount.paintImmediately(txtDrawCount.getVisibleRect());
 	}
 
 	public void setLblConnectionStateText(String lblConnectionStateText)
 	{
 		this.lblConnectionState.setText(lblConnectionStateText);
+		this.lblConnectionState.paintImmediately(lblConnectionState.getVisibleRect());
 	}
 
 	public void setLblGameStateText(String lblGameStateText)
 	{
 		this.lblGameState.setText(lblGameStateText);
+		this.lblGameState.paintImmediately(lblGameState.getVisibleRect());
 	}
 
 	public void setLblGameField00Text(String lblGameField00Text)
 	{
 		this.lblGameField00.setText(lblGameField00Text);
+		this.lblGameField00.paintImmediately(lblGameField00.getVisibleRect());
 	}
 
 	public void setLblGameField01Text(String lblGameField01Text)
 	{
 		this.lblGameField01.setText(lblGameField01Text);
+		this.lblGameField01.paintImmediately(lblGameField01.getVisibleRect());
 	}
 
 	public void setLblGameField02Text(String lblGameField02Text)
 	{
 		this.lblGameField02.setText(lblGameField02Text);
+		this.lblGameField02.paintImmediately(lblGameField02.getVisibleRect());
 	}
 
 	public void setLblGameField10Text(String lblGameField10Text)
 	{
 		this.lblGameField10.setText(lblGameField10Text);
+		this.lblGameField00.paintImmediately(lblGameField00.getVisibleRect());
 	}
 
 	public void setLblGameField11Text(String lblGameField11Text)
 	{
 		this.lblGameField11.setText(lblGameField11Text);
+		this.lblGameField11.paintImmediately(lblGameField11.getVisibleRect());
 	}
 
 	public void setLblGameField12Text(String lblGameField12Text)
 	{
 		this.lblGameField12.setText(lblGameField12Text);
+		this.lblGameField12.paintImmediately(lblGameField12.getVisibleRect());
 	}
 
 	public void setLblGameField20Text(String lblGameField20Text)
 	{
 		this.lblGameField20.setText(lblGameField20Text);
+		this.lblGameField20.paintImmediately(lblGameField20.getVisibleRect());
 	}
 
 	public void setLblGameField21Text(String lblGameField21Text)
 	{
 		this.lblGameField21.setText(lblGameField21Text);
+		this.lblGameField21.paintImmediately(lblGameField21.getVisibleRect());
 	}
 
 	public void setLblGameField22Text(String lblGameField22Text)
 	{
 		this.lblGameField22.setText(lblGameField22Text);
+		this.lblGameField22.paintImmediately(lblGameField22.getVisibleRect());
 	}
 
 	public void setLblPlayerInfoText(String lblPlayerInfoText)
 	{
 		this.lblPlayerInfo.setText(lblPlayerInfoText);
+		this.lblPlayerInfo.paintImmediately(lblPlayerInfo.getVisibleRect());
 	}
 }
