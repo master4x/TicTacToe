@@ -370,12 +370,6 @@ public class MainWindow
 	{
 		//TODO addTableRow / setTblGameStats
 	}
-	
-	public void setTxtYourIpText(String txtYourIpText)
-	{
-		this.txtYourIp.setText(txtYourIpText);
-		this.txtYourIp.paintImmediately(txtYourIp.getVisibleRect());
-	}
 
 	public void setTxtWinCountText(String txtWinCountText)
 	{
@@ -393,6 +387,12 @@ public class MainWindow
 	{
 		this.txtDrawCount.setText(txtDrawCountText);
 		this.txtDrawCount.paintImmediately(txtDrawCount.getVisibleRect());
+	}
+	
+	public void setTxtYourIpText(String txtYourIpText)
+	{
+		this.txtYourIp.setText(txtYourIpText);
+		this.txtYourIp.paintImmediately(txtYourIp.getVisibleRect());
 	}
 
 	public void setLblConnectionStateText(String lblConnectionStateText)
