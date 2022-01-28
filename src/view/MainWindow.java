@@ -20,20 +20,14 @@ import javax.swing.table.DefaultTableModel;
 import data.NetworkHandler;
 
 import javax.swing.JScrollPane;
-import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
-import javax.swing.JSeparator;
-import java.awt.Button;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 import logic.Game;
 import logic.Players;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author Leon Kelle
@@ -71,7 +65,6 @@ public class MainWindow
 		initialize();
 	}
 
-
 	/*
 	 * Singleton
 	 */
@@ -93,6 +86,7 @@ public class MainWindow
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize()
 	{
 		frmTicTacToe = new JFrame();
@@ -143,8 +137,9 @@ public class MainWindow
 			{
 				if (txtOpponentsIp.getText().isEmpty() == false)
 				{
-					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(), txtOpponentsIp.getText());
-					
+					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(),
+						txtOpponentsIp.getText());
+
 					lblOpponentsIp.setEnabled(false);
 					txtOpponentsIp.setEnabled(false);
 					cbPlayerSelector.setEnabled(false);
@@ -358,13 +353,7 @@ public class MainWindow
 
 		tblGameStats = new JTable();
 		tblGameStats.setModel(
-			new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Game Number", "Match Result", "Opponent IP"
-			}
-		));
+			new DefaultTableModel(new Object[][] {}, new String[] { "Game Number", "Match Result", "Opponent IP" }));
 		tblGameStats.getColumnModel().getColumn(0).setPreferredWidth(94);
 		tblGameStats.getColumnModel().getColumn(1).setPreferredWidth(91);
 		tblGameStats.getColumnModel().getColumn(2).setPreferredWidth(109);
@@ -372,20 +361,15 @@ public class MainWindow
 	}
 
 	public void addTblGameStatsRow(String[][] rowData)
-	{	
-		DefaultTableModel tableModel = new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Game Number", "Match Result", "Opponent IP"
-			}
-		);
-		
+	{
+		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
+			new String[] { "Game Number", "Match Result", "Opponent IP" });
+
 		for (int i = 0; i < rowData.length; i++)
 		{
-			tableModel.addRow(new Object[]{ rowData[i][0], rowData[i][1], rowData[i][2] });
+			tableModel.addRow(new Object[] { rowData[i][0], rowData[i][1], rowData[i][2] });
 		}
-		
+
 		this.tblGameStats.setModel(tableModel);
 		this.tblGameStats.paintImmediately(tblGameStats.getVisibleRect());
 	}
@@ -407,7 +391,7 @@ public class MainWindow
 		this.txtDrawCount.setText(txtDrawCountText);
 		this.txtDrawCount.paintImmediately(txtDrawCount.getVisibleRect());
 	}
-	
+
 	public void setTxtYourIpText(String txtYourIpText)
 	{
 		this.txtYourIp.setText(txtYourIpText);
