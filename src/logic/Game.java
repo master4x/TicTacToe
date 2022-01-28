@@ -75,9 +75,7 @@ public class Game
 
 	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
-	{
-		// TODO Update GUI gameOver()
-		// TODO save CSV gameOver()
+	{		
 		switch (gameState)
 		{
 			case GameOver_Draw:
@@ -88,6 +86,10 @@ public class Game
 				break;
 		}
 
+		MainWindow.getInstance().setLblPlayerInfoText(gameState.toString()); // TODO add nice formatting
+		
+		// TODO save CSV gameOver()
+		
 		setGameState(GameState.NoGameActive);
 	}
 
@@ -191,6 +193,8 @@ public class Game
 			}
 			else if (gameState == GameState.CheckPlayersGameField)
 			{
+				MainWindow.getInstance().setLblPlayerInfoText(new String());
+				
 				setGameState(GameState.AwaitingOpponentsGameField);
 			}
 		}
@@ -208,6 +212,9 @@ public class Game
 			{
 				case AwaitingOpponentsGameField:
 					reveiveGameField();
+					break;
+				case AwaitingPlayersGameField:
+					MainWindow.getInstance().setLblPlayerInfoText(gameState.toString()); // TODO nice formatting + extra func
 					break;
 				case CheckOpponentsGameField:
 					checkGameField();
