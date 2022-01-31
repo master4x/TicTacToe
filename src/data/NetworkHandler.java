@@ -136,11 +136,6 @@ public class NetworkHandler
 
 		return integers;
 	}
-
-	public String getLocalIp()
-	{	
-		return localIp;
-	}
 	
 	private void setLocalIp()
 	{
@@ -152,5 +147,10 @@ public class NetworkHandler
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public String getLocalIp()
+	{	
+		return localIp;
 	}
 }
