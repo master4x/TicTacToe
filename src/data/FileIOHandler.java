@@ -96,7 +96,7 @@ public class FileIOHandler
 	{
 		int drawCount = 0, looseCount = 0, winCount = 0;
 
-		for (String[] sessionInfo : statistics) // TODO no stats counted
+		for (String[] sessionInfo : statistics)
 		{
 			switch (sessionInfo[1])
 			{
