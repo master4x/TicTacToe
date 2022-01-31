@@ -116,7 +116,6 @@ public class FileIOHandler
 		}
 		
 		MainWindow mainWindowInstance = MainWindow.getInstance();
-		
 		mainWindowInstance.setTxtDrawCountText(Integer.toString(drawCount));
 		mainWindowInstance.setTxtLooseCountText(Integer.toString(looseCount));
 		mainWindowInstance.setTxtWinCountText(Integer.toString(winCount));
