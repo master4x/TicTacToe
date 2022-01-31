@@ -14,6 +14,7 @@ public class Game
 {
 	private static volatile Game instance;
 	private int[][] gameField = new int[3][3];
+	private String opponentIp;
 	private GameState gameState;
 	private Players player;
 
@@ -43,6 +44,7 @@ public class Game
 	public void startGame(Players player, String ipAdress)
 	{
 		this.player = player;
+		this.opponentIp = ipAdress;
 
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
 
@@ -88,7 +90,7 @@ public class Game
 
 		MainWindow.getInstance().setLblPlayerInfoText(gameState.toString()); // TODO add nice formatting
 		
-		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), null); // TODO get opponent IP
+		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), this.opponentIp);
 		FileIOHandler.getInstance().writeCSVFile();
 		
 		setGameState(GameState.NoGameActive);
