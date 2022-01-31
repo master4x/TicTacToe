@@ -16,6 +16,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import data.NetworkHandler;
+
 import javax.swing.JScrollPane;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
@@ -169,7 +172,8 @@ public class MainWindow
 		JLabel lblYourIp = new JLabel("Your IP:");
 		pnlCenterCol.add(lblYourIp);
 
-		txtYourIp = new JTextField();
+		JTextField txtYourIp = new JTextField();
+		txtYourIp.setText(NetworkHandler.getInstance().getLocalIp());
 		txtYourIp.setEditable(false);
 		pnlCenterCol.add(txtYourIp);
 		txtYourIp.setColumns(12);
@@ -378,12 +382,6 @@ public class MainWindow
 	{
 		this.txtDrawCount.setText(txtDrawCountText);
 		this.txtDrawCount.paintImmediately(txtDrawCount.getVisibleRect());
-	}
-
-	public void setTxtYourIpText(String txtYourIpText)
-	{
-		this.txtYourIp.setText(txtYourIpText);
-		this.txtYourIp.paintImmediately(txtYourIp.getVisibleRect());
 	}
 
 	public void setLblConnectionStateText(String lblConnectionStateText)

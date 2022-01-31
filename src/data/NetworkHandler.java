@@ -20,7 +20,7 @@ public class NetworkHandler
 	private static volatile NetworkHandler instance;
 	private DatagramSocket networkSocket;
 	private InetAddress hostAdress;
-	private String localIp;
+	private String localIp, opponentIp;
 	private int port = 18911;
 
 	private NetworkHandler()
@@ -50,6 +50,7 @@ public class NetworkHandler
 	{
 		try
 		{
+			this.opponentIp = ipAdress;
 			this.networkSocket = new DatagramSocket(port);
 			this.hostAdress = InetAddress.getByName(ipAdress);
 			
@@ -152,5 +153,10 @@ public class NetworkHandler
 	public String getLocalIp()
 	{	
 		return localIp;
+	}
+	
+	public String getOpponentIp()
+	{	
+		return opponentIp;
 	}
 }
