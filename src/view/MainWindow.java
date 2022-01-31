@@ -360,7 +360,7 @@ public class MainWindow
 		scrlStatsTable.setViewportView(tblGameStats);
 	}
 
-	public void addTblGameStatsRow(String[][] rowData)
+	public void addTblGameStatsRows(String[][] rowData)
 	{
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
 			new String[] { "Game Number", "Match Result", "Opponent IP" });
