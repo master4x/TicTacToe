@@ -87,8 +87,6 @@ public class Game
 			case GameOver_Win:
 				break;
 		}
-
-		MainWindow.getInstance().setLblPlayerInfoText(gameState.toString()); // TODO add nice formatting
 		
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), this.opponentIp);
 		FileIOHandler.getInstance().writeCSVFile();
@@ -196,8 +194,6 @@ public class Game
 			}
 			else if (gameState == GameState.CheckPlayersGameField)
 			{
-				MainWindow.getInstance().setLblPlayerInfoText(new String());
-				
 				setGameState(GameState.AwaitingOpponentsGameField);
 			}
 		}
@@ -217,7 +213,6 @@ public class Game
 					reveiveGameField();
 					break;
 				case AwaitingPlayersGameField:
-					MainWindow.getInstance().setLblPlayerInfoText(gameState.toString()); // TODO nice formatting + extra func
 					break;
 				case CheckOpponentsGameField:
 					checkGameField();

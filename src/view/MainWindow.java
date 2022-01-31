@@ -30,6 +30,8 @@ import javax.swing.DefaultComboBoxModel;
 
 import logic.Game;
 import logic.Players;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 /**
  * @author Leon Kelle
@@ -41,7 +43,6 @@ public class MainWindow
 {
 	private static volatile MainWindow instance;
 	public JFrame frmTicTacToe;
-	private JTextField txtYourIp;
 	private JTable tblGameStats;
 	private JTextField txtWinCount;
 	private JTextField txtLooseCount;
@@ -57,7 +58,7 @@ public class MainWindow
 	private JLabel lblGameField20;
 	private JLabel lblGameField21;
 	private JLabel lblGameField22;
-	private JLabel lblPlayerInfo;
+	private JTextField txtYourIp;
 
 	/**
 	 * Create the application.
@@ -92,11 +93,11 @@ public class MainWindow
 	private void initialize()
 	{
 		frmTicTacToe = new JFrame();
-		frmTicTacToe.setMinimumSize(new Dimension(650, 400));
+		frmTicTacToe.setMinimumSize(new Dimension(500, 400));
 		frmTicTacToe.setTitle("TicTacToe");
 		frmTicTacToe.setIconImage(Toolkit.getDefaultToolkit()
 			.getImage(MainWindow.class.getResource("/org/eclipse/jface/dialogs/images/title_banner.png")));
-		frmTicTacToe.setBounds(100, 100, 548, 384);
+		frmTicTacToe.setBounds(100, 100, 500, 400);
 		frmTicTacToe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JTabbedPane pneNavBar = new JTabbedPane(JTabbedPane.TOP);
@@ -116,20 +117,21 @@ public class MainWindow
 		pnlTabGame.add(pnlTopRow, BorderLayout.NORTH);
 		pnlTopRow.setLayout(new BorderLayout(0, 0));
 
-		JPanel pnlLeftCol = new JPanel();
-		pnlTopRow.add(pnlLeftCol);
+		JPanel pnlTopCol = new JPanel();
+		pnlTopRow.add(pnlTopCol);
 
 		JLabel lblOpponentsIp = new JLabel("Opponent's IP:");
-		pnlLeftCol.add(lblOpponentsIp);
+		pnlTopCol.add(lblOpponentsIp);
 
 		JTextField txtOpponentsIp = new JTextField();
-		pnlLeftCol.add(txtOpponentsIp);
-		txtOpponentsIp.setColumns(10);
+		pnlTopCol.add(txtOpponentsIp);
+		txtOpponentsIp.setColumns(15);
 
 		JComboBox cbPlayerSelector = new JComboBox();
+		cbPlayerSelector.setMaximumRowCount(10);
 		cbPlayerSelector.setModel(new DefaultComboBoxModel(Players.values()));
 		cbPlayerSelector.setSelectedIndex(0);
-		pnlLeftCol.add(cbPlayerSelector);
+		pnlTopCol.add(cbPlayerSelector);
 
 		JButton btnConnect = new JButton("Connect");
 		btnConnect.addMouseListener(new MouseAdapter()
@@ -149,37 +151,35 @@ public class MainWindow
 				}
 			}
 		});
-		pnlLeftCol.add(btnConnect);
-
-		JPanel pnlRightCol = new JPanel();
-		pnlTopRow.add(pnlRightCol, BorderLayout.EAST);
-
-		JLabel lblYourIp = new JLabel("Your IP:");
-		pnlRightCol.add(lblYourIp);
-
-		txtYourIp = new JTextField();
-		txtYourIp.setHorizontalAlignment(SwingConstants.CENTER);
-		txtYourIp.setText(NetworkHandler.getInstance().getLocalIp());
-		txtYourIp.setEditable(false);
-		pnlRightCol.add(txtYourIp);
-		txtYourIp.setColumns(10);
+		pnlTopCol.add(btnConnect);
 
 		JPanel pnlBottomRow = new JPanel();
 		pnlBottomRow.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		pnlTabGame.add(pnlBottomRow, BorderLayout.SOUTH);
 		pnlBottomRow.setLayout(new BorderLayout(0, 0));
 
-		JPanel pnlLeftOuterCol = new JPanel();
-		pnlBottomRow.add(pnlLeftOuterCol, BorderLayout.WEST);
+		JPanel pnlLeftCol = new JPanel();
+		pnlBottomRow.add(pnlLeftCol, BorderLayout.WEST);
 
 		lblConnectionState = new JLabel("Not connected");
-		pnlLeftOuterCol.add(lblConnectionState);
+		pnlLeftCol.add(lblConnectionState);
 
-		JPanel pnlRightOuterCol = new JPanel();
-		pnlBottomRow.add(pnlRightOuterCol, BorderLayout.EAST);
+		JPanel pnlRightCol = new JPanel();
+		pnlBottomRow.add(pnlRightCol, BorderLayout.EAST);
 
 		lblGameState = new JLabel("GameState");
-		pnlRightOuterCol.add(lblGameState);
+		pnlRightCol.add(lblGameState);
+		
+		JPanel pnlCenterCol = new JPanel();
+		pnlBottomRow.add(pnlCenterCol, BorderLayout.CENTER);
+		
+		JLabel lblYourIp = new JLabel("Your IP:");
+		pnlCenterCol.add(lblYourIp);
+		
+		txtYourIp = new JTextField();
+		txtYourIp.setEditable(false);
+		pnlCenterCol.add(txtYourIp);
+		txtYourIp.setColumns(12);
 
 		JPanel pnlMiddleRow = new JPanel();
 		pnlTabGame.add(pnlMiddleRow, BorderLayout.CENTER);
@@ -192,7 +192,7 @@ public class MainWindow
 
 		JPanel pnlGameField = new JPanel();
 		pnlGameField.setBorder(new EmptyBorder(0, 25, 0, 25));
-		pnlCenterContainer.add(pnlGameField, BorderLayout.WEST);
+		pnlCenterContainer.add(pnlGameField, BorderLayout.CENTER);
 		pnlGameField.setLayout(new GridLayout(3, 3, 50, 0));
 
 		lblGameField00 = new JLabel("0");
@@ -208,6 +208,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField00);
 
 		lblGameField01 = new JLabel("0");
+		lblGameField01.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGameField01.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -301,14 +302,6 @@ public class MainWindow
 		});
 		lblGameField22.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(lblGameField22);
-
-		JPanel pnlGameInfo = new JPanel();
-		pnlCenterContainer.add(pnlGameInfo, BorderLayout.EAST);
-		pnlGameInfo.setLayout(new BorderLayout(0, 0));
-
-		lblPlayerInfo = new JLabel();
-		lblPlayerInfo.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameInfo.add(lblPlayerInfo);
 
 		JPanel pnlTabStats = new JPanel();
 		pnlTabStats.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -464,11 +457,5 @@ public class MainWindow
 	{
 		this.lblGameField22.setText(lblGameField22Text);
 		this.lblGameField22.paintImmediately(lblGameField22.getVisibleRect());
-	}
-
-	public void setLblPlayerInfoText(String lblPlayerInfoText)
-	{
-		this.lblPlayerInfo.setText(lblPlayerInfoText);
-		this.lblPlayerInfo.paintImmediately(lblPlayerInfo.getVisibleRect());
 	}
 }
