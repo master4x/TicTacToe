@@ -72,7 +72,7 @@ public class FileIOHandler
 		countGameStatistics();
 	}
 
-	public void writeCSVFile()
+	private void writeCSVFile()
 	{
 		try
 		{
@@ -128,5 +128,7 @@ public class FileIOHandler
 		sessionInfo[2] = opponentIp;
 
 		this.statistics.add(sessionInfo);
+		
+		writeCSVFile();
 	}
 }

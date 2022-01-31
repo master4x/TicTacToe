@@ -87,7 +87,6 @@ public class Game
 		}
 
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
-		FileIOHandler.getInstance().writeCSVFile(); // TODO move
 
 		setGameState(GameState.NoGameActive);
 	}
