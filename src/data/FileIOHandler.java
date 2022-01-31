@@ -120,7 +120,7 @@ public class FileIOHandler
 		MainWindow.getInstance().setTxtWinCountText(Integer.toString(winCount));
 	}
 	
-	public void addStatistics(GameState gameState, String opponentIp)
+	public void addSessionInfo(GameState gameState, String opponentIp)
 	{
 		String[] sessionInfo = new String[3];
 		
