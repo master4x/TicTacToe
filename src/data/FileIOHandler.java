@@ -19,7 +19,6 @@ public class FileIOHandler
 	private static volatile FileIOHandler instance;
 	private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\";
 	private String file = "TicTacToe.csv";
-	private String pathAndFileName = path + file;
 
 	private FileIOHandler()
 	{
@@ -47,7 +46,7 @@ public class FileIOHandler
 	{
 		ArrayList<String> fileAsList = new ArrayList<>();
 
-		try (FileReader fileReader = new FileReader(pathAndFileName);
+		try (FileReader fileReader = new FileReader(path + file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);)
 		{
 			String line = bufferedReader.readLine(); // Read first Line
@@ -68,7 +67,7 @@ public class FileIOHandler
 
 	public void writeFile()
 	{
-		try (FileWriter fileWriter = new FileWriter(pathAndFileName);
+		try (FileWriter fileWriter = new FileWriter(path + file);
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
 		{
 			bufferedWriter.write("Erste Zeile");
