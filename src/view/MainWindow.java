@@ -23,6 +23,8 @@ import javax.swing.JScrollPane;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -360,14 +362,14 @@ public class MainWindow
 		scrlStatsTable.setViewportView(tblGameStats);
 	}
 
-	public void addTblGameStatsRows(String[][] rowData)
+	public void addTblGameStatsRows(ArrayList<String[]> statistics)
 	{
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
 			new String[] { "Game Number", "Match Result", "Opponent IP" });
-
-		for (int i = 0; i < rowData.length; i++)
+		
+		for (String[] sessionInfo : statistics)
 		{
-			tableModel.addRow(new Object[] { rowData[i][0], rowData[i][1], rowData[i][2] });
+			tableModel.addRow(new Object[] { sessionInfo[0], sessionInfo[1], sessionInfo[2] });
 		}
 
 		this.tblGameStats.setModel(tableModel);

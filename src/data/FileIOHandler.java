@@ -115,9 +115,12 @@ public class FileIOHandler
 			}
 		}
 		
-		MainWindow.getInstance().setTxtDrawCountText(Integer.toString(drawCount));
-		MainWindow.getInstance().setTxtLooseCountText(Integer.toString(looseCount));
-		MainWindow.getInstance().setTxtWinCountText(Integer.toString(winCount));
+		MainWindow mainWindowInstance = MainWindow.getInstance();
+		
+		mainWindowInstance.setTxtDrawCountText(Integer.toString(drawCount));
+		mainWindowInstance.setTxtLooseCountText(Integer.toString(looseCount));
+		mainWindowInstance.setTxtWinCountText(Integer.toString(winCount));
+		mainWindowInstance.addTblGameStatsRows(statistics);
 	}
 	
 	public void addSessionInfo(GameState gameState, String opponentIp)
