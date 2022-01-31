@@ -123,12 +123,12 @@ public class FileIOHandler
 		mainWindowInstance.addTblGameStatsRows(statistics);
 	}
 	
-	public void addSessionInfo(GameState gameState, String opponentIp)
+	public void addSessionInfo(String gameState, String opponentIp)
 	{
 		String[] sessionInfo = new String[3];
 		
 		sessionInfo[0] = Integer.toString(statistics.size()+1);
-		sessionInfo[1] = gameState.toString();
+		sessionInfo[1] = gameState;
 		sessionInfo[2] = opponentIp;
 		
 		this.statistics.add(sessionInfo);

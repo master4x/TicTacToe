@@ -88,7 +88,7 @@ public class Game
 
 		MainWindow.getInstance().setLblPlayerInfoText(gameState.toString()); // TODO add nice formatting
 		
-		FileIOHandler.getInstance().addSessionInfo(gameState, null); // TODO get opponent IP
+		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), null); // TODO get opponent IP
 		FileIOHandler.getInstance().writeCSVFile();
 		
 		setGameState(GameState.NoGameActive);
