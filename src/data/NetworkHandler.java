@@ -25,6 +25,7 @@ public class NetworkHandler
 
 	private NetworkHandler()
 	{
+		setLocalIp();
 	}
 
 	/*
@@ -39,7 +40,6 @@ public class NetworkHandler
 				if (instance == null)
 				{
 					instance = new NetworkHandler();
-					instance.setLocalIp(); //set localIP
 				}
 			}
 		}
