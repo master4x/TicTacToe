@@ -17,6 +17,7 @@ public class Startup
 	{
 		// Read File // TODO runnable?
 		FileIOHandler.getInstance().readCSVFile();
+		FileIOHandler.getInstance().writeCSVFile(); // TODO TEST removeme
 		
 		// Start MainWindow Thread
 		EventQueue.invokeLater(new Runnable()
