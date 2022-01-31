@@ -121,19 +121,19 @@ public class Game
 
 	private void appendGameField() // TODO clean rewrite appendGameField()
 	{
-		MainWindow mainWindow = MainWindow.getInstance();
+		MainWindow mainWindowInstance = MainWindow.getInstance();
 
 		// TODO use symbols to display in GUI | 1-O: \u274C 2-X: \u25EF
 
-		mainWindow.setLblGameField00Text(Integer.toString(gameField[0][0]));
-		mainWindow.setLblGameField01Text(Integer.toString(gameField[0][1]));
-		mainWindow.setLblGameField02Text(Integer.toString(gameField[0][2]));
-		mainWindow.setLblGameField10Text(Integer.toString(gameField[1][0]));
-		mainWindow.setLblGameField11Text(Integer.toString(gameField[1][1]));
-		mainWindow.setLblGameField12Text(Integer.toString(gameField[1][2]));
-		mainWindow.setLblGameField20Text(Integer.toString(gameField[2][0]));
-		mainWindow.setLblGameField21Text(Integer.toString(gameField[2][1]));
-		mainWindow.setLblGameField22Text(Integer.toString(gameField[2][2]));
+		mainWindowInstance.setLblGameField00Text(Integer.toString(gameField[0][0]));
+		mainWindowInstance.setLblGameField01Text(Integer.toString(gameField[0][1]));
+		mainWindowInstance.setLblGameField02Text(Integer.toString(gameField[0][2]));
+		mainWindowInstance.setLblGameField10Text(Integer.toString(gameField[1][0]));
+		mainWindowInstance.setLblGameField11Text(Integer.toString(gameField[1][1]));
+		mainWindowInstance.setLblGameField12Text(Integer.toString(gameField[1][2]));
+		mainWindowInstance.setLblGameField20Text(Integer.toString(gameField[2][0]));
+		mainWindowInstance.setLblGameField21Text(Integer.toString(gameField[2][1]));
+		mainWindowInstance.setLblGameField22Text(Integer.toString(gameField[2][2]));
 	}
 
 	private void checkGameField() // TODO clean rewrite checkGameField()
