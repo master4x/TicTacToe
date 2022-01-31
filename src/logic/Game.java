@@ -77,7 +77,7 @@ public class Game
 
 	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
-	{		
+	{
 		switch (gameState)
 		{
 			case GameOver_Draw:
@@ -87,10 +87,10 @@ public class Game
 			case GameOver_Win:
 				break;
 		}
-		
+
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), this.opponentIp);
 		FileIOHandler.getInstance().writeCSVFile();
-		
+
 		setGameState(GameState.NoGameActive);
 	}
 
@@ -139,14 +139,12 @@ public class Game
 
 	private void checkGameField() // TODO clean rewrite checkGameField()
 	{
-		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0
-			&& gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0
-			&& gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0
-			&& gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][2] != 0
-			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[1][1] != 0
-			&& gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[1][2] != 0
-			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0
-			&& gameField[0][2] != 0 && gameField[1][1] != 0 && gameField[2][0] != 0)
+		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0 && gameField[1][0] != 0
+			&& gameField[1][1] != 0 && gameField[1][2] != 0 && gameField[2][0] != 0 && gameField[2][1] != 0
+			&& gameField[2][2] != 0 && gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][2] != 0
+			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[1][1] != 0 && gameField[0][2] != 0
+			&& gameField[1][2] != 0 && gameField[1][2] != 0 && gameField[0][1] != 0 && gameField[1][1] != 0
+			&& gameField[2][2] != 0 && gameField[0][2] != 0 && gameField[1][1] != 0 && gameField[2][0] != 0)
 		{
 			setGameState(GameState.GameOver_Draw);
 		}

@@ -16,22 +16,15 @@ import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
-import data.NetworkHandler;
-
 import javax.swing.JScrollPane;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-
 import logic.Game;
 import logic.Players;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
 
 /**
  * @author Leon Kelle
@@ -169,13 +162,13 @@ public class MainWindow
 
 		lblGameState = new JLabel("GameState");
 		pnlRightCol.add(lblGameState);
-		
+
 		JPanel pnlCenterCol = new JPanel();
 		pnlBottomRow.add(pnlCenterCol, BorderLayout.CENTER);
-		
+
 		JLabel lblYourIp = new JLabel("Your IP:");
 		pnlCenterCol.add(lblYourIp);
-		
+
 		txtYourIp = new JTextField();
 		txtYourIp.setEditable(false);
 		pnlCenterCol.add(txtYourIp);
@@ -359,7 +352,7 @@ public class MainWindow
 	{
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
 			new String[] { "Game Number", "Match Result", "Opponent IP" });
-		
+
 		for (String[] sessionInfo : statistics)
 		{
 			tableModel.addRow(new Object[] { sessionInfo[0], sessionInfo[1], sessionInfo[2] });

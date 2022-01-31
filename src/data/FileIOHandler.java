@@ -6,10 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import javax.swing.filechooser.FileSystemView;
-
-import logic.GameState;
 import view.MainWindow;
 
 /**
@@ -52,7 +49,7 @@ public class FileIOHandler
 		try
 		{
 			File file = new File(path + fileName);
-			
+
 			if (file.exists())
 			{
 				Scanner fileReader = new Scanner(file);
@@ -71,7 +68,7 @@ public class FileIOHandler
 		{
 			e.printStackTrace();
 		}
-		
+
 		countGameStatistics();
 	}
 
@@ -98,8 +95,8 @@ public class FileIOHandler
 	private void countGameStatistics()
 	{
 		int drawCount = 0, looseCount = 0, winCount = 0;
-		
-		for (String[] sessionInfo : statistics) //TODO no stats counted
+
+		for (String[] sessionInfo : statistics) // TODO no stats counted
 		{
 			switch (sessionInfo[1])
 			{
@@ -114,22 +111,22 @@ public class FileIOHandler
 					break;
 			}
 		}
-		
+
 		MainWindow mainWindowInstance = MainWindow.getInstance();
 		mainWindowInstance.setTxtDrawCountText(Integer.toString(drawCount));
 		mainWindowInstance.setTxtLooseCountText(Integer.toString(looseCount));
 		mainWindowInstance.setTxtWinCountText(Integer.toString(winCount));
 		mainWindowInstance.addTblGameStatsRows(statistics);
 	}
-	
+
 	public void addSessionInfo(String gameState, String opponentIp)
 	{
 		String[] sessionInfo = new String[3];
-		
-		sessionInfo[0] = Integer.toString(statistics.size()+1);
+
+		sessionInfo[0] = Integer.toString(statistics.size() + 1);
 		sessionInfo[1] = gameState;
 		sessionInfo[2] = opponentIp;
-		
+
 		this.statistics.add(sessionInfo);
 	}
 }
