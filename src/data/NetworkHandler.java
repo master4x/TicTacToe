@@ -146,9 +146,7 @@ public class NetworkHandler
 	{
 		try
 		{
-			String localhostNameIp = InetAddress.getLocalHost().toString(); // TODO get IP of current used adapter
-			String localhostIp[] = localhostNameIp.split("/");
-			this.localIp = localhostIp[1];
+			this.localIp = InetAddress.getLocalHost().getHostAddress(); // TODO get IP of current used adapter
 		}
 		catch (UnknownHostException e)
 		{
