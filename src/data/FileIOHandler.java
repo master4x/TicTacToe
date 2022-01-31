@@ -83,7 +83,7 @@ public class FileIOHandler
 
 			for (String[] sessionInfo : statistics)
 			{
-				fileWriter.write(sessionInfo[0] + "; " + sessionInfo[1] + "; " + sessionInfo[2]);
+				fileWriter.write(sessionInfo[0] + ";" + sessionInfo[1] + ";" + sessionInfo[2]);
 				fileWriter.write(System.getProperty("line.separator"));
 			}
 
@@ -99,7 +99,7 @@ public class FileIOHandler
 	{
 		int drawCount = 0, looseCount = 0, winCount = 0;
 		
-		for (String[] sessionInfo : statistics)
+		for (String[] sessionInfo : statistics) //TODO no stats counted
 		{
 			switch (sessionInfo[1])
 			{
