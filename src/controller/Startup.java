@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.EventQueue;
 
+import data.FileIOHandler;
 import view.MainWindow;
 
 /**
@@ -14,6 +15,9 @@ public class Startup
 {
 	public static void main(String[] args)
 	{
+		// Read File // TODO runnable?
+		FileIOHandler.getInstance().readCSVFile();
+		
 		// Start MainWindow Thread
 		EventQueue.invokeLater(new Runnable()
 		{

@@ -1,12 +1,16 @@
 package data;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.swing.filechooser.FileSystemView;
+
+import logic.GameState;
+import view.MainWindow;
 
 /**
  * @author Leon Kelle
@@ -18,7 +22,8 @@ public class FileIOHandler
 {
 	private static volatile FileIOHandler instance;
 	private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\";
-	private String file = "TicTacToe.csv";
+	private String fileName = "TicTacToe.csv";
+	private ArrayList<String[]> statistics = new ArrayList<String[]>();
 
 	private FileIOHandler()
 	{
@@ -42,42 +47,87 @@ public class FileIOHandler
 		return instance;
 	}
 
-	public ArrayList<String> readFile()
+	public void readCSVFile()
 	{
-		ArrayList<String> fileAsList = new ArrayList<>();
-
-		try (FileReader fileReader = new FileReader(path + file);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);)
+		try
 		{
-			String line = bufferedReader.readLine(); // Read first Line
-
-			while (line != null)
+			File file = new File(path + fileName);
+			
+			if (file.exists())
 			{
-				fileAsList.add(line);
-				line = bufferedReader.readLine();
+				Scanner fileReader = new Scanner(file);
+
+				while (fileReader.hasNextLine())
+				{
+					String sessionInfo[] = fileReader.nextLine().split(";");
+
+					statistics.add(sessionInfo);
+				}
+
+				fileReader.close();
 			}
 		}
-		catch (IOException e)
+		catch (FileNotFoundException e)
 		{
 			e.printStackTrace();
 		}
-
-		return fileAsList;
+		
+		countGameStatistics();
 	}
 
-	public void writeFile()
+	public void writeCSVFile()
 	{
-		try (FileWriter fileWriter = new FileWriter(path + file);
-			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
+		try
 		{
-			bufferedWriter.write("Erste Zeile");
-			bufferedWriter.newLine(); // LineBreak
-			bufferedWriter.write("Zweite Zeile, die ein wenig länger ist.");
-			bufferedWriter.flush();
+			FileWriter fileWriter = new FileWriter(path + fileName);
+
+			for (String[] sessionInfo : statistics)
+			{
+				fileWriter.write(sessionInfo[0] + "; " + sessionInfo[1] + "; " + sessionInfo[2]);
+				fileWriter.write(System.getProperty("line.separator"));
+			}
+
+			fileWriter.close();
 		}
 		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
+	}
+
+	private void countGameStatistics()
+	{
+		int drawCount = 0, looseCount = 0, winCount = 0;
+		
+		for (String[] sessionInfo : statistics)
+		{
+			switch (sessionInfo[1])
+			{
+				case "GameOver_Draw":
+					drawCount++;
+					break;
+				case "GameOver_Loose":
+					looseCount++;
+					break;
+				case "GameOver_Win":
+					winCount++;
+					break;
+			}
+		}
+		
+		MainWindow.getInstance().setTxtDrawCountText(Integer.toString(drawCount));
+		MainWindow.getInstance().setTxtLooseCountText(Integer.toString(looseCount));
+		MainWindow.getInstance().setTxtWinCountText(Integer.toString(winCount));
+	}
+	
+	public void addStatistics(GameState gameState, String opponentIp)
+	{
+		String[] sessionInfo = new String[3];
+		
+		sessionInfo[0] = Integer.toString(statistics.size()+1);
+		sessionInfo[1] = gameState.toString();
+		sessionInfo[2] = opponentIp;
+		
+		this.statistics.add(sessionInfo);
 	}
 }
