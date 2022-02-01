@@ -172,10 +172,11 @@ public class MainWindow
 		pnlCenterCol.add(lblYourIp);
 
 		JTextField txtYourIp = new JTextField();
+		txtYourIp.setHorizontalAlignment(SwingConstants.CENTER);
 		txtYourIp.setText(NetworkHandler.getInstance().getLocalIp());
 		txtYourIp.setEditable(false);
 		pnlCenterCol.add(txtYourIp);
-		txtYourIp.setColumns(12);
+		txtYourIp.setColumns(9);
 
 		JPanel pnlMiddleRow = new JPanel();
 		pnlTabGame.add(pnlMiddleRow, BorderLayout.CENTER);
