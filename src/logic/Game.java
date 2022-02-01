@@ -88,7 +88,7 @@ public class Game
 
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
 
-		setGameState(GameState.NoGameActive);
+		//setGameState(GameState.NoGameActive);
 	}
 
 	public void applyPlayerMove(int row, int column)
