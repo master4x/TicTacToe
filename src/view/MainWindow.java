@@ -164,13 +164,13 @@ public class MainWindow
 			{
 				if (txtOpponentsIp.getText().isEmpty() == false)
 				{
-					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(),
-						txtOpponentsIp.getText());
-
 					lblOpponentsIp.setEnabled(false);
 					txtOpponentsIp.setEnabled(false);
 					cbPlayerSelector.setEnabled(false);
 					btnConnect.setEnabled(false);
+					
+					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(),
+						txtOpponentsIp.getText());
 				}
 			}
 		});

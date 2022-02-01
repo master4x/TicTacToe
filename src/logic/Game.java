@@ -52,7 +52,7 @@ public class Game
 				setGameState(GameState.AwaitingPlayersGameField);
 				break;
 			case Player2:
-				setGameState(GameState.AwaitingOpponentsGameField);
+				setGameState(GameState.AwaitingOpponentsGameField); // TODO AwaitingOpponentsGameField to Runnable
 				break;
 		}
 	}
