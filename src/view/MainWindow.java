@@ -54,7 +54,6 @@ public class MainWindow
 	private JLabel lblGameField20;
 	private JLabel lblGameField21;
 	private JLabel lblGameField22;
-	private JTextField txtYourIp;
 
 	/**
 	 * Create the application.
