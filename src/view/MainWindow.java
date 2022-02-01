@@ -28,6 +28,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import logic.Game;
 import logic.Players;
+import javax.swing.UIManager;
 
 /**
  * @author Leon Kelle
@@ -190,9 +191,10 @@ public class MainWindow
 		JPanel pnlGameField = new JPanel();
 		pnlGameField.setBorder(new EmptyBorder(0, 25, 0, 25));
 		pnlCenterContainer.add(pnlGameField, BorderLayout.CENTER);
-		pnlGameField.setLayout(new GridLayout(3, 3, 50, 0));
+		pnlGameField.setLayout(new GridLayout(3, 3, 0, 0));
 
 		lblGameField00 = new JLabel("0");
+		lblGameField00.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField00.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -205,6 +207,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField00);
 
 		lblGameField01 = new JLabel("0");
+		lblGameField01.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField01.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGameField01.addMouseListener(new MouseAdapter()
 		{
@@ -217,6 +220,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField01);
 
 		lblGameField02 = new JLabel("0");
+		lblGameField02.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField02.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -229,6 +233,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField02);
 
 		lblGameField10 = new JLabel("0");
+		lblGameField10.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField10.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -241,6 +246,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField10);
 
 		lblGameField11 = new JLabel("0");
+		lblGameField11.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField11.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -253,6 +259,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField11);
 
 		lblGameField12 = new JLabel("0");
+		lblGameField12.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField12.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -265,6 +272,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField12);
 
 		lblGameField20 = new JLabel("0");
+		lblGameField20.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField20.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -277,6 +285,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField20);
 
 		lblGameField21 = new JLabel("0");
+		lblGameField21.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField21.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -289,6 +298,7 @@ public class MainWindow
 		pnlGameField.add(lblGameField21);
 
 		lblGameField22 = new JLabel("0");
+		lblGameField22.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField22.addMouseListener(new MouseAdapter()
 		{
 			@Override
