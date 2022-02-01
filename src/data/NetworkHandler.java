@@ -53,9 +53,10 @@ public class NetworkHandler
 			this.opponentIp = ipAdress;
 			this.networkSocket = new DatagramSocket(port);
 			this.hostAdress = InetAddress.getByName(ipAdress);
-			
+
 			MainWindow.getInstance().setLblConnectionStateText(ipAdress);
-		} catch (SocketException | UnknownHostException e)
+		}
+		catch (SocketException | UnknownHostException e)
 		{
 			e.printStackTrace();
 		}
@@ -70,7 +71,8 @@ public class NetworkHandler
 		try
 		{
 			networkSocket.send(new DatagramPacket(messageBytes, messageBytes.length, hostAdress, port));
-		} catch (IOException e)
+		}
+		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
@@ -96,7 +98,8 @@ public class NetworkHandler
 				gameField = convertStringToIntArray(data);
 
 				break;
-			} catch (IOException e)
+			}
+			catch (IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -137,7 +140,7 @@ public class NetworkHandler
 
 		return integers;
 	}
-	
+
 	private void setLocalIp()
 	{
 		try
@@ -151,12 +154,12 @@ public class NetworkHandler
 	}
 
 	public String getLocalIp()
-	{	
+	{
 		return localIp;
 	}
-	
+
 	public String getOpponentIp()
-	{	
+	{
 		return opponentIp;
 	}
 }

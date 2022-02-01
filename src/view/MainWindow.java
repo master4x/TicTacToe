@@ -84,24 +84,31 @@ public class MainWindow
 		}
 		return instance;
 	}
-	
+
 	/*
 	 * Launch application
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void main(String[] args)
+	{
+		EventQueue.invokeLater(new Runnable()
+		{
+			public void run()
+			{
+				try
+				{
 					MainWindow window = MainWindow.getInstance();
 					window.frmTicTacToe.setVisible(true);
-					
+
 					FileIOHandler.getInstance().readCSVFile();
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+
 	/**
 	 * Initialize the contents of the frame.
 	 */

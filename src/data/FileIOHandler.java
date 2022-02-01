@@ -128,7 +128,7 @@ public class FileIOHandler
 		sessionInfo[2] = opponentIp;
 
 		this.statistics.add(sessionInfo);
-		
+
 		writeCSVFile();
 	}
 }
