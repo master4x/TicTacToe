@@ -315,25 +315,28 @@ public class MainWindow
 		pnlTopMain.add(lblWinCount);
 
 		txtWinCount = new JTextField();
+		txtWinCount.setHorizontalAlignment(SwingConstants.CENTER);
 		txtWinCount.setEditable(false);
 		pnlTopMain.add(txtWinCount);
-		txtWinCount.setColumns(10);
+		txtWinCount.setColumns(7);
 
 		JLabel lblLooseCount = new JLabel("Loose Count:");
 		pnlTopMain.add(lblLooseCount);
 
 		txtLooseCount = new JTextField();
+		txtLooseCount.setHorizontalAlignment(SwingConstants.CENTER);
 		txtLooseCount.setEditable(false);
 		pnlTopMain.add(txtLooseCount);
-		txtLooseCount.setColumns(10);
+		txtLooseCount.setColumns(7);
 
 		JLabel lblDrawCount = new JLabel("Draw Count:");
 		pnlTopMain.add(lblDrawCount);
 
 		txtDrawCount = new JTextField();
+		txtDrawCount.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDrawCount.setEditable(false);
 		pnlTopMain.add(txtDrawCount);
-		txtDrawCount.setColumns(10);
+		txtDrawCount.setColumns(7);
 
 		JPanel pnlCenterMain = new JPanel();
 		pnlTabStats.add(pnlCenterMain);
