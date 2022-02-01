@@ -163,7 +163,7 @@ public class MainWindow
 		JPanel pnlRightCol = new JPanel();
 		pnlBottomRow.add(pnlRightCol, BorderLayout.EAST);
 
-		lblGameState = new JLabel("GameState");
+		lblGameState = new JLabel("NoGameActive"); // TODO get by param
 		pnlRightCol.add(lblGameState);
 
 		JPanel pnlCenterCol = new JPanel();
@@ -328,7 +328,7 @@ public class MainWindow
 		txtWinCount.setHorizontalAlignment(SwingConstants.CENTER);
 		txtWinCount.setEditable(false);
 		pnlTopMain.add(txtWinCount);
-		txtWinCount.setColumns(7);
+		txtWinCount.setColumns(5);
 
 		JLabel lblLooseCount = new JLabel("Loose Count:");
 		pnlTopMain.add(lblLooseCount);
@@ -337,7 +337,7 @@ public class MainWindow
 		txtLooseCount.setHorizontalAlignment(SwingConstants.CENTER);
 		txtLooseCount.setEditable(false);
 		pnlTopMain.add(txtLooseCount);
-		txtLooseCount.setColumns(7);
+		txtLooseCount.setColumns(5);
 
 		JLabel lblDrawCount = new JLabel("Draw Count:");
 		pnlTopMain.add(lblDrawCount);
@@ -346,7 +346,7 @@ public class MainWindow
 		txtDrawCount.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDrawCount.setEditable(false);
 		pnlTopMain.add(txtDrawCount);
-		txtDrawCount.setColumns(7);
+		txtDrawCount.setColumns(5);
 
 		JPanel pnlCenterMain = new JPanel();
 		pnlTabStats.add(pnlCenterMain);
