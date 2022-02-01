@@ -11,12 +11,14 @@ import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import data.FileIOHandler;
 import data.NetworkHandler;
 
 import javax.swing.JScrollPane;
@@ -82,7 +84,24 @@ public class MainWindow
 		}
 		return instance;
 	}
-
+	
+	/*
+	 * Launch application
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainWindow window = MainWindow.getInstance();
+					window.frmTicTacToe.setVisible(true);
+					
+					FileIOHandler.getInstance().readCSVFile();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
