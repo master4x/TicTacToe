@@ -78,7 +78,7 @@ public class NetworkHandler
 		}
 	}
 
-	public int[][] receiveArray()
+	public int[][] receiveArray() // TODO Runnable
 	{
 		DatagramPacket datagramPacket;
 		String data;
