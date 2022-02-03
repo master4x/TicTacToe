@@ -178,12 +178,7 @@ public class Game
 		}
 		else if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0 // top row
 			&& gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0 // middle row
-			&& gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0 // bottom row
-			&& gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][0] != 0 // left col
-			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][1] != 0 // middle col
-			&& gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[2][2] != 0 // right col
-			&& gameField[0][0] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0 // TL to BR
-			&& gameField[2][0] != 0 && gameField[1][1] != 0 && gameField[0][2] != 0) // TR to BL
+			&& gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0) // bottom row
 		{
 			setGameState(GameState.GameOver_Draw);
 		}
