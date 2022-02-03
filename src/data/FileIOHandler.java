@@ -21,6 +21,7 @@ public class FileIOHandler
 	private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\";
 	private String fileName = "TicTacToe.csv";
 	private ArrayList<String[]> statistics = new ArrayList<String[]>();
+	private int drawCount = 0, looseCount = 0, winCount = 0;
 
 	private FileIOHandler()
 	{
@@ -70,6 +71,7 @@ public class FileIOHandler
 		}
 
 		countGameStatistics();
+		refreshGameStatisticsTable();
 	}
 
 	private void writeCSVFile()
@@ -94,31 +96,32 @@ public class FileIOHandler
 
 	private void countGameStatistics()
 	{
-		int drawCount = 0, looseCount = 0, winCount = 0;
-
 		for (String[] sessionInfo : statistics)
 		{
 			switch (sessionInfo[1])
 			{
 				case "GameOver_Draw":
-					drawCount++;
+					this.drawCount++;
 					break;
 				case "GameOver_Loose":
-					looseCount++;
+					this.looseCount++;
 					break;
 				case "GameOver_Win":
-					winCount++;
+					this.winCount++;
 					break;
 			}
 		}
-
-		MainWindow mainWindowInstance = MainWindow.getInstance();
-		mainWindowInstance.setTxtDrawCountText(Integer.toString(drawCount));
-		mainWindowInstance.setTxtLooseCountText(Integer.toString(looseCount));
-		mainWindowInstance.setTxtWinCountText(Integer.toString(winCount));
-		mainWindowInstance.addTblGameStatsRows(statistics);
 	}
 
+	public void refreshGameStatisticsTable()
+	{
+		MainWindow mainWindowInstance = MainWindow.getInstance();
+		mainWindowInstance.setTxtDrawCountText(Integer.toString(this.drawCount));
+		mainWindowInstance.setTxtLooseCountText(Integer.toString(this.looseCount));
+		mainWindowInstance.setTxtWinCountText(Integer.toString(this.winCount));
+		mainWindowInstance.addTblGameStatsRows(statistics);
+	}
+	
 	public void addSessionInfo(String gameState, String opponentIp)
 	{
 		String[] sessionInfo = new String[3];
@@ -129,6 +132,7 @@ public class FileIOHandler
 
 		this.statistics.add(sessionInfo);
 
+		refreshGameStatisticsTable();
 		writeCSVFile();
 	}
 }
