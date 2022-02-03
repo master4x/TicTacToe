@@ -30,8 +30,6 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import logic.Game;
 import logic.Players;
-import javax.swing.UIManager;
-import java.awt.Cursor;
 
 /**
  * @author Leon Kelle
