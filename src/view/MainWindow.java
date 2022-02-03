@@ -220,7 +220,7 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameField, BorderLayout.CENTER);
 		pnlGameField.setLayout(new GridLayout(3, 3, 0, 0));
 
-		lblGameField00 = new JLabel("0");
+		lblGameField00 = new JLabel("0"); // TODO switch JLabels to JButton[]
 		lblGameField00.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblGameField00.setBorder(UIManager.getBorder("CheckBox.border"));
 		lblGameField00.addMouseListener(new MouseAdapter()
