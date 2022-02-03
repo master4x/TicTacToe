@@ -118,7 +118,7 @@ public class Game
 		}
 	}
 
-	private void appendGameField() // TODO use symbols to display in GUI | 1-O: \u274C 2-X: \u25EF
+	private void appendGameField()
 	{
 		MainWindow mainWindow = MainWindow.getInstance();
 
@@ -126,7 +126,15 @@ public class Game
 		{
 			for (int m = 0; m < 3; m++)
 			{
-				mainWindow.setBtnGameFieldText(n, m, Integer.toString(gameField[n][m]));
+				switch (gameField[n][m])
+				{
+					case 1:
+						mainWindow.setBtnGameFieldText(n, m, "X");
+						break;
+					case 2:
+						mainWindow.setBtnGameFieldText(n, m, "O");
+						break;
+				}
 			}
 		}
 	}

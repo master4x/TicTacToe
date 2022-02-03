@@ -212,7 +212,7 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameField, BorderLayout.CENTER);
 		pnlGameField.setLayout(new GridLayout(3, 3, 0, 0));
 
-		btnGameField[0][0] = new JButton("0");
+		btnGameField[0][0] = new JButton();
 		btnGameField[0][0].addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -224,7 +224,7 @@ public class MainWindow
 		btnGameField[0][0].setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(btnGameField[0][0]);
 
-		btnGameField[0][1] = new JButton("0");
+		btnGameField[0][1] = new JButton();
 		btnGameField[0][1].setHorizontalAlignment(SwingConstants.CENTER);
 		btnGameField[0][1].addMouseListener(new MouseAdapter()
 		{
@@ -236,7 +236,7 @@ public class MainWindow
 		});
 		pnlGameField.add(btnGameField[0][1]);
 
-		btnGameField[0][2] = new JButton("0");
+		btnGameField[0][2] = new JButton();
 		btnGameField[0][2].addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -248,7 +248,7 @@ public class MainWindow
 		btnGameField[0][2].setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(btnGameField[0][2]);
 
-		btnGameField[1][0] = new JButton("0");
+		btnGameField[1][0] = new JButton();
 		btnGameField[1][0].addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -260,7 +260,7 @@ public class MainWindow
 		btnGameField[1][0].setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(btnGameField[1][0]);
 
-		btnGameField[1][1] = new JButton("0");
+		btnGameField[1][1] = new JButton();
 		btnGameField[1][1].addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -272,7 +272,7 @@ public class MainWindow
 		btnGameField[1][1].setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(btnGameField[1][1]);
 
-		btnGameField[1][2] = new JButton("0");
+		btnGameField[1][2] = new JButton();
 		btnGameField[1][2].addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -284,7 +284,7 @@ public class MainWindow
 		btnGameField[1][2].setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(btnGameField[1][2]);
 
-		btnGameField[2][0] = new JButton("0");
+		btnGameField[2][0] = new JButton();
 		btnGameField[2][0].addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -296,7 +296,7 @@ public class MainWindow
 		btnGameField[2][0].setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(btnGameField[2][0]);
 
-		btnGameField[2][1] = new JButton("0");
+		btnGameField[2][1] = new JButton();
 		btnGameField[2][1].addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -308,7 +308,7 @@ public class MainWindow
 		btnGameField[2][1].setHorizontalAlignment(SwingConstants.CENTER);
 		pnlGameField.add(btnGameField[2][1]);
 
-		btnGameField[2][2] = new JButton("0");
+		btnGameField[2][2] = new JButton();
 		btnGameField[2][2].addMouseListener(new MouseAdapter()
 		{
 			@Override
