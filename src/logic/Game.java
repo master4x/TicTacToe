@@ -118,21 +118,17 @@ public class Game
 		}
 	}
 
-	private void appendGameField() // TODO clean rewrite appendGameField()
+	private void appendGameField() // TODO use symbols to display in GUI | 1-O: \u274C 2-X: \u25EF
 	{
-		MainWindow mainWindowInstance = MainWindow.getInstance();
+		MainWindow mainWindow = MainWindow.getInstance();
 
-		// TODO use symbols to display in GUI | 1-O: \u274C 2-X: \u25EF
-
-		mainWindowInstance.setLblGameField00Text(Integer.toString(gameField[0][0]));
-		mainWindowInstance.setLblGameField01Text(Integer.toString(gameField[0][1]));
-		mainWindowInstance.setLblGameField02Text(Integer.toString(gameField[0][2]));
-		mainWindowInstance.setLblGameField10Text(Integer.toString(gameField[1][0]));
-		mainWindowInstance.setLblGameField11Text(Integer.toString(gameField[1][1]));
-		mainWindowInstance.setLblGameField12Text(Integer.toString(gameField[1][2]));
-		mainWindowInstance.setLblGameField20Text(Integer.toString(gameField[2][0]));
-		mainWindowInstance.setLblGameField21Text(Integer.toString(gameField[2][1]));
-		mainWindowInstance.setLblGameField22Text(Integer.toString(gameField[2][2]));
+		for (int n = 0; n < 3; n++)
+		{
+			for (int m = 0; m < 3; m++)
+			{
+				mainWindow.setBtnGameFieldText(n, m, Integer.toString(gameField[n][m]));
+			}
+		}
 	}
 
 	private void checkGameField() // TODO clean rewrite checkGameField()

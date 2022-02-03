@@ -49,15 +49,7 @@ public class MainWindow
 	private JTextField txtDrawCount;
 	private JLabel lblConnectionState;
 	private JLabel lblGameState;
-	private JLabel lblGameField00;
-	private JLabel lblGameField01;
-	private JLabel lblGameField02;
-	private JLabel lblGameField10;
-	private JLabel lblGameField11;
-	private JLabel lblGameField12;
-	private JLabel lblGameField20;
-	private JLabel lblGameField21;
-	private JLabel lblGameField22;
+	private JButton[][] btnGameField = new JButton[3][3];
 
 	/**
 	 * Create the application.
@@ -220,10 +212,8 @@ public class MainWindow
 		pnlCenterContainer.add(pnlGameField, BorderLayout.CENTER);
 		pnlGameField.setLayout(new GridLayout(3, 3, 0, 0));
 
-		lblGameField00 = new JLabel("0"); // TODO switch JLabels to JButton[]
-		lblGameField00.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField00.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField00.addMouseListener(new MouseAdapter()
+		btnGameField[0][0] = new JButton("0");
+		btnGameField[0][0].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -231,14 +221,12 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(0, 0);
 			}
 		});
-		lblGameField00.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField00);
+		btnGameField[0][0].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[0][0]);
 
-		lblGameField01 = new JLabel("0");
-		lblGameField01.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField01.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField01.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGameField01.addMouseListener(new MouseAdapter()
+		btnGameField[0][1] = new JButton("0");
+		btnGameField[0][1].setHorizontalAlignment(SwingConstants.CENTER);
+		btnGameField[0][1].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -246,12 +234,10 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(0, 1);
 			}
 		});
-		pnlGameField.add(lblGameField01);
+		pnlGameField.add(btnGameField[0][1]);
 
-		lblGameField02 = new JLabel("0");
-		lblGameField02.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField02.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField02.addMouseListener(new MouseAdapter()
+		btnGameField[0][2] = new JButton("0");
+		btnGameField[0][2].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -259,13 +245,11 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(0, 2);
 			}
 		});
-		lblGameField02.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField02);
+		btnGameField[0][2].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[0][2]);
 
-		lblGameField10 = new JLabel("0");
-		lblGameField10.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField10.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField10.addMouseListener(new MouseAdapter()
+		btnGameField[1][0] = new JButton("0");
+		btnGameField[1][0].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -273,13 +257,11 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(1, 0);
 			}
 		});
-		lblGameField10.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField10);
+		btnGameField[1][0].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[1][0]);
 
-		lblGameField11 = new JLabel("0");
-		lblGameField11.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField11.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField11.addMouseListener(new MouseAdapter()
+		btnGameField[1][1] = new JButton("0");
+		btnGameField[1][1].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -287,13 +269,11 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(1, 1);
 			}
 		});
-		lblGameField11.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField11);
+		btnGameField[1][1].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[1][1]);
 
-		lblGameField12 = new JLabel("0");
-		lblGameField12.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField12.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField12.addMouseListener(new MouseAdapter()
+		btnGameField[1][2] = new JButton("0");
+		btnGameField[1][2].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -301,13 +281,11 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(1, 2);
 			}
 		});
-		lblGameField12.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField12);
+		btnGameField[1][2].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[1][2]);
 
-		lblGameField20 = new JLabel("0");
-		lblGameField20.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField20.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField20.addMouseListener(new MouseAdapter()
+		btnGameField[2][0] = new JButton("0");
+		btnGameField[2][0].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -315,13 +293,11 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(2, 0);
 			}
 		});
-		lblGameField20.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField20);
+		btnGameField[2][0].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[2][0]);
 
-		lblGameField21 = new JLabel("0");
-		lblGameField21.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField21.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField21.addMouseListener(new MouseAdapter()
+		btnGameField[2][1] = new JButton("0");
+		btnGameField[2][1].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -329,13 +305,11 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(2, 1);
 			}
 		});
-		lblGameField21.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField21);
+		btnGameField[2][1].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[2][1]);
 
-		lblGameField22 = new JLabel("0");
-		lblGameField22.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblGameField22.setBorder(UIManager.getBorder("CheckBox.border"));
-		lblGameField22.addMouseListener(new MouseAdapter()
+		btnGameField[2][2] = new JButton("0");
+		btnGameField[2][2].addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
@@ -343,8 +317,8 @@ public class MainWindow
 				Game.getInstance().applyPlayerMove(2, 2);
 			}
 		});
-		lblGameField22.setHorizontalAlignment(SwingConstants.CENTER);
-		pnlGameField.add(lblGameField22);
+		btnGameField[2][2].setHorizontalAlignment(SwingConstants.CENTER);
+		pnlGameField.add(btnGameField[2][2]);
 
 		JPanel pnlTabStats = new JPanel();
 		pnlTabStats.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -445,57 +419,9 @@ public class MainWindow
 		this.lblGameState.paintImmediately(lblGameState.getVisibleRect());
 	}
 
-	public void setLblGameField00Text(String lblGameField00Text) // TODO Refresh Bug
-	{
-		this.lblGameField00.setText(lblGameField00Text);
-		this.lblGameField00.paintImmediately(lblGameField00.getVisibleRect());
-	}
-
-	public void setLblGameField01Text(String lblGameField01Text)
-	{
-		this.lblGameField01.setText(lblGameField01Text);
-		this.lblGameField01.paintImmediately(lblGameField01.getVisibleRect());
-	}
-
-	public void setLblGameField02Text(String lblGameField02Text)
-	{
-		this.lblGameField02.setText(lblGameField02Text);
-		this.lblGameField02.paintImmediately(lblGameField02.getVisibleRect());
-	}
-
-	public void setLblGameField10Text(String lblGameField10Text)
-	{
-		this.lblGameField10.setText(lblGameField10Text);
-		this.lblGameField00.paintImmediately(lblGameField00.getVisibleRect());
-	}
-
-	public void setLblGameField11Text(String lblGameField11Text)
-	{
-		this.lblGameField11.setText(lblGameField11Text);
-		this.lblGameField11.paintImmediately(lblGameField11.getVisibleRect());
-	}
-
-	public void setLblGameField12Text(String lblGameField12Text)
-	{
-		this.lblGameField12.setText(lblGameField12Text);
-		this.lblGameField12.paintImmediately(lblGameField12.getVisibleRect());
-	}
-
-	public void setLblGameField20Text(String lblGameField20Text)
-	{
-		this.lblGameField20.setText(lblGameField20Text);
-		this.lblGameField20.paintImmediately(lblGameField20.getVisibleRect());
-	}
-
-	public void setLblGameField21Text(String lblGameField21Text)
-	{
-		this.lblGameField21.setText(lblGameField21Text);
-		this.lblGameField21.paintImmediately(lblGameField21.getVisibleRect());
-	}
-
-	public void setLblGameField22Text(String lblGameField22Text)
-	{
-		this.lblGameField22.setText(lblGameField22Text);
-		this.lblGameField22.paintImmediately(lblGameField22.getVisibleRect());
+	public void setBtnGameFieldText(int row, int column, String btnGameFieldText)
+	{	
+		this.btnGameField[row][column].setText(btnGameFieldText);
+		this.btnGameField[row][column].paintImmediately(btnGameField[row][column].getVisibleRect());  // TODO Refresh Bug
 	}
 }
