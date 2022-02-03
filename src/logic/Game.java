@@ -140,18 +140,7 @@ public class Game
 
 	private void checkGameField() // TODO clean rewrite checkGameField()
 	{
-		if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0 // top row
-			&& gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0 // middle row
-			&& gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0 // bottom row
-			&& gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][0] != 0 // left col
-			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][1] != 0 // middle col
-			&& gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[2][2] != 0 // right col
-			&& gameField[0][0] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0 // TL to BR
-			&& gameField[2][0] != 0 && gameField[1][1] != 0 && gameField[0][2] != 0) // TR to BL
-		{
-			setGameState(GameState.GameOver_Draw);
-		}
-		else if (gameField[0][0] == 1 && gameField[0][1] == 1 && gameField[0][2] == 1 // top row
+		if (gameField[0][0] == 1 && gameField[0][1] == 1 && gameField[0][2] == 1 // top row
 			|| gameField[1][0] == 1 && gameField[1][1] == 1 && gameField[1][2] == 1 // middle row
 			|| gameField[2][0] == 1 && gameField[2][1] == 1 && gameField[2][2] == 1 // bottom row
 			|| gameField[0][0] == 1 && gameField[1][0] == 1 && gameField[2][0] == 1 // left col
@@ -186,6 +175,17 @@ public class Game
 			{
 				setGameState(GameState.GameOver_Loose);
 			}
+		}
+		else if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0 // top row
+			&& gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0 // middle row
+			&& gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0 // bottom row
+			&& gameField[0][0] != 0 && gameField[1][0] != 0 && gameField[2][0] != 0 // left col
+			&& gameField[0][1] != 0 && gameField[1][1] != 0 && gameField[2][1] != 0 // middle col
+			&& gameField[0][2] != 0 && gameField[1][2] != 0 && gameField[2][2] != 0 // right col
+			&& gameField[0][0] != 0 && gameField[1][1] != 0 && gameField[2][2] != 0 // TL to BR
+			&& gameField[2][0] != 0 && gameField[1][1] != 0 && gameField[0][2] != 0) // TR to BL
+		{
+			setGameState(GameState.GameOver_Draw);
 		}
 		else
 		{
