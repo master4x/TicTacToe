@@ -113,7 +113,7 @@ public class FileIOHandler
 		}
 	}
 
-	public void refreshGameStatisticsTable()
+	private void refreshGameStatisticsTable()
 	{
 		MainWindow mainWindowInstance = MainWindow.getInstance();
 		mainWindowInstance.setTxtDrawCountText(Integer.toString(this.drawCount));
