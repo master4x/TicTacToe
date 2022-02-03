@@ -46,7 +46,7 @@ public class NetworkHandler
 		return instance;
 	}
 
-	public void newNetworkSocket(String ipAdress)
+	public void newNetworkSocket(String ipAdress) // TODO add antoher function to close datagramsocket on close
 	{
 		try
 		{
