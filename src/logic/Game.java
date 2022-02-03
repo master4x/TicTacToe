@@ -87,7 +87,6 @@ public class Game
 		}
 
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
-		// TODO refresh table
 
 		//setGameState(GameState.NoGameActive);
 	}
