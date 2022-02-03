@@ -52,7 +52,7 @@ public class Game
 				setGameState(GameState.AwaitingPlayersGameField);
 				break;
 			case Player2:
-				setGameState(GameState.AwaitingOpponentsGameField); // TODO AwaitingOpponentsGameField to Runnable
+				setGameState(GameState.AwaitingOpponentsGameField); // TODO Freezing GUI for P2 - Receiver to Runnable?
 				break;
 		}
 	}

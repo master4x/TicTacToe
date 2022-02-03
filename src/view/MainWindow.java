@@ -445,7 +445,7 @@ public class MainWindow
 		this.lblGameState.paintImmediately(lblGameState.getVisibleRect());
 	}
 
-	public void setLblGameField00Text(String lblGameField00Text)
+	public void setLblGameField00Text(String lblGameField00Text) // TODO Refresh Bug
 	{
 		this.lblGameField00.setText(lblGameField00Text);
 		this.lblGameField00.paintImmediately(lblGameField00.getVisibleRect());
