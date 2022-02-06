@@ -137,6 +137,17 @@ public class Game
 			}
 		}
 	}
+	
+	private void clearGameField()
+	{
+		for (int n = 0; n < 3; n++)
+		{
+			for (int m = 0; m < 3; m++)
+			{
+				gameField[n][m] = 0;
+			}
+		}
+	}
 
 	private void checkGameField() // TODO clean rewrite checkGameField()
 	{

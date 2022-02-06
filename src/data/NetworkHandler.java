@@ -61,6 +61,15 @@ public class NetworkHandler
 			e.printStackTrace();
 		}
 	}
+	
+	public void closeNetworkSocket()
+	{	
+		this.networkSocket.close();
+		this.hostAdress = null;
+		this.opponentIp = null;
+		
+		MainWindow.getInstance().setLblConnectionStateText("Not Connected");
+	}
 
 	public void sendArray(int[][] gameField)
 	{
