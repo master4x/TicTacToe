@@ -382,7 +382,7 @@ public class MainWindow
 		this.btnConnect.setEnabled(false);
 	}
 	
-	private void activateInputs()
+	public void activateInputs()
 	{
 		this.lblOpponentIp.setEnabled(true);
 		this.txtOpponentIp.setEnabled(true);

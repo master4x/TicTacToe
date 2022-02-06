@@ -20,7 +20,7 @@ public class NetworkHandler
 	private static volatile NetworkHandler instance;
 	private DatagramSocket networkSocket;
 	private InetAddress hostAdress;
-	private String localIp, opponentIp;
+	private String localIp, opponentIp; // TODO change localIp to 'InetAddress hostAdress'
 	private int port = 18911;
 
 	private NetworkHandler()
@@ -46,14 +46,14 @@ public class NetworkHandler
 		return instance;
 	}
 
-	public void newNetworkSocket(String ipAdress) // TODO add antoher function to close datagramsocket on close
+	public void newNetworkSocket(String ipAdress)
 	{
 		try
 		{
 			this.opponentIp = ipAdress;
-			this.networkSocket = new DatagramSocket(port);
 			this.hostAdress = InetAddress.getByName(ipAdress);
-
+			this.networkSocket = new DatagramSocket(this.port, this.hostAdress);
+			
 			MainWindow.getInstance().setLblConnectionStateText(ipAdress);
 		}
 		catch (SocketException | UnknownHostException e)
@@ -62,7 +62,7 @@ public class NetworkHandler
 		}
 	}
 	
-	public void closeNetworkSocket()
+	public void closeNetworkSocket() // TODO execute on close
 	{	
 		this.networkSocket.close();
 		this.hostAdress = null;

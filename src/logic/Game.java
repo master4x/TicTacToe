@@ -43,7 +43,13 @@ public class Game
 	public void startGame(Players player, String ipAdress)
 	{
 		this.player = player;
-
+		
+		if (gameState != GameState.NoGameActive)
+		{
+			clearGameField();
+			appendGameField();
+		}
+		
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
 
 		switch (player)
@@ -73,20 +79,15 @@ public class Game
 		setGameState(GameState.CheckOpponentsGameField);
 	}
 
-	@SuppressWarnings("incomplete-switch")
 	private void gameOver()
-	{
-		switch (gameState)
-		{
-			case GameOver_Draw:
-				break;
-			case GameOver_Loose:
-				break;
-			case GameOver_Win:
-				break;
-		}
-
+	{	
+		clearGameField();
+		
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
+		
+		NetworkHandler.getInstance().closeNetworkSocket();
+		
+		MainWindow.getInstance().activateInputs();
 
 		//setGameState(GameState.NoGameActive);
 	}
