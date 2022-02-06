@@ -41,17 +41,17 @@ public class MainWindow
 {
 	private static volatile MainWindow instance;
 	public JFrame frmTicTacToe;
-	private JTable tblGameStats;
-	private JTextField txtWinCount;
-	private JTextField txtLooseCount;
-	private JTextField txtDrawCount;
-	private JTextField txtOpponentsIp;
-	private JLabel lblConnectionState;
-	private JLabel lblGameState;
-	private JLabel lblOpponentsIp;
 	private JButton btnConnect;
 	private JButton[][] btnGameField = new JButton[3][3];
 	private JComboBox cbPlayerSelector;
+	private JLabel lblConnectionState;
+	private JLabel lblGameState;
+	private JLabel lblOpponentsIp;
+	private JTable tblGameStats;
+	private JTextField txtDrawCount;
+	private JTextField txtLooseCount;
+	private JTextField txtOpponentsIp;
+	private JTextField txtWinCount;
 
 	/**
 	 * Create the application.
