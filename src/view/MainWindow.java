@@ -46,11 +46,11 @@ public class MainWindow
 	private JComboBox cbPlayerSelector;
 	private JLabel lblConnectionState;
 	private JLabel lblGameState;
-	private JLabel lblOpponentsIp;
+	private JLabel lblOpponentIp;
 	private JTable tblGameStats;
 	private JTextField txtDrawCount;
 	private JTextField txtLooseCount;
-	private JTextField txtOpponentsIp;
+	private JTextField txtOpponentIp;
 	private JTextField txtWinCount;
 
 	/**
@@ -137,12 +137,12 @@ public class MainWindow
 		JPanel pnlTopCol = new JPanel();
 		pnlTopRow.add(pnlTopCol);
 
-		lblOpponentsIp = new JLabel("Opponent's IP:");
-		pnlTopCol.add(lblOpponentsIp);
+		lblOpponentIp = new JLabel("Opponent's IP:");
+		pnlTopCol.add(lblOpponentIp);
 
-		txtOpponentsIp = new JTextField();
-		pnlTopCol.add(txtOpponentsIp);
-		txtOpponentsIp.setColumns(15);
+		txtOpponentIp = new JTextField();
+		pnlTopCol.add(txtOpponentIp);
+		txtOpponentIp.setColumns(15);
 
 		cbPlayerSelector = new JComboBox();
 		cbPlayerSelector.setMaximumRowCount(10);
@@ -156,12 +156,12 @@ public class MainWindow
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
-				if (txtOpponentsIp.getText().isEmpty() == false)
+				if (txtOpponentIp.getText().isEmpty() == false)
 				{
 					deactivateInputs();
 					
 					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(),
-						txtOpponentsIp.getText());
+						txtOpponentIp.getText());
 				}
 			}
 		});
@@ -376,16 +376,16 @@ public class MainWindow
 
 	private void deactivateInputs()
 	{
-		this.lblOpponentsIp.setEnabled(false);
-		this.txtOpponentsIp.setEnabled(false);
+		this.lblOpponentIp.setEnabled(false);
+		this.txtOpponentIp.setEnabled(false);
 		this.cbPlayerSelector.setEnabled(false);
 		this.btnConnect.setEnabled(false);
 	}
 	
 	private void activateInputs()
 	{
-		this.lblOpponentsIp.setEnabled(true);
-		this.txtOpponentsIp.setEnabled(true);
+		this.lblOpponentIp.setEnabled(true);
+		this.txtOpponentIp.setEnabled(true);
 		this.cbPlayerSelector.setEnabled(true);
 		this.btnConnect.setEnabled(true);
 	}
