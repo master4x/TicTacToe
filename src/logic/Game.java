@@ -14,12 +14,11 @@ public class Game
 {
 	private static volatile Game instance;
 	private int[][] gameField = new int[3][3];
-	private GameState gameState;
+	private GameState gameState = GameState.NoGameActive;
 	private Players player;
 
 	private Game()
 	{
-		setGameState(GameState.NoGameActive);
 	}
 
 	/*
