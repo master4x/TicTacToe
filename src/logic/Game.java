@@ -244,4 +244,9 @@ public class Game
 			}
 		}
 	}
+	
+	public GameState getGameState()
+	{
+		return this.gameState;
+	}
 }

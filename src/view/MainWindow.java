@@ -181,7 +181,7 @@ public class MainWindow
 		JPanel pnlRightCol = new JPanel();
 		pnlBottomRow.add(pnlRightCol, BorderLayout.EAST);
 
-		lblGameState = new JLabel("NoGameActive"); // TODO get by param
+		lblGameState = new JLabel(Game.getInstance().getGameState().toString());
 		pnlRightCol.add(lblGameState);
 
 		JPanel pnlCenterCol = new JPanel();
