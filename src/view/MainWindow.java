@@ -45,9 +45,13 @@ public class MainWindow
 	private JTextField txtWinCount;
 	private JTextField txtLooseCount;
 	private JTextField txtDrawCount;
+	private JTextField txtOpponentsIp;
 	private JLabel lblConnectionState;
 	private JLabel lblGameState;
+	private JLabel lblOpponentsIp;
+	private JButton btnConnect;
 	private JButton[][] btnGameField = new JButton[3][3];
+	private JComboBox cbPlayerSelector;
 
 	/**
 	 * Create the application.
@@ -133,20 +137,20 @@ public class MainWindow
 		JPanel pnlTopCol = new JPanel();
 		pnlTopRow.add(pnlTopCol);
 
-		JLabel lblOpponentsIp = new JLabel("Opponent's IP:");
+		lblOpponentsIp = new JLabel("Opponent's IP:");
 		pnlTopCol.add(lblOpponentsIp);
 
-		JTextField txtOpponentsIp = new JTextField();
+		txtOpponentsIp = new JTextField();
 		pnlTopCol.add(txtOpponentsIp);
 		txtOpponentsIp.setColumns(15);
 
-		JComboBox cbPlayerSelector = new JComboBox();
+		cbPlayerSelector = new JComboBox();
 		cbPlayerSelector.setMaximumRowCount(10);
 		cbPlayerSelector.setModel(new DefaultComboBoxModel(Players.values()));
 		cbPlayerSelector.setSelectedIndex(0);
 		pnlTopCol.add(cbPlayerSelector);
 
-		JButton btnConnect = new JButton("Connect");
+		btnConnect = new JButton("Connect");
 		btnConnect.addMouseListener(new MouseAdapter()
 		{
 			@Override
@@ -154,10 +158,7 @@ public class MainWindow
 			{
 				if (txtOpponentsIp.getText().isEmpty() == false)
 				{
-					lblOpponentsIp.setEnabled(false);
-					txtOpponentsIp.setEnabled(false);
-					cbPlayerSelector.setEnabled(false);
-					btnConnect.setEnabled(false);
+					deactivateInputs();
 					
 					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(),
 						txtOpponentsIp.getText());
@@ -373,6 +374,22 @@ public class MainWindow
 		scrlStatsTable.setViewportView(tblGameStats);
 	}
 
+	private void deactivateInputs()
+	{
+		this.lblOpponentsIp.setEnabled(false);
+		this.txtOpponentsIp.setEnabled(false);
+		this.cbPlayerSelector.setEnabled(false);
+		this.btnConnect.setEnabled(false);
+	}
+	
+	private void activateInputs()
+	{
+		this.lblOpponentsIp.setEnabled(true);
+		this.txtOpponentsIp.setEnabled(true);
+		this.cbPlayerSelector.setEnabled(true);
+		this.btnConnect.setEnabled(true);
+	}
+	
 	public void addTblGameStatsRows(ArrayList<String[]> statistics)
 	{
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
