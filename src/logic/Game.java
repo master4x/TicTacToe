@@ -57,7 +57,7 @@ public class Game
 				setGameState(GameState.AwaitingPlayersGameField);
 				break;
 			case Player2:
-				setGameState(GameState.AwaitingOpponentsGameField); // TODO Freezing GUI for P2 - Receiver to Runnable?
+				setGameState(GameState.AwaitingOpponentsGameField);
 				break;
 		}
 	}
@@ -149,7 +149,7 @@ public class Game
 		}
 	}
 
-	private void checkGameField() // TODO clean rewrite checkGameField()
+	private void checkGameField()
 	{
 		if (gameField[0][0] == 1 && gameField[0][1] == 1 && gameField[0][2] == 1 // top row
 			|| gameField[1][0] == 1 && gameField[1][1] == 1 && gameField[1][2] == 1 // middle row
