@@ -94,7 +94,9 @@ public class FileIOHandler
 	}
 
 	private void countGameStatistics()
-	{
+	{	
+		this.drawCount = this.looseCount = this.winCount = 0;
+		
 		for (String[] sessionInfo : statistics)
 		{
 			switch (sessionInfo[1])
