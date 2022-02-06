@@ -71,7 +71,6 @@ public class FileIOHandler
 		}
 
 		countGameStatistics();
-		refreshGameStatisticsTable();
 	}
 
 	private void writeCSVFile()
@@ -111,17 +110,15 @@ public class FileIOHandler
 					break;
 			}
 		}
-	}
-
-	private void refreshGameStatisticsTable()
-	{
+		
+		//Refresh statistics in GUI
 		MainWindow mainWindowInstance = MainWindow.getInstance();
 		mainWindowInstance.setTxtDrawCountText(Integer.toString(this.drawCount));
 		mainWindowInstance.setTxtLooseCountText(Integer.toString(this.looseCount));
 		mainWindowInstance.setTxtWinCountText(Integer.toString(this.winCount));
 		mainWindowInstance.addTblGameStatsRows(statistics);
 	}
-	
+
 	public void addSessionInfo(String gameState, String opponentIp)
 	{
 		String[] sessionInfo = new String[3];
@@ -132,7 +129,7 @@ public class FileIOHandler
 
 		this.statistics.add(sessionInfo);
 
-		refreshGameStatisticsTable();
+		countGameStatistics();
 		writeCSVFile();
 	}
 }
