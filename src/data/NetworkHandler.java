@@ -20,12 +20,11 @@ public class NetworkHandler
 	private static volatile NetworkHandler instance;
 	private DatagramSocket networkSocket;
 	private InetAddress hostAdress;
-	private String localIp, opponentIp; // TODO change localIp to 'InetAddress hostAdress'
+	private String opponentIp;
 	private int port = 18911;
 
 	private NetworkHandler()
 	{
-		setLocalIp();
 	}
 
 	/*
@@ -150,21 +149,18 @@ public class NetworkHandler
 		return integers;
 	}
 
-	private void setLocalIp()
-	{
+	public String getLocalIp()
+	{	
 		try
 		{
-			this.localIp = InetAddress.getLocalHost().getHostAddress(); // TODO get IP of current used adapter
+			return InetAddress.getLocalHost().getHostAddress();
 		}
 		catch (UnknownHostException e)
 		{
 			e.printStackTrace();
 		}
-	}
-
-	public String getLocalIp()
-	{
-		return localIp;
+		
+		return null;
 	}
 
 	public String getOpponentIp()
