@@ -51,7 +51,7 @@ public class NetworkHandler
 		{
 			this.opponentIp = ipAdress;
 			this.hostAdress = InetAddress.getByName(ipAdress);
-			this.networkSocket = new DatagramSocket(this.port, this.hostAdress);
+			this.networkSocket = new DatagramSocket(this.port);
 			
 			MainWindow.getInstance().setLblConnectionStateText(ipAdress);
 		}
