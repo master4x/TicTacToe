@@ -118,7 +118,7 @@ public class NetworkHandler
 
 	private String convertIntArrayToString(int[][] arr)
 	{
-		String result = new String();
+		String result = null;
 
 		for (int n = 0; n < 3; n++)
 		{
