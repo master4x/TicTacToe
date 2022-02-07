@@ -127,6 +127,9 @@ public class Game
 			{
 				switch (gameField[n][m])
 				{
+					case 0:
+						mainWindow.setBtnGameFieldText(n, m, null);
+						break;
 					case 1:
 						mainWindow.setBtnGameFieldText(n, m, "X");
 						break;
