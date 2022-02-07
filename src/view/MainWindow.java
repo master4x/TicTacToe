@@ -149,10 +149,10 @@ public class MainWindow
 		pnlTopCol.add(cbPlayerSelector);
 
 		btnConnect = new JButton("Connect");
-		btnConnect.addMouseListener(new MouseAdapter()
+		btnConnect.addMouseListener(new MouseAdapter() // TODO Add KeyListener ENTER
 		{
 			@Override
-			public void mouseClicked(MouseEvent e)
+			public void mouseClicked(MouseEvent e) // TODO Change to ActionPerformed (X/X)
 			{
 				if (txtOpponentIp.getText().isEmpty() == false)
 				{
