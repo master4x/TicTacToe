@@ -42,7 +42,7 @@ public class MainWindow
 	public JFrame frmTicTacToe;
 	private JButton btnConnect;
 	private JButton[][] btnGameField = new JButton[3][3];
-	private JComboBox cbPlayerSelector;
+	private JComboBox<?> cbPlayerSelector;
 	private JLabel lblConnectionState;
 	private JLabel lblGameState;
 	private JLabel lblOpponentIp;
