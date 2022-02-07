@@ -149,20 +149,6 @@ public class NetworkHandler
 		return integers;
 	}
 
-	public String getLocalIp()
-	{	
-		try
-		{
-			return InetAddress.getLocalHost().getHostAddress();
-		}
-		catch (UnknownHostException e)
-		{
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-
 	public String getOpponentIp()
 	{
 		return opponentIp;

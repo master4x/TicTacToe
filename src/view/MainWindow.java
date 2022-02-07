@@ -19,7 +19,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import data.FileIOHandler;
-import data.NetworkHandler;
 
 import javax.swing.JScrollPane;
 import java.awt.FlowLayout;
@@ -183,19 +182,6 @@ public class MainWindow
 
 		lblGameState = new JLabel(Game.getInstance().getGameState().toString());
 		pnlRightCol.add(lblGameState);
-
-		JPanel pnlCenterCol = new JPanel();
-		pnlBottomRow.add(pnlCenterCol, BorderLayout.CENTER);
-
-		JLabel lblYourIp = new JLabel("Your IP:");
-		pnlCenterCol.add(lblYourIp);
-
-		JTextField txtYourIp = new JTextField();
-		txtYourIp.setHorizontalAlignment(SwingConstants.CENTER);
-		txtYourIp.setText(NetworkHandler.getInstance().getLocalIp());
-		txtYourIp.setEditable(false);
-		pnlCenterCol.add(txtYourIp);
-		txtYourIp.setColumns(9);
 
 		JPanel pnlMiddleRow = new JPanel();
 		pnlTabGame.add(pnlMiddleRow, BorderLayout.CENTER);
