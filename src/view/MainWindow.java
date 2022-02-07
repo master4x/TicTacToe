@@ -89,9 +89,8 @@ public class MainWindow
 			{
 				try
 				{
-					MainWindow window = MainWindow.getInstance();
-					window.frmTicTacToe.setVisible(true);
-
+					MainWindow.getInstance().frmTicTacToe.setVisible(true);
+					
 					FileIOHandler.getInstance().readCSVFile();
 				}
 				catch (Exception e)
