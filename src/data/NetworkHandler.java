@@ -133,20 +133,20 @@ public class NetworkHandler
 
 	private int[][] convertStringToIntArray(String str)
 	{
-		String[] strings = str.split(",");
-		int[][] integers = new int[3][3];
+		String[] input = str.split(",");
+		int[][] result = new int[3][3];
 
 		int i = 0;
 		for (int n = 0; n < 3; n++)
 		{
 			for (int m = 0; m < 3; m++)
 			{
-				integers[n][m] = Integer.parseInt(strings[i]);
+				result[n][m] = Integer.parseInt(input[i]);
 				i++;
 			}
 		}
 
-		return integers;
+		return result;
 	}
 
 	public String getOpponentIp()
