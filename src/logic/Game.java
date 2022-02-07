@@ -71,7 +71,9 @@ public class Game
 
 	private void reveiveGameField()
 	{
-		this.gameField = NetworkHandler.getInstance().receiveArray();
+		NetworkHandler networkHandler = NetworkHandler.getInstance();
+		networkHandler.networkHandlerThread = new Thread(networkHandler);
+		networkHandler.networkHandlerThread.start();
 
 		appendGameField();
 
@@ -248,6 +250,11 @@ public class Game
 		}
 	}
 	
+	public void setGameField(int[][] gameField)
+	{
+		this.gameField = gameField;
+	}
+
 	public GameState getGameState()
 	{
 		return this.gameState;

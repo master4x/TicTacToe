@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
+import logic.Game;
 import view.MainWindow;
 
 /**
@@ -15,17 +16,14 @@ import view.MainWindow;
  * @project TicTacToe
  */
 
-public class NetworkHandler
+public class NetworkHandler implements Runnable
 {
 	private static volatile NetworkHandler instance;
+	public Thread networkHandlerThread;
 	private DatagramSocket networkSocket;
 	private InetAddress hostAdress;
 	private String opponentIp;
 	private int port = 18911;
-
-	private NetworkHandler()
-	{
-	}
 
 	/*
 	 * Singleton
@@ -43,6 +41,11 @@ public class NetworkHandler
 			}
 		}
 		return instance;
+	}
+	
+	public void createNetworkThread()
+	{
+		networkHandlerThread = new Thread(NetworkHandler.getInstance());
 	}
 
 	public void newNetworkSocket(String ipAdress)
@@ -86,7 +89,13 @@ public class NetworkHandler
 		}
 	}
 
-	public int[][] receiveArray() // TODO Runnable
+	@Override
+	public void run()
+	{
+		Game.getInstance().setGameField(receiveArray());
+	}
+	
+	public int[][] receiveArray()
 	{
 		DatagramPacket datagramPacket;
 		String data;
@@ -118,7 +127,7 @@ public class NetworkHandler
 
 	private String convertIntArrayToString(int[][] arr)
 	{
-		String result = null;
+		String result = new String();
 
 		for (int n = 0; n < 3; n++)
 		{
