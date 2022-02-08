@@ -152,7 +152,7 @@ public class MainWindow
 		btnConnect.addMouseListener(new MouseAdapter()
 		{
 			@Override
-			public void mouseClicked(MouseEvent e) // TODO Change to ActionPerformed (X/X)
+			public void mouseClicked(MouseEvent e)
 			{
 				if (txtOpponentIp.getText().isEmpty() == false)
 				{
