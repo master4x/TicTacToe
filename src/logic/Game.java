@@ -42,13 +42,13 @@ public class Game
 	public void startGame(Players player, String ipAdress)
 	{
 		this.player = player;
-		
+
 		if (gameState != GameState.NoGameActive)
 		{
 			clearGameField();
 			appendGameField();
 		}
-		
+
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
 
 		switch (player)
@@ -81,16 +81,16 @@ public class Game
 	}
 
 	private void gameOver()
-	{	
+	{
 		clearGameField();
-		
+
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
-		
+
 		NetworkHandler.getInstance().closeNetworkSocket();
-		
+
 		MainWindow.getInstance().activateInputs();
 
-		//setGameState(GameState.NoGameActive);
+		// setGameState(GameState.NoGameActive);
 	}
 
 	public void applyPlayerMove(int row, int column)
@@ -142,7 +142,7 @@ public class Game
 			}
 		}
 	}
-	
+
 	private void clearGameField()
 	{
 		for (int n = 0; n < 3; n++)
@@ -249,7 +249,7 @@ public class Game
 			}
 		}
 	}
-	
+
 	public void setGameField(int[][] gameField)
 	{
 		this.gameField = gameField;

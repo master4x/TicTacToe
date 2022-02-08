@@ -42,7 +42,7 @@ public class NetworkHandler implements Runnable
 		}
 		return instance;
 	}
-	
+
 	public void createNetworkThread()
 	{
 		networkHandlerThread = new Thread(NetworkHandler.getInstance());
@@ -55,7 +55,7 @@ public class NetworkHandler implements Runnable
 			this.opponentIp = ipAdress;
 			this.hostAdress = InetAddress.getByName(ipAdress);
 			this.networkSocket = new DatagramSocket(this.port);
-			
+
 			MainWindow.getInstance().setLblConnectionStateText(ipAdress);
 		}
 		catch (SocketException | UnknownHostException e)
@@ -63,13 +63,13 @@ public class NetworkHandler implements Runnable
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void closeNetworkSocket() // TODO execute on close
-	{	
+	{
 		this.networkSocket.close();
 		this.hostAdress = null;
 		this.opponentIp = null;
-		
+
 		MainWindow.getInstance().setLblConnectionStateText("Not Connected");
 	}
 
@@ -94,7 +94,7 @@ public class NetworkHandler implements Runnable
 	{
 		Game.getInstance().setGameField(receiveArray());
 	}
-	
+
 	public int[][] receiveArray()
 	{
 		DatagramPacket datagramPacket;

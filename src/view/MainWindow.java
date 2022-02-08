@@ -90,7 +90,7 @@ public class MainWindow
 				try
 				{
 					MainWindow.getInstance().frmTicTacToe.setVisible(true);
-					
+
 					FileIOHandler.getInstance().readCSVFile();
 				}
 				catch (Exception e)
@@ -157,9 +157,8 @@ public class MainWindow
 				if (txtOpponentIp.getText().isEmpty() == false)
 				{
 					deactivateInputs();
-					
-					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(),
-						txtOpponentIp.getText());
+
+					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(), txtOpponentIp.getText());
 				}
 			}
 		});
@@ -366,7 +365,7 @@ public class MainWindow
 		this.cbPlayerSelector.setEnabled(false);
 		this.btnConnect.setEnabled(false);
 	}
-	
+
 	public void activateInputs()
 	{
 		this.lblOpponentIp.setEnabled(true);
@@ -374,7 +373,7 @@ public class MainWindow
 		this.cbPlayerSelector.setEnabled(true);
 		this.btnConnect.setEnabled(true);
 	}
-	
+
 	public void addTblGameStatsRows(ArrayList<String[]> statistics)
 	{
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
@@ -420,8 +419,8 @@ public class MainWindow
 	}
 
 	public void setBtnGameFieldText(int row, int column, String btnGameFieldText)
-	{	
+	{
 		this.btnGameField[row][column].setText(btnGameFieldText);
-		this.btnGameField[row][column].paintImmediately(btnGameField[row][column].getVisibleRect());  // TODO Refresh Bug
+		this.btnGameField[row][column].paintImmediately(btnGameField[row][column].getVisibleRect()); // TODO Refresh Bug
 	}
 }

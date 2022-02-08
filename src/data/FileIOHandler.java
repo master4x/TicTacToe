@@ -94,9 +94,9 @@ public class FileIOHandler
 	}
 
 	private void countGameStatistics()
-	{	
+	{
 		this.drawCount = this.looseCount = this.winCount = 0;
-		
+
 		for (String[] sessionInfo : statistics)
 		{
 			switch (sessionInfo[1])
@@ -112,8 +112,8 @@ public class FileIOHandler
 					break;
 			}
 		}
-		
-		//Refresh statistics in GUI
+
+		// Refresh statistics in GUI
 		MainWindow mainWindowInstance = MainWindow.getInstance();
 		mainWindowInstance.setTxtDrawCountText(Integer.toString(this.drawCount));
 		mainWindowInstance.setTxtLooseCountText(Integer.toString(this.looseCount));
