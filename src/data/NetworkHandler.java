@@ -72,6 +72,7 @@ public class NetworkHandler implements Runnable
 	public void sendArray(int[][] gameField)
 	{
 		String message = convertIntArrayToString(gameField);
+		System.out.println(message);
 
 		byte[] messageBytes = message.getBytes();
 
@@ -90,20 +91,18 @@ public class NetworkHandler implements Runnable
 	{
 		Game game = Game.getInstance();
 		game.setGameField(receiveArray());
-		game.setGameState(GameState.CheckPlayersGameField);
+		game.setGameState(GameState.CheckOpponentsGameField);
 	}
 
 	public int[][] receiveArray()
 	{
-		DatagramPacket datagramPacket;
+		DatagramPacket datagramPacket = new DatagramPacket(new byte[512], 512);
 		String data;
 		int[][] gameField;
 
 		// enter endless loop
 		while (true)
 		{
-			datagramPacket = new DatagramPacket(new byte[512], 512); // TODO move up?
-
 			try
 			{
 				datagramPacket.setAddress(InetAddress.getLocalHost());

@@ -70,7 +70,7 @@ public class Game
 	{
 		NetworkHandler.getInstance().sendArray(gameField);
 
-		//setGameState(GameState.CheckPlayersGameField);
+		setGameState(GameState.CheckPlayersGameField);
 	}
 
 	private void receiveGameField()
@@ -82,13 +82,13 @@ public class Game
 
 		appendGameField();
 
-		setGameState(GameState.CheckOpponentsGameField);
+		//setGameState(GameState.CheckOpponentsGameField);
 	}
 
 	private void gameOver()
 	{
 		appendGameField();
-		
+
 		clearGameField();
 
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
@@ -230,36 +230,33 @@ public class Game
 
 	public void setGameState(GameState gameState)
 	{
-		if (this.gameState != gameState) // TODO works without check?
+		this.gameState = gameState;
+
+		MainWindow.getInstance().setLblGameStateText(gameState.toString());
+
+		switch (gameState)
 		{
-			this.gameState = gameState;
-
-			MainWindow.getInstance().setLblGameStateText(gameState.toString());
-
-			switch (gameState)
-			{
-				case AwaitingOpponentsGameField:
-					receiveGameField();
-					break;
-				case AwaitingPlayersGameField:
-					break;
-				case CheckOpponentsGameField:
-					checkGameField();
-					break;
-				case CheckPlayersGameField:
-					checkGameField();
-					break;
-				case SendingPlayersGameField:
-					sendGameField();
-					break;
-				case GameOver_Draw:
-				case GameOver_Loose:
-				case GameOver_Win:
-					gameOver();
-					break;
-				default: // NoGameActive, InitializingNewGame
-					break;
-			}
+			case AwaitingOpponentsGameField:
+				receiveGameField();
+				break;
+			case AwaitingPlayersGameField:
+				break;
+			case CheckOpponentsGameField:
+				checkGameField();
+				break;
+			case CheckPlayersGameField:
+				checkGameField();
+				break;
+			case SendingPlayersGameField:
+				sendGameField();
+				break;
+			case GameOver_Draw:
+			case GameOver_Loose:
+			case GameOver_Win:
+				gameOver();
+				break;
+			default: // NoGameActive, InitializingNewGame
+				break;
 		}
 	}
 
