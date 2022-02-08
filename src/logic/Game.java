@@ -17,6 +17,9 @@ public class Game
 	private GameState gameState = GameState.NoGameActive;
 	private Players player;
 
+	/*
+	 * Constructor
+	 */
 	private Game()
 	{
 	}
@@ -43,6 +46,7 @@ public class Game
 	{
 		this.player = player;
 
+		// only runs after a game restart
 		if (gameState != GameState.NoGameActive)
 		{
 			clearGameField();
@@ -66,11 +70,12 @@ public class Game
 	{
 		NetworkHandler.getInstance().sendArray(gameField);
 
-		setGameState(GameState.CheckPlayersGameField);
+		//setGameState(GameState.CheckPlayersGameField);
 	}
 
-	private void reveiveGameField()
+	private void receiveGameField()
 	{
+		// create and run network receiver thread
 		NetworkHandler networkHandler = NetworkHandler.getInstance();
 		networkHandler.networkHandlerThread = new Thread(networkHandler);
 		networkHandler.networkHandlerThread.start();
@@ -82,6 +87,8 @@ public class Game
 
 	private void gameOver()
 	{
+		appendGameField();
+		
 		clearGameField();
 
 		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
@@ -89,14 +96,14 @@ public class Game
 		NetworkHandler.getInstance().closeNetworkSocket();
 
 		MainWindow.getInstance().activateInputs();
-
-		// setGameState(GameState.NoGameActive);
 	}
 
 	public void applyPlayerMove(int row, int column)
 	{
+		// check current GameState for action call
 		if (gameState == GameState.AwaitingPlayersGameField)
 		{
+			// prevent multiple player moves at the same time
 			synchronized (this)
 			{
 				if (gameField[row][column] == 0)
@@ -111,7 +118,7 @@ public class Game
 							break;
 					}
 
-					appendGameField();
+					appendGameField(); // TODO only set one
 
 					setGameState(GameState.SendingPlayersGameField);
 				}
@@ -121,8 +128,6 @@ public class Game
 
 	private void appendGameField()
 	{
-		MainWindow mainWindow = MainWindow.getInstance();
-
 		for (int n = 0; n < 3; n++)
 		{
 			for (int m = 0; m < 3; m++)
@@ -130,13 +135,13 @@ public class Game
 				switch (gameField[n][m])
 				{
 					case 0:
-						mainWindow.setBtnGameFieldText(n, m, null);
+						MainWindow.getInstance().setBtnGameFieldText(n, m, null);
 						break;
 					case 1:
-						mainWindow.setBtnGameFieldText(n, m, "X");
+						MainWindow.getInstance().setBtnGameFieldText(n, m, "X");
 						break;
 					case 2:
-						mainWindow.setBtnGameFieldText(n, m, "O");
+						MainWindow.getInstance().setBtnGameFieldText(n, m, "O");
 						break;
 				}
 			}
@@ -156,15 +161,17 @@ public class Game
 
 	private void checkGameField()
 	{
+		// check game field for win by player one
 		if (gameField[0][0] == 1 && gameField[0][1] == 1 && gameField[0][2] == 1 // top row
 			|| gameField[1][0] == 1 && gameField[1][1] == 1 && gameField[1][2] == 1 // middle row
 			|| gameField[2][0] == 1 && gameField[2][1] == 1 && gameField[2][2] == 1 // bottom row
-			|| gameField[0][0] == 1 && gameField[1][0] == 1 && gameField[2][0] == 1 // left col
-			|| gameField[0][1] == 1 && gameField[1][1] == 1 && gameField[2][1] == 1 // middle col
-			|| gameField[0][2] == 1 && gameField[1][2] == 1 && gameField[2][2] == 1 // right col
+			|| gameField[0][0] == 1 && gameField[1][0] == 1 && gameField[2][0] == 1 // left column
+			|| gameField[0][1] == 1 && gameField[1][1] == 1 && gameField[2][1] == 1 // middle column
+			|| gameField[0][2] == 1 && gameField[1][2] == 1 && gameField[2][2] == 1 // right column
 			|| gameField[0][0] == 1 && gameField[1][1] == 1 && gameField[2][2] == 1 // TL to BR
 			|| gameField[2][0] == 1 && gameField[1][1] == 1 && gameField[0][2] == 1) // TR to BL
 		{
+			// check current player and change game state
 			if (player == Players.Player1)
 			{
 				setGameState(GameState.GameOver_Win);
@@ -174,15 +181,18 @@ public class Game
 				setGameState(GameState.GameOver_Loose);
 			}
 		}
+
+		// check game field for win by player two
 		else if (gameField[0][0] == 2 && gameField[0][1] == 2 && gameField[0][2] == 2 // top row
 			|| gameField[1][0] == 2 && gameField[1][1] == 2 && gameField[1][2] == 2 // middle row
 			|| gameField[2][0] == 2 && gameField[2][1] == 2 && gameField[2][2] == 2 // bottom row
-			|| gameField[0][0] == 2 && gameField[1][0] == 2 && gameField[2][0] == 2 // left col
-			|| gameField[0][1] == 2 && gameField[1][1] == 2 && gameField[2][1] == 2 // middle col
-			|| gameField[0][2] == 2 && gameField[1][2] == 2 && gameField[2][2] == 2 // right col
+			|| gameField[0][0] == 2 && gameField[1][0] == 2 && gameField[2][0] == 2 // left column
+			|| gameField[0][1] == 2 && gameField[1][1] == 2 && gameField[2][1] == 2 // middle column
+			|| gameField[0][2] == 2 && gameField[1][2] == 2 && gameField[2][2] == 2 // right column
 			|| gameField[0][0] == 2 && gameField[1][1] == 2 && gameField[2][2] == 2 // TL to BR
 			|| gameField[2][0] == 2 && gameField[1][1] == 2 && gameField[0][2] == 2) // TR to BL
 		{
+			// check current player and change game state
 			if (player == Players.Player2)
 			{
 				setGameState(GameState.GameOver_Win);
@@ -192,18 +202,25 @@ public class Game
 				setGameState(GameState.GameOver_Loose);
 			}
 		}
+
+		// check game field for draw
 		else if (gameField[0][0] != 0 && gameField[0][1] != 0 && gameField[0][2] != 0 // top row
 			&& gameField[1][0] != 0 && gameField[1][1] != 0 && gameField[1][2] != 0 // middle row
 			&& gameField[2][0] != 0 && gameField[2][1] != 0 && gameField[2][2] != 0) // bottom row
 		{
 			setGameState(GameState.GameOver_Draw);
 		}
+
+		// no win/loose/draw
 		else
 		{
+			// continue when opponents game field is checked
 			if (gameState == GameState.CheckOpponentsGameField)
 			{
 				setGameState(GameState.AwaitingPlayersGameField);
 			}
+
+			// continue when players game field is checked
 			else if (gameState == GameState.CheckPlayersGameField)
 			{
 				setGameState(GameState.AwaitingOpponentsGameField);
@@ -213,7 +230,7 @@ public class Game
 
 	public void setGameState(GameState gameState)
 	{
-		if (this.gameState != gameState)
+		if (this.gameState != gameState) // TODO works without check?
 		{
 			this.gameState = gameState;
 
@@ -222,7 +239,7 @@ public class Game
 			switch (gameState)
 			{
 				case AwaitingOpponentsGameField:
-					reveiveGameField();
+					receiveGameField();
 					break;
 				case AwaitingPlayersGameField:
 					break;
@@ -232,17 +249,13 @@ public class Game
 				case CheckPlayersGameField:
 					checkGameField();
 					break;
-				case GameOver_Draw:
-					gameOver();
-					break;
-				case GameOver_Loose:
-					gameOver();
-					break;
-				case GameOver_Win:
-					gameOver();
-					break;
 				case SendingPlayersGameField:
 					sendGameField();
+					break;
+				case GameOver_Draw:
+				case GameOver_Loose:
+				case GameOver_Win:
+					gameOver();
 					break;
 				default: // NoGameActive, InitializingNewGame
 					break;

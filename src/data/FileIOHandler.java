@@ -22,6 +22,9 @@ public class FileIOHandler
 	private String fileName = "TicTacToe.csv";
 	private ArrayList<String[]> statistics = new ArrayList<String[]>();
 
+	/*
+	 * Constructor
+	 */
 	private FileIOHandler()
 	{
 	}
@@ -78,7 +81,7 @@ public class FileIOHandler
 		{
 			FileWriter fileWriter = new FileWriter(path + fileName);
 
-			for (String[] sessionInfo : statistics)
+			for (String[] sessionInfo : this.statistics)
 			{
 				fileWriter.write(sessionInfo[0] + ";" + sessionInfo[1] + ";" + sessionInfo[2]);
 				fileWriter.write(System.getProperty("line.separator"));
@@ -96,7 +99,7 @@ public class FileIOHandler
 	{
 		int drawCount = 0, looseCount = 0, winCount = 0;
 
-		for (String[] sessionInfo : statistics)
+		for (String[] sessionInfo : this.statistics)
 		{
 			switch (sessionInfo[1])
 			{
@@ -117,14 +120,14 @@ public class FileIOHandler
 		mainWindowInstance.setTxtDrawCountText(Integer.toString(drawCount));
 		mainWindowInstance.setTxtLooseCountText(Integer.toString(looseCount));
 		mainWindowInstance.setTxtWinCountText(Integer.toString(winCount));
-		mainWindowInstance.addTblGameStatsRows(statistics);
+		mainWindowInstance.addTblGameStatsRows(this.statistics);
 	}
 
 	public void addSessionInfo(String gameState, String opponentIp)
 	{
 		String[] sessionInfo = new String[3];
 
-		sessionInfo[0] = Integer.toString(statistics.size() + 1);
+		sessionInfo[0] = Integer.toString(statistics.size() + 1); // generate game number
 		sessionInfo[1] = gameState;
 		sessionInfo[2] = opponentIp;
 

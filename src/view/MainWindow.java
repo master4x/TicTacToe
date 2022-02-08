@@ -52,12 +52,12 @@ public class MainWindow
 	private JTextField txtOpponentIp;
 	private JTextField txtWinCount;
 
-	/**
-	 * Create the application.
+	/*
+	 * Constructor
 	 */
 	private MainWindow()
 	{
-		initialize();
+		initialize(); // create GUI
 	}
 
 	/*

@@ -8,6 +8,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 import logic.Game;
+import logic.GameState;
 import view.MainWindow;
 
 /**
@@ -41,11 +42,6 @@ public class NetworkHandler implements Runnable
 			}
 		}
 		return instance;
-	}
-
-	public void createNetworkThread()
-	{
-		networkHandlerThread = new Thread(NetworkHandler.getInstance());
 	}
 
 	public void newNetworkSocket(String ipAdress)
@@ -92,7 +88,9 @@ public class NetworkHandler implements Runnable
 	@Override
 	public void run()
 	{
-		Game.getInstance().setGameField(receiveArray());
+		Game game = Game.getInstance();
+		game.setGameField(receiveArray());
+		game.setGameState(GameState.CheckPlayersGameField);
 	}
 
 	public int[][] receiveArray()
@@ -101,9 +99,10 @@ public class NetworkHandler implements Runnable
 		String data;
 		int[][] gameField;
 
+		// enter endless loop
 		while (true)
 		{
-			datagramPacket = new DatagramPacket(new byte[512], 512);
+			datagramPacket = new DatagramPacket(new byte[512], 512); // TODO move up?
 
 			try
 			{
@@ -114,7 +113,7 @@ public class NetworkHandler implements Runnable
 				data = new String(datagramPacket.getData()).trim();
 				gameField = convertStringToIntArray(data);
 
-				break;
+				break; // leave loop if no error occurred
 			}
 			catch (IOException e)
 			{
