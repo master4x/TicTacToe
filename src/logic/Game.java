@@ -118,7 +118,7 @@ public class Game
 							break;
 					}
 
-					appendGameField(); // TODO only set one
+					appendGameField();
 
 					setGameState(GameState.SendingPlayersGameField);
 				}
