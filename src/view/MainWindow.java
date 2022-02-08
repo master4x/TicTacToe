@@ -385,42 +385,35 @@ public class MainWindow
 		}
 
 		this.tblGameStats.setModel(tableModel);
-		this.tblGameStats.paintImmediately(tblGameStats.getVisibleRect());
 	}
 
 	public void setTxtWinCountText(String txtWinCountText)
 	{
 		this.txtWinCount.setText(txtWinCountText);
-		this.txtWinCount.paintImmediately(txtWinCount.getVisibleRect());
 	}
 
 	public void setTxtLooseCountText(String txtLooseCountText)
 	{
 		this.txtLooseCount.setText(txtLooseCountText);
-		this.txtLooseCount.paintImmediately(txtLooseCount.getVisibleRect());
 	}
 
 	public void setTxtDrawCountText(String txtDrawCountText)
 	{
 		this.txtDrawCount.setText(txtDrawCountText);
-		this.txtDrawCount.paintImmediately(txtDrawCount.getVisibleRect());
 	}
 
 	public void setLblConnectionStateText(String lblConnectionStateText)
 	{
 		this.lblConnectionState.setText(lblConnectionStateText);
-		this.lblConnectionState.paintImmediately(lblConnectionState.getVisibleRect());
 	}
 
 	public void setLblGameStateText(String lblGameStateText)
 	{
 		this.lblGameState.setText(lblGameStateText);
-		this.lblGameState.paintImmediately(lblGameState.getVisibleRect());
 	}
 
 	public void setBtnGameFieldText(int row, int column, String btnGameFieldText)
 	{
 		this.btnGameField[row][column].setText(btnGameFieldText);
-		this.btnGameField[row][column].paintImmediately(btnGameField[row][column].getVisibleRect()); // TODO Refresh Bug
 	}
 }
