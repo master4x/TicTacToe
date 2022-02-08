@@ -72,7 +72,6 @@ public class NetworkHandler implements Runnable
 	public void sendArray(int[][] gameField)
 	{
 		String message = convertIntArrayToString(gameField);
-		System.out.println(message);
 
 		byte[] messageBytes = message.getBytes();
 
