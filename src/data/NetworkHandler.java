@@ -60,7 +60,7 @@ public class NetworkHandler implements Runnable
 		}
 	}
 
-	public void closeNetworkSocket() // TODO execute on close
+	public void closeNetworkSocket()
 	{
 		this.networkSocket.close();
 		this.hostAdress = null;
