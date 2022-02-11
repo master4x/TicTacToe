@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.filechooser.FileSystemView;
+
+import logic.GameState;
 import view.MainWindow;
 
 /**
@@ -123,12 +125,12 @@ public class FileIOHandler
 		mainWindowInstance.addTblGameStatsRows(this.statistics);
 	}
 
-	public void addSessionInfo(String gameState, String opponentIp)
+	public void addSessionInfo(GameState gameState, String opponentIp)
 	{
 		String[] sessionInfo = new String[3];
 
 		sessionInfo[0] = Integer.toString(statistics.size() + 1); // generate game number
-		sessionInfo[1] = gameState;
+		sessionInfo[1] = gameState.toString();
 		sessionInfo[2] = opponentIp;
 
 		this.statistics.add(sessionInfo);

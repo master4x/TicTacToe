@@ -91,7 +91,7 @@ public class Game
 
 		clearGameField();
 
-		FileIOHandler.getInstance().addSessionInfo(gameState.toString(), NetworkHandler.getInstance().getOpponentIp());
+		FileIOHandler.getInstance().addSessionInfo(gameState, NetworkHandler.getInstance().getOpponentIp());
 
 		NetworkHandler.getInstance().closeNetworkSocket();
 
