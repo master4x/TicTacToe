@@ -88,13 +88,10 @@ public class Game
 	private void gameOver()
 	{
 		appendGameField();
-
 		clearGameField();
 
 		FileIOHandler.getInstance().addSessionInfo(gameState, NetworkHandler.getInstance().getOpponentIp());
-
 		NetworkHandler.getInstance().closeNetworkSocket();
-
 		MainWindow.getInstance().activateInputs();
 	}
 
@@ -233,10 +230,11 @@ public class Game
 	 */
 	public void setGameState(GameState gameState)
 	{
-		this.gameState = gameState;
+		this.gameState = gameState; // set current game state
 
 		MainWindow.getInstance().setLblGameStateText(gameState.toString());
 
+		// execute matching method
 		switch (gameState)
 		{
 			case AwaitingOpponentsGameField:

@@ -103,7 +103,7 @@ public class FileIOHandler
 
 		for (String[] sessionInfo : this.statistics)
 		{
-			switch (sessionInfo[1])
+			switch (sessionInfo[1]) // saved game state
 			{
 				case "GameOver_Draw":
 					drawCount++;
