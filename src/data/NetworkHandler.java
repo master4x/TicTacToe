@@ -122,6 +122,9 @@ public class NetworkHandler implements Runnable
 		return gameField;
 	}
 
+	/*
+	 * Converters
+	 */
 	private String convertIntArrayToString(int[][] arr)
 	{
 		String result = new String();
@@ -155,6 +158,9 @@ public class NetworkHandler implements Runnable
 		return result;
 	}
 
+	/*
+	 * Getters/Setters
+	 */
 	public String getOpponentIp()
 	{
 		return opponentIp;

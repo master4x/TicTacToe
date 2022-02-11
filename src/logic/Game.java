@@ -228,6 +228,9 @@ public class Game
 		}
 	}
 
+	/*
+	 * Getters/Setters
+	 */
 	public void setGameState(GameState gameState)
 	{
 		this.gameState = gameState;

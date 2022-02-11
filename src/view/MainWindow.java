@@ -374,6 +374,9 @@ public class MainWindow
 		this.btnConnect.setEnabled(true);
 	}
 
+	/*
+	 * Getters/Setters
+	 */
 	public void addTblGameStatsRows(ArrayList<String[]> statistics)
 	{
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
