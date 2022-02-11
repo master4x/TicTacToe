@@ -86,6 +86,7 @@ public class NetworkHandler implements Runnable
 	}
 
 	@Override
+	// Thread
 	public void run()
 	{
 		Game game = Game.getInstance();
@@ -99,7 +100,7 @@ public class NetworkHandler implements Runnable
 		String data;
 		int[][] gameField;
 
-		// enter endless loop
+		// enter loop
 		while (true)
 		{
 			try
@@ -142,7 +143,7 @@ public class NetworkHandler implements Runnable
 
 	private int[][] convertStringToIntArray(String str)
 	{
-		String[] input = str.split(",");
+		String[] strArr = str.split(",");
 		int[][] result = new int[3][3];
 
 		int i = 0;
@@ -150,7 +151,7 @@ public class NetworkHandler implements Runnable
 		{
 			for (int m = 0; m < 3; m++)
 			{
-				result[n][m] = Integer.parseInt(input[i]);
+				result[n][m] = Integer.parseInt(strArr[i]);
 				i++;
 			}
 		}
