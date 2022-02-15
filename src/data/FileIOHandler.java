@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.filechooser.FileSystemView;
-
 import logic.GameState;
 import view.MainWindow;
 

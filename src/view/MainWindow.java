@@ -17,9 +17,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import data.FileIOHandler;
-
 import javax.swing.JScrollPane;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
