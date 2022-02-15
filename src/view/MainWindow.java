@@ -417,6 +417,6 @@ public class MainWindow
 
 	public void setBtnGameFieldText(int row, int column, String btnGameFieldText)
 	{
-		this.btnGameField[row][column].setText(btnGameFieldText); // TODO refresh Bug
+		this.btnGameField[row][column].setText(btnGameFieldText);
 	}
 }

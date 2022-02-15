@@ -79,10 +79,6 @@ public class Game
 		NetworkHandler networkHandler = NetworkHandler.getInstance();
 		networkHandler.networkHandlerThread = new Thread(networkHandler);
 		networkHandler.networkHandlerThread.start();
-
-		appendGameField();
-
-		//setGameState(GameState.CheckOpponentsGameField);
 	}
 
 	private void gameOver()
@@ -123,7 +119,7 @@ public class Game
 		}
 	}
 
-	private void appendGameField()
+	public void appendGameField()
 	{
 		for (int n = 0; n < 3; n++)
 		{

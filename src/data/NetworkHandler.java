@@ -91,6 +91,7 @@ public class NetworkHandler implements Runnable
 	{
 		Game game = Game.getInstance();
 		game.setGameField(receiveArray());
+		game.appendGameField();
 		game.setGameState(GameState.CheckOpponentsGameField);
 	}
 
