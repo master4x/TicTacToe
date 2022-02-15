@@ -121,11 +121,11 @@ public class Game
 
 	public void appendGameField()
 	{
-		for (int n = 0; n < 3; n++)
+		for (int n = 0; n < this.gameField.length; n++)
 		{
-			for (int m = 0; m < 3; m++)
+			for (int m = 0; m < this.gameField.length; m++)
 			{
-				switch (gameField[n][m])
+				switch (this.gameField[n][m])
 				{
 					case 0:
 						MainWindow.getInstance().setBtnGameFieldText(n, m, null);
@@ -143,11 +143,11 @@ public class Game
 
 	private void clearGameField()
 	{
-		for (int n = 0; n < 3; n++)
+		for (int n = 0; n < this.gameField.length; n++)
 		{
-			for (int m = 0; m < 3; m++)
+			for (int m = 0; m < this.gameField.length; m++)
 			{
-				gameField[n][m] = 0;
+				this.gameField[n][m] = 0;
 			}
 		}
 	}

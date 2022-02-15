@@ -148,9 +148,9 @@ public class NetworkHandler implements Runnable
 		int[][] result = new int[3][3];
 
 		int i = 0;
-		for (int n = 0; n < 3; n++)
+		for (int n = 0; n < result.length; n++)
 		{
-			for (int m = 0; m < 3; m++)
+			for (int m = 0; m < result.length; m++)
 			{
 				result[n][m] = Integer.parseInt(strArr[i]);
 				i++;
