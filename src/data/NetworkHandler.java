@@ -62,7 +62,7 @@ public class NetworkHandler implements Runnable
 	public void closeNetworkSocket()
 	{
 		this.networkSocket.close();
-		
+
 		this.hostAdress = null;
 		this.opponentIp = null;
 
