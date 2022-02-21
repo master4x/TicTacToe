@@ -48,6 +48,9 @@ public class FileIOHandler
 		return instance;
 	}
 
+	/**
+	 * @see https://www.w3schools.com/java/java_files_read.asp
+	 */
 	public void readCSVFile()
 	{
 		try
@@ -76,6 +79,9 @@ public class FileIOHandler
 		countGameStatistics();
 	}
 
+	/**
+	 * @see https://www.w3schools.com/java/java_files_create.asp
+	 */
 	private void writeCSVFile()
 	{
 		try
