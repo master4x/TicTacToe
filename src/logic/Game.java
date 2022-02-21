@@ -252,7 +252,7 @@ public class Game
 			case GameOver_Win:
 				gameOver();
 				break;
-			default: // NoGameActive, InitializingNewGame
+			default: // NoGameActive
 				break;
 		}
 	}

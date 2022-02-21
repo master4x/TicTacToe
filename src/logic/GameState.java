@@ -15,7 +15,6 @@ public enum GameState
 	GameOver_Draw,
 	GameOver_Loose,
 	GameOver_Win,
-	InitializingNewGame,
 	NoGameActive,
 	SendingPlayersGameField
 }
