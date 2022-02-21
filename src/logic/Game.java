@@ -204,16 +204,16 @@ public class Game
 			setGameState(GameState.GameOver_Draw);
 		}
 
-		// no win/loose/draw
+		// no win/loose/draw detected
 		else
 		{
-			// continue when opponents game field is checked
+			// continue when opponents game field was checked
 			if (gameState == GameState.CheckOpponentsGameField)
 			{
 				setGameState(GameState.AwaitingPlayersGameField);
 			}
 
-			// continue when players game field is checked
+			// continue when players game field was checked
 			else if (gameState == GameState.CheckPlayersGameField)
 			{
 				setGameState(GameState.AwaitingOpponentsGameField);
