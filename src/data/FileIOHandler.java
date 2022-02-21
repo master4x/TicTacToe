@@ -20,7 +20,7 @@ public class FileIOHandler
 {
 	private static volatile FileIOHandler instance;
 	private ArrayList<String[]> statistics = new ArrayList<String[]>();
-	private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\";
+	private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\"; // documents directory
 	private String fileName = "TicTacToe.csv";
 
 	/*
@@ -85,7 +85,7 @@ public class FileIOHandler
 			for (String[] sessionInfo : this.statistics)
 			{
 				fileWriter.write(sessionInfo[0] + ";" + sessionInfo[1] + ";" + sessionInfo[2]);
-				fileWriter.write(System.getProperty("line.separator"));
+				fileWriter.write(System.getProperty("line.separator")); // line break
 			}
 
 			fileWriter.close();
