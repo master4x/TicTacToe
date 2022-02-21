@@ -102,17 +102,17 @@ public class FileIOHandler
 
 		for (String[] sessionInfo : this.statistics)
 		{
-			switch (sessionInfo[1]) // saved game state
+			if (sessionInfo[1].equals(GameState.GameOver_Draw.toString()))
 			{
-				case "GameOver_Draw":
-					drawCount++;
-					break;
-				case "GameOver_Loose":
-					looseCount++;
-					break;
-				case "GameOver_Win":
-					winCount++;
-					break;
+				drawCount++;
+			}
+			else if (sessionInfo[1].equals(GameState.GameOver_Loose.toString()))
+			{
+				looseCount++;
+			}
+			else if (sessionInfo[1].equals(GameState.GameOver_Win.toString()))
+			{
+				winCount++;
 			}
 		}
 
