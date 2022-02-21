@@ -130,9 +130,9 @@ public class NetworkHandler implements Runnable
 	{
 		String result = new String();
 
-		for (int n = 0; n < 3; n++)
+		for (int n = 0; n < arr.length; n++)
 		{
-			for (int m = 0; m < 3; m++)
+			for (int m = 0; m < arr.length; m++)
 			{
 				result += arr[n][m] + ",";
 			}
