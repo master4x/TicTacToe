@@ -19,9 +19,9 @@ import view.MainWindow;
 public class FileIOHandler
 {
 	private static volatile FileIOHandler instance;
+	private ArrayList<String[]> statistics = new ArrayList<String[]>();
 	private String path = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "\\";
 	private String fileName = "TicTacToe.csv";
-	private ArrayList<String[]> statistics = new ArrayList<String[]>();
 
 	/*
 	 * Constructor
