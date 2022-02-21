@@ -261,9 +261,4 @@ public class Game
 	{
 		this.gameField = gameField;
 	}
-
-	public GameState getGameState()
-	{
-		return this.gameState;
-	}
 }

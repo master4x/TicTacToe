@@ -152,8 +152,9 @@ public class MainWindow
 			{
 				if (txtOpponentIp.getText().isEmpty() == false)
 				{
-					deactivateInputs();
+					deactivateInputs(); // deactivate buttons in GUI
 
+					// start new game instance
 					Game.getInstance().startGame((Players) cbPlayerSelector.getSelectedItem(), txtOpponentIp.getText());
 				}
 			}
@@ -168,13 +169,13 @@ public class MainWindow
 		JPanel pnlLeftCol = new JPanel();
 		pnlBottomRow.add(pnlLeftCol, BorderLayout.WEST);
 
-		lblConnectionState = new JLabel("Not connected");
+		lblConnectionState = new JLabel("Not connected"); // default label text
 		pnlLeftCol.add(lblConnectionState);
 
 		JPanel pnlRightCol = new JPanel();
 		pnlBottomRow.add(pnlRightCol, BorderLayout.EAST);
 
-		lblGameState = new JLabel(Game.getInstance().getGameState().toString());
+		lblGameState = new JLabel("NoGameActive"); // default label text
 		pnlRightCol.add(lblGameState);
 
 		JPanel pnlMiddleRow = new JPanel();
