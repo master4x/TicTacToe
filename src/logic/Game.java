@@ -50,7 +50,6 @@ public class Game
 		if (gameState != GameState.NoGameActive)
 		{
 			clearGameField();
-			appendGameField();
 		}
 
 		NetworkHandler.getInstance().newNetworkSocket(ipAdress);
@@ -150,6 +149,8 @@ public class Game
 				this.gameField[n][m] = 0;
 			}
 		}
+		
+		appendGameField();
 	}
 
 	private void checkGameField()
