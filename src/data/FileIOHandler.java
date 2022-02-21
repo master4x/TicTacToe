@@ -127,7 +127,7 @@ public class FileIOHandler
 		mainWindowInstance.setTxtDrawCountText(Integer.toString(drawCount));
 		mainWindowInstance.setTxtLooseCountText(Integer.toString(looseCount));
 		mainWindowInstance.setTxtWinCountText(Integer.toString(winCount));
-		mainWindowInstance.addTblGameStatsRows(this.statistics);
+		mainWindowInstance.setTblGameStatsRows(this.statistics);
 	}
 
 	public void addSessionInfo(GameState gameState, String opponentIp)

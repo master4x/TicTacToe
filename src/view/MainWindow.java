@@ -374,7 +374,7 @@ public class MainWindow
 	/*
 	 * Getters/Setters
 	 */
-	public void addTblGameStatsRows(ArrayList<String[]> statistics)
+	public void setTblGameStatsRows(ArrayList<String[]> statistics)
 	{
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
 			new String[] { "Game Number", "Match Result", "Opponent IP" });
