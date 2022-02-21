@@ -55,7 +55,7 @@ public class MainWindow
 	 */
 	private MainWindow()
 	{
-		initialize(); // create GUI
+		initialize();
 	}
 
 	/*
@@ -77,7 +77,7 @@ public class MainWindow
 	}
 
 	/*
-	 * Launch application
+	 * Launch
 	 */
 	public static void main(String[] args)
 	{
@@ -89,7 +89,7 @@ public class MainWindow
 				{
 					MainWindow.getInstance().frmTicTacToe.setVisible(true);
 
-					FileIOHandler.getInstance().readCSVFile();
+					FileIOHandler.getInstance().readCSVFile(); // read statistics CSV file
 				}
 				catch (Exception e)
 				{
@@ -100,7 +100,7 @@ public class MainWindow
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize GUI
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize()
@@ -119,8 +119,6 @@ public class MainWindow
 
 		JPanel pnlTabGame = new JPanel();
 		pnlTabGame.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		pnlTabGame.setToolTipText("");
-		pnlTabGame.setName("");
 		pneNavBar.addTab("Game",
 			new ImageIcon(MainWindow.class.getResource("/org/eclipse/jface/fieldassist/images/contassist_ovr@2x.png")),
 			pnlTabGame, null);
