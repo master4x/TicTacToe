@@ -110,7 +110,7 @@ public class MainWindow
 		frmTicTacToe.setTitle("TicTacToe");
 		frmTicTacToe.setIconImage(Toolkit.getDefaultToolkit()
 			.getImage(MainWindow.class.getResource("/org/eclipse/jface/dialogs/images/title_banner.png")));
-		frmTicTacToe.setBounds(100, 100, 500, 400);
+		frmTicTacToe.setBounds(100, 100, 500, 400); // app icon from eclipse library
 		frmTicTacToe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JTabbedPane pneNavBar = new JTabbedPane(JTabbedPane.TOP);
@@ -121,7 +121,7 @@ public class MainWindow
 		pnlTabGame.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		pneNavBar.addTab("Game",
 			new ImageIcon(MainWindow.class.getResource("/org/eclipse/jface/fieldassist/images/contassist_ovr@2x.png")),
-			pnlTabGame, null);
+			pnlTabGame, null); // tab icon from eclipse library
 		pnlTabGame.setLayout(new BorderLayout(0, 0));
 
 		JPanel pnlTopRow = new JPanel();
@@ -304,7 +304,7 @@ public class MainWindow
 		pnlTabStats.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		pneNavBar.addTab("Stats",
 			new ImageIcon(MainWindow.class.getResource("/org/eclipse/jface/fieldassist/images/info_ovr@2x.png")),
-			pnlTabStats, null);
+			pnlTabStats, null); // tab icon from eclipse library
 		pnlTabStats.setLayout(new BorderLayout(0, 0));
 
 		JPanel pnlTopMain = new JPanel();
